@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Status>
+    <DataExchanges>
+        <TechData>
+            <LastSuccessfulDownload FileSize="" StartedAt="" FileName="" FinishedAt=""/>
+            <LastAttemptedDownload   FileSize="" StartedAt="" FileName="" FinishedAt="" />
+        </TechData>
+        <CNET>
+            <LastSuccessfulDownload FileSize="" StartedAt="" FileName="" FinishedAt=""/>
+            <LastAttemptedDownload FileSize="" StartedAt="" FileName="" FinishedAt=""/>
+        </CNET>
+    </DataExchanges>
+</Status>
+
+

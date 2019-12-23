@@ -1,0 +1,2014 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--$Id: DataSource-SQLServer.xml,v 1.6 2007/07/10 16:41:57 kevin Exp $-->
+<DBSchema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<!-- T a b l e   d e f i n i t i o n s -->
+	<TableSet name="DataSource">
+		<DBTable name="cds_Metadata" localized="false" outsideSchema="true">
+			<DBColumn name="id" type="INTEGER" nullable="false"/>
+			<DBColumn name="SchemaVersion" type="INTEGER" nullable="false"/>
+            <DBColumn name="ConfigurationPrevious" type="LONGNVARCHAR" nullable="true"/>
+            <DBColumn name="DataSourcePrevious" type="LONGNVARCHAR" nullable="true"/>
+            <DBColumn name="ForceRecreate" type="BIT" length="1" default="0"/>
+			<DBPrimaryKey clustered="false">
+				<column>id</column>
+			</DBPrimaryKey>
+		</DBTable>
+		<DBTable name="cds_ConnectorStatusCode" localized="false" tiedToOption="ConnectorStatus"
+			outsideSchema="true">
+			<DBColumn name="StatusCode" type="INTEGER" nullable="false"/>
+			<DBColumn name="Description" type="VARCHAR" length="100" nullable="false"/>
+			<DBPrimaryKey clustered="false">
+				<column>StatusCode</column>
+			</DBPrimaryKey>
+			<PopulateTable>
+				<record>
+					<field name="StatusCode" key="true">-1</field>
+					<field name="Description">'RUNNING'</field>
+				</record>
+				<record>
+					<field name="StatusCode" key="true">0</field>
+					<field name="Description">'SUCCESS'</field>
+				</record>
+				<record>
+					<field name="StatusCode" key="true">1</field>
+					<field name="Description">'REASON UNKNOWN'</field>
+				</record>
+				<record>
+					<field name="StatusCode" key="true">2</field>
+					<field name="Description">'CAN''T LOAD INCREMENT FILE'</field>
+				</record>
+				<record>
+					<field name="StatusCode" key="true">3</field>
+					<field name="Description">'CAN''T CONNECT TO DB'</field>
+				</record>
+				<record>
+					<field name="StatusCode" key="true">4</field>
+					<field name="Description">'UNKNOWN DB IMPLEMENTATION'</field>
+				</record>
+				<record>
+					<field name="StatusCode" key="true">5</field>
+					<field name="Description">'UPDATE POLICY DEFINITION ISSUE'</field>
+				</record>
+				<record>
+					<field name="StatusCode" key="true">6</field>
+					<field name="Description">'CAN''T CONVERT TO MYSQL FORMAT'</field>
+				</record>
+				<record>
+					<field name="StatusCode" key="true">7</field>
+					<field name="Description">'CAN''T GENERATE ORACLE LOADER CONTROL FILE'</field>
+				</record>
+				<record>
+					<field name="StatusCode" key="true">8</field>
+					<field name="Description">'CAN''T CREATE ORACLE LOADER CONTROL FILE DIRECTORY'</field>
+				</record>
+				<record>
+					<field name="StatusCode" key="true">9</field>
+					<field name="Description">'ORACLE LOADER FAILED'</field>
+				</record>
+				<record>
+					<field name="StatusCode" key="true">10</field>
+					<field name="Description">'PRIMITIVE NOT IMPLEMENTED'</field>
+				</record>
+				<record>
+					<field name="StatusCode" key="true">11</field>
+					<field name="Description">'UNSPECIFIED SQL ERROR'</field>
+				</record>
+				<record>
+					<field name="StatusCode" key="true">12</field>
+					<field name="Description">'INVALID FILE PATH'</field>
+				</record>
+				<record>
+					<field name="StatusCode" key="true">13</field>
+					<field name="Description">'CAN''T DELETE LOCAL FILES'</field>
+				</record>
+				<record>
+					<field name="StatusCode" key="true">14</field>
+					<field name="Description">'CAN''T CREATE LOCAL FILES'</field>
+				</record>
+				<record>
+					<field name="StatusCode" key="true">15</field>
+					<field name="Description">'CAN''T UNCOMPRESS FILE'</field>
+				</record>
+				<record>
+					<field name="StatusCode" key="true">16</field>
+					<field name="Description">'FTP ERROR'</field>
+				</record>
+				<record>
+					<field name="StatusCode" key="true">17</field>
+					<field name="Description">'CONFIGURATION ISSUE'</field>
+				</record>
+				<record>
+					<field name="StatusCode" key="true">18</field>
+					<field name="Description">'USAGE'</field>
+				</record>
+				<record>
+					<field name="StatusCode" key="true">19</field>
+					<field name="Description">'CAN''T RESOLVE JDBC DRIVER'</field>
+				</record>
+				<record>
+					<field name="StatusCode" key="true">20</field>
+					<field name="Description">'NO DATA TO PICKUP'</field>
+				</record>
+				<record>
+					<field name="StatusCode" key="true">21</field>
+					<field name="Description">'CAN''T ARCHIVE FILE'</field>
+				</record>
+			</PopulateTable>
+		</DBTable>
+		<DBTable name="cds_ConnectorStatus" localized="false" tiedToOption="ConnectorStatus"
+			outsideSchema="true">
+			<DBColumn name="StatusCode" type="INTEGER" nullable="false"/>
+			<DBColumn name="StatusTimestamp" type="DATETIME" nullable="false"/>
+			<UpgradeDBTable>
+				<UpgradeDBColumn name="StatusMode" type="VARCHAR" length="50" nullable="true" action="add"/>
+			</UpgradeDBTable>
+			<DBForeignKey name="FK_CS_2_CSC">
+				<on table="cds_ConnectorStatus">
+					<column>StatusCode</column>
+				</on>
+				<references table="cds_ConnectorStatusCode">
+					<column>StatusCode</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>
+		<DBTable name="cds_Mktxx" localized="true" fileName="components/mktxx.txt"
+			tiedToOption="MarketingText">
+			<DBColumn name="MktID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="Description" type="LONGVARCHAR" length="0" nullable="true"/>
+			<DBPrimaryKey clustered="true">
+				<column>MktID</column>
+			</DBPrimaryKey>
+			<UpgradeDBTable tiedToOption="MarketingTextDigContent" action="delete"/>
+		</DBTable>
+		<DBTable name="cds_DigContent" localized="false"
+			fileName="digitalcontent/Digital_Content.txt" tiedToOption="DigitalContent">
+			<DBColumn name="ContentGuid" type="UNIQUEIDENTIFIER" nullable="false"/>
+			<DBColumn name="MediaTypeID" type="INTEGER" nullable="false"/>
+			<DBColumn name="MimeType" type="VARCHAR" length="50" nullable="false"/>
+			<DBColumn name="URL" type="VARCHAR" length="500" nullable="false"/>
+			<DBColumn name="Timestamp" type="DATETIME" nullable="true"/>
+			<DBPrimaryKey clustered="false">
+				<column>ContentGuid</column>
+			</DBPrimaryKey>
+			<DBIndex name="IDX_DC1" unique="false" clustered="false">
+				<column>MediaTypeID</column>
+			</DBIndex>
+			<DBForeignKey name="FK_DC_2_DCMT">
+				<on table="cds_DigContent">
+					<column>MediaTypeID</column>
+				</on>
+				<references table="cds_DigContent_Media_Types">
+					<column>MediaTypeID</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>
+		<DBTable name="cds_DigContent_Media_Types" localized="false"
+			fileName="digitalcontent/Digital_Content_Media_Types.txt" tiedToOption="DigitalContent">
+			<DBColumn name="MediaTypeID" type="INTEGER" nullable="false"/>
+			<DBColumn name="MediaTypeDescription" type="VARCHAR" length="1000" nullable="false"/>
+			<DBPrimaryKey clustered="false">
+				<column>MediaTypeID</column>
+			</DBPrimaryKey>
+		</DBTable>
+		<DBTable name="cds_DigContent_Prod" localized="false"
+			fileName="digitalcontent/Digital_Content_Prod.txt" tiedToOption="DigitalContent">
+			<DBColumn name="ProdID" type="VARCHAR" length="40" nullable="false"/>
+			<DBPrimaryKey clustered="false">
+				<column>ProdID</column>
+			</DBPrimaryKey>
+			<DBForeignKey name="FK_DCP_2_CAT">
+				<on table="cds_DigContent_Prod">
+					<column>ProdID</column>
+				</on>
+				<references table="cds_Catalog">
+					<column>ProdID</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>
+		<DBTable name="cds_DigContent_Links" localized="false"
+			fileName="digitalcontent/Digital_Content_Links.txt" tiedToOption="DigitalContent">
+			<DBColumn name="ProdID" type="VARCHAR" length="40" nullable="false"/>
+			<DBColumn name="ContentGuid" type="UNIQUEIDENTIFIER" nullable="false"/>
+			<DBPrimaryKey clustered="true">
+				<column>ProdID</column>
+				<column>ContentGuid</column>
+			</DBPrimaryKey>
+			<DBIndex name="IDX_DCL1" unique="false" clustered="false">
+				<column>ContentGuid</column>
+			</DBIndex>
+			<DBForeignKey name="FK_DCL_2_DC">
+				<on table="cds_DigContent_Links">
+					<column>ContentGuid</column>
+				</on>
+				<references table="cds_DigContent">
+					<column>ContentGuid</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_DCL_2_DCP">
+				<on table="cds_DigContent_Links">
+					<column>ProdID</column>
+				</on>
+				<references table="cds_DigContent_Prod">
+					<column>ProdID</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>
+		<DBTable name="cds_DigContent_Region_Links" localized="false"
+			fileName="digitalcontent/Digital_Content_Region_Links.txt" tiedToOption="DigitalContent">
+			<DBColumn name="ContentGuid" type="UNIQUEIDENTIFIER" nullable="false"/>
+			<DBColumn name="RegionCode" type="VARCHAR" length="20" nullable="false"/>
+			<DBPrimaryKey clustered="false">
+				<column>ContentGuid</column>
+				<column>RegionCode</column>
+			</DBPrimaryKey>
+			<DBIndex name="IDX_DCRL1" unique="false" clustered="false">
+				<column>RegionCode</column>
+			</DBIndex>
+			<DBForeignKey name="FK_DCRL_2_DC">
+				<on table="cds_DigContent_Region_Links">
+					<column>ContentGuid</column>
+				</on>
+				<references table="cds_DigContent">
+					<column>ContentGuid</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_DCRL_2_DCR">
+				<on table="cds_DigContent_Region_Links">
+					<column>RegionCode</column>
+				</on>
+				<references table="cds_DigContent_Regions">
+					<column>RegionCode</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>
+		<DBTable name="cds_DigContent_Regions" localized="false"
+			fileName="digitalcontent/Digital_Content_Regions.txt" tiedToOption="DigitalContent">
+			<DBColumn name="RegionCode" type="VARCHAR" length="20" nullable="false"/>
+			<DBColumn name="RegionName" type="VARCHAR" length="200" nullable="false"/>
+			<DBPrimaryKey clustered="false">
+				<column>RegionCode</column>
+			</DBPrimaryKey>
+		</DBTable>
+		<DBTable name="cds_DigContent_Lang_Links" localized="false"
+			fileName="digitalcontent/Digital_Content_Language_Links.txt"
+			tiedToOption="DigitalContent">
+			<DBColumn name="ContentGuid" type="UNIQUEIDENTIFIER" nullable="false"/>
+			<DBColumn name="LanguageCode" type="VARCHAR" length="20" nullable="false"/>
+			<DBPrimaryKey clustered="false">
+				<column>ContentGuid</column>
+				<column>LanguageCode</column>
+			</DBPrimaryKey>
+			<DBIndex name="IDX_DCLL1" unique="false" clustered="false">
+				<column>LanguageCode</column>
+			</DBIndex>
+			<DBForeignKey name="FK_DCLL_2_DC">
+				<on table="cds_DigContent_Lang_Links">
+					<column>ContentGuid</column>
+				</on>
+				<references table="cds_DigContent">
+					<column>ContentGuid</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_DCLL_2_DCL">
+				<on table="cds_DigContent_Lang_Links">
+					<column>LanguageCode</column>
+				</on>
+				<references table="cds_DigContent_Langs">
+					<column>LanguageCode</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>
+		<DBTable name="cds_DigContent_Langs" localized="false"
+			fileName="digitalcontent/Digital_Content_Languages.txt" tiedToOption="DigitalContent">
+			<DBColumn name="LanguageCode" type="VARCHAR" length="20" nullable="false"/>
+			<DBColumn name="LanguageName" type="VARCHAR" length="200" nullable="false"/>
+			<DBPrimaryKey clustered="false">
+				<column>LanguageCode</column>
+			</DBPrimaryKey>
+		</DBTable>
+		<DBTable name="cds_DigContent_Meta" localized="false"
+			fileName="digitalcontent/Digital_Content_Meta.txt" tiedToOption="DigitalContentMeta">
+			<DBColumn name="ContentGuid" type="UNIQUEIDENTIFIER" nullable="false"/>
+			<DBColumn name="MetaAtrId" type="INTEGER" nullable="false"/>
+			<DBColumn name="MetaValueId" type="INTEGER" nullable="false"/>
+			<DBPrimaryKey clustered="false">
+				<column>ContentGuid</column>
+				<column>MetaAtrId</column>
+				<column>MetaValueId</column>
+			</DBPrimaryKey>
+			<DBIndex name="IDX_DCM1" unique="false" clustered="false">
+				<column>MetaAtrId</column>
+			</DBIndex>
+			<DBIndex name="IDX_DCM2" unique="false" clustered="false">
+				<column>MetaValueId</column>
+			</DBIndex>
+			<DBForeignKey name="FK_DCM_2_DC">
+				<on table="cds_DigContent_Meta">
+					<column>ContentGuid</column>
+				</on>
+				<references table="cds_DigContent">
+					<column>ContentGuid</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>
+		<DBTable name="cds_DigContent_Meta_AtrVoc" localized="false"
+			fileName="digitalcontent/Digital_Content_Meta_Atr_Voc.txt" tiedToOption="DigitalContentMeta">
+			<DBColumn name="MetaAtrId" type="INTEGER" nullable="false"/>
+			<DBColumn name="LanguageCode" type="VARCHAR" length="20" nullable="false"/>
+			<DBColumn name="MetaAtrName" type="VARCHAR" length="200" nullable="false"/>
+			<DBPrimaryKey clustered="false">
+				<column>MetaAtrId</column>
+				<column>LanguageCode</column>
+			</DBPrimaryKey>
+			<DBIndex name="IDX_DCMAV1" unique="false" clustered="false">
+				<column>LanguageCode</column>
+			</DBIndex>
+			<DBForeignKey name="FK_DCMAV_2_DCL">
+				<on table="cds_DigContent_Meta_AtrVoc">
+					<column>LanguageCode</column>
+				</on>
+				<references table="cds_DigContent_Langs">
+					<column>LanguageCode</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>
+		<DBTable name="cds_DigContent_Meta_ValVoc" localized="false"
+			fileName="digitalcontent/Digital_Content_Meta_Value_Voc.txt" tiedToOption="DigitalContentMeta">
+			<DBColumn name="MetaValueId" type="INTEGER" nullable="false"/>
+			<DBColumn name="LanguageCode" type="VARCHAR" length="20" nullable="false"/>
+			<DBColumn name="MetaValueName" type="VARCHAR" length="200" nullable="false"/>
+			<DBPrimaryKey clustered="false">
+				<column>MetaValueId</column>
+				<column>LanguageCode</column>
+			</DBPrimaryKey>
+			<DBIndex name="IDX_DCMVV1" unique="false" clustered="false">
+				<column>LanguageCode</column>
+			</DBIndex>
+			<DBForeignKey name="FK_DCMVV_2_DCL">
+				<on table="cds_DigContent_Meta_ValVoc">
+					<column>LanguageCode</column>
+				</on>
+				<references table="cds_DigContent_Langs">
+					<column>LanguageCode</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>
+		<DBTable name="cds_DigContent_Text" localized="false"
+			fileName="digitalcontent/Digital_Content_Text.txt" tiedToOption="DigitalContentText">
+			<DBColumn name="ContentGuid" type="UNIQUEIDENTIFIER" nullable="false"/>
+			<DBColumn name="LanguageCode" type="VARCHAR" length="20" nullable="false"/>
+			<DBColumn name="RegionCode" type="VARCHAR" length="20" nullable="false"/>
+			<DBColumn name="MediaTypeID" type="INTEGER" nullable="false"/>
+			<DBColumn name="Text" type="LONGVARCHAR" length="0" nullable="false"/>
+			<DBColumn name="Timestamp" type="DATETIME" nullable="false"/>
+			<DBPrimaryKey clustered="false">
+				<column>ContentGuid</column>
+				<column>LanguageCode</column>
+				<column>RegionCode</column>
+			</DBPrimaryKey>
+			<DBIndex name="IDX_DCT1" unique="false" clustered="false">
+				<column>ContentGuid</column>
+			</DBIndex>
+			<DBIndex name="IDX_DCT2" unique="false" clustered="false">
+				<column>LanguageCode</column>
+			</DBIndex>
+			<DBIndex name="IDX_DCT3" unique="false" clustered="false">
+				<column>RegionCode</column>
+			</DBIndex>
+			<DBForeignKey name="FK_DCT_2_DCMTT">
+				<on table="cds_DigContent_Text">
+					<column>MediaTypeID</column>
+				</on>
+				<references table="cds_DigContent_Media_Types">
+					<column>MediaTypeID</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_DCT_2_DC">
+				<on table="cds_DigContent_Text">
+					<column>ContentGuid</column>
+				</on>
+				<references table="cds_DigContent">
+					<column>ContentGuid</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_DCT_2_DCL">
+				<on table="cds_DigContent_Text">
+					<column>LanguageCode</column>
+				</on>
+				<references table="cds_DigContent_Langs">
+					<column>LanguageCode</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_DCT_2_DCR">
+				<on table="cds_DigContent_Text">
+					<column>RegionCode</column>
+				</on>
+				<references table="cds_DigContent_Regions">
+					<column>RegionCode</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>
+		<DBTable name="cds_Atr" localized="false" fileName="catalog/atr.txt"
+			tiedToOption="SearchableAttributes">
+			<DBColumn name="ProdID" type="VARCHAR" length="40" nullable="false"/>
+			<DBColumn name="CatID" type="VARCHAR" length="2" nullable="false"/>
+			<DBColumn name="AtrID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="ValID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="UnitID" type="VARCHAR" length="10" nullable="true"/>
+			<DBColumn name="NNV" type="FLOAT" length="53" nullable="true"/>
+			<DBPrimaryKey clustered="true">
+				<column>ProdID</column>
+				<column>AtrID</column>
+				<column>ValID</column>
+			</DBPrimaryKey>
+			<DBIndex name="IDX_ATR1" unique="false" clustered="false">
+				<column>CatID</column>
+			</DBIndex>
+			<DBIndex name="IDX_ATR2" unique="false" clustered="false">
+				<column>AtrID</column>
+			</DBIndex>
+			<DBIndex name="IDX_ATR3" unique="false" clustered="false">
+				<column>ValID</column>
+			</DBIndex>
+			<DBIndex name="IDX_ATR4" unique="false" clustered="false">
+				<column>UnitID</column>
+			</DBIndex>
+			<DBForeignKey name="FK_ATR_2_CCTxx">
+				<on table="cds_Atr">
+					<column>CatID</column>
+				</on>
+				<references table="cds_Cctxx">
+					<column>ID</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_ATR_2_PROD">
+				<on table="cds_Atr">
+					<column>ProdID</column>
+				</on>
+				<references table="cds_Prod">
+					<column>ProdID</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_ATR1_2_VOCxx">
+				<on table="cds_Atr">
+					<column>AtrID</column>
+				</on>
+				<references table="cds_Vocxx">
+					<column>ID</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_ATR2_2_VOCxx">
+				<on table="cds_Atr">
+					<column>ValID</column>
+				</on>
+				<references table="cds_Vocxx">
+					<column>ID</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_ATR3_2_VOCxx">
+				<on table="cds_Atr">
+					<column>UnitID</column>
+				</on>
+				<references table="cds_Vocxx">
+					<column>ID</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>
+		<DBTable name="cds_Atr_full" localized="false" fileName="catalog/atr_full.txt"
+			tiedToOption="Atomic">
+			<DBColumn name="ProdID" type="VARCHAR" length="40" nullable="false"/>
+			<DBColumn name="AtrID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="ValID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="UnitID" type="VARCHAR" length="10" nullable="true"/>
+			<DBColumn name="NNV" type="FLOAT" length="53" nullable="true"/>
+			<DBColumn name="SetNo" type="INTEGER" length="10" nullable="true"/>
+			<DBIndex name="IDX_ATRF" unique="true" clustered="false">
+				<column>ProdID</column>
+				<column>AtrID</column>
+				<column>ValID</column>
+				<column>SetNo</column>
+			</DBIndex>
+			<DBIndex name="IDX_ATRF1" unique="false" clustered="false">
+				<column>AtrID</column>
+			</DBIndex>
+			<DBIndex name="IDX_ATRF2" unique="false" clustered="false">
+				<column>ValID</column>
+			</DBIndex>
+			<DBIndex name="IDX_ATRF3" unique="false" clustered="false">
+				<column>UnitID</column>
+			</DBIndex>
+			<DBIndex name="IDX_ATRF4" unique="false" clustered="false">
+				<column>SetNo</column>
+			</DBIndex>
+			<DBForeignKey name="FK_ATRF_2_PROD">
+				<on table="cds_Atr_full">
+					<column>ProdID</column>
+				</on>
+				<references table="cds_Prod">
+					<column>ProdID</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_ATRF1_2_VOCFxx">
+				<on table="cds_Atr_full">
+					<column>AtrID</column>
+				</on>
+				<references table="cds_Vocxx_full">
+					<column>ID</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_ATRF2_2_VOCFxx">
+				<on table="cds_Atr_full">
+					<column>ValID</column>
+				</on>
+				<references table="cds_Vocxx_full">
+					<column>ID</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_ATRF3_2_VOCFxx">
+				<on table="cds_Atr_full">
+					<column>UnitID</column>
+				</on>
+				<references table="cds_Vocxx_full">
+					<column>ID</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>
+		<DBTable name="cds_Cat" localized="false" fileName="catalog/cat.txt">
+			<DBColumn name="CatID" type="VARCHAR" length="2" nullable="false"/>
+			<DBColumn name="AtrID" type="VARCHAR" length="10" nullable="false"/>
+			<DBPrimaryKey clustered="true">
+				<column>AtrID</column>
+				<column>CatID</column>
+			</DBPrimaryKey>
+			<DBIndex name="IDX_CAT1" unique="false" clustered="false">
+				<column>CatID</column>
+			</DBIndex>
+			<DBForeignKey name="FK_CAT_2_CCTxx">
+				<on table="cds_Cat">
+					<column>CatID</column>
+				</on>
+				<references table="cds_Cctxx">
+					<column>ID</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_CAT_2_VOCxx">
+				<on table="cds_Cat">
+					<column>AtrID</column>
+				</on>
+				<references table="cds_Vocxx">
+					<column>ID</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>
+		<DBTable name="cds_Catalog" localized="false" fileName="catalog/Catalog.txt" required="true">
+			<DBColumn name="ProdID" type="VARCHAR" length="40" nullable="false"/>
+			<DBColumn name="StatusCode" type="VARCHAR" length="4" nullable="false"/>
+			<DBColumn name="Timestamp" type="DATE" nullable="false"/>
+			<DBPrimaryKey clustered="true">
+				<column>ProdID</column>
+			</DBPrimaryKey>
+			<DBIndex name="IDX_CAT2" unique="false" clustered="false">
+				<column>StatusCode</column>
+			</DBIndex>
+			<DBForeignKey name="FK_CAT_2_SS">
+				<on table="cds_Catalog">
+					<column>StatusCode</column>
+				</on>
+				<references table="cds_SKUStatus">
+					<column>StatusCode</column>
+				</references>
+			</DBForeignKey>
+			<UpgradeDBTable fileName="catalog/Catalog_Info.txt" tiedToOption="CatalogInfo">
+				<UpgradeDBColumn name="LastDeliveryDate" type="DATE" nullable="true" action="change" replaces="Timestamp"/>
+				<UpgradeDBColumn name="CreationDate" type="DATE" nullable="true" action="add"/>
+				<UpgradeDBColumn name="LastRequestDate" type="DATE" nullable="true" action="add"/>
+				<UpgradeDBColumn name="IsPartial" type="BIT" nullable="false" action="add" default="0"/>
+				<UpgradeDBColumn name="Reserved1" type="VARCHAR" length="100" nullable="true" action="add"/>
+				<UpgradeDBColumn name="Reserved2" type="VARCHAR" length="100" nullable="true" action="add"/>
+				<UpgradeDBColumn name="Reserved3" type="VARCHAR" length="100" nullable="true" action="add"/>
+                <UpgradeDBColumn name="IsObsolete" type="BIT" nullable="false" default="0" action="add"/>
+				<UpgradeDBColumn name="Reserved5" type="VARCHAR" length="100" nullable="true" action="add"/>
+			</UpgradeDBTable>
+		</DBTable>
+		<DBTable name="cds_Cctxx" localized="true" fileName="catalog/cctxx.txt">
+			<DBColumn name="ID" type="VARCHAR" length="2" nullable="false"/>
+			<DBColumn name="Description" type="VARCHAR" length="80" nullable="false"/>
+			<DBColumn name="DefaultImageID" type="VARCHAR" length="10" nullable="true"/>
+			<DBPrimaryKey clustered="true">
+				<column>ID</column>
+			</DBPrimaryKey>
+		</DBTable>
+		<DBTable name="cds_Distivoc" localized="false" fileName="metamap/Distivoc.txt"
+			tiedToOption="Metamap">
+			<DBColumn name="ID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="Name" type="VARCHAR" length="100" nullable="false"/>
+			<DBPrimaryKey clustered="true">
+				<column>ID</column>
+			</DBPrimaryKey>
+		</DBTable>
+		<DBTable name="cds_Especxx" localized="true" fileName="components/especxx.txt"
+			tiedToOption="ExtendedSpecs">
+			<DBColumn name="ProdID" type="VARCHAR" length="40" nullable="false"/>
+			<DBColumn name="SectID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="HdrID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="BodyID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="DisplayOrder" type="INTEGER" length="10" nullable="false"/>
+			<DBPrimaryKey clustered="true">
+				<column>ProdID</column>
+				<column>SectID</column>
+				<column>BodyID</column>
+				<column>HdrID</column>
+			</DBPrimaryKey>
+			<DBIndex name="IDX_ESxx1" unique="false" clustered="false">
+				<column>BodyID</column>
+			</DBIndex>
+			<DBIndex name="IDX_ESxx2" unique="false" clustered="false">
+				<column>HdrID</column>
+			</DBIndex>
+			<DBIndex name="IDX_ESxx3" unique="false" clustered="false">
+				<column>SectID</column>
+			</DBIndex>
+			<DBForeignKey name="FK_ES1xx_2_EVxx">
+				<on table="cds_Especxx">
+					<column>BodyID</column>
+				</on>
+				<references table="cds_Evocxx">
+					<column>ID</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_ES2xx_2_EVxx">
+				<on table="cds_Especxx">
+					<column>HdrID</column>
+				</on>
+				<references table="cds_Evocxx">
+					<column>ID</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_ES3xx_2_EVxx">
+				<on table="cds_Especxx">
+					<column>SectID</column>
+				</on>
+				<references table="cds_Evocxx">
+					<column>ID</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_ESxx_2_PROD">
+				<on table="cds_Especxx">
+					<column>ProdID</column>
+				</on>
+				<references table="cds_Prod">
+					<column>ProdID</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>
+		<DBTable name="cds_Evocxx" localized="true" fileName="components/evocxx.txt"
+			tiedToOption="ExtendedSpecs">
+			<DBColumn name="ID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="Text" type="VARCHAR" length="2000" nullable="true"/>
+			<DBPrimaryKey clustered="true">
+				<column>ID</column>
+			</DBPrimaryKey>
+		</DBTable>
+		<DBTable name="cds_AccCompat" localized="false" fileName="catalog/Acc_Compatibility.txt"
+			tiedToOption="RelatedProductsRules">
+			<DBColumn name="ProdID" type="VARCHAR" length="40" nullable="false"/>
+			<DBColumn name="PProductLine" type="VARCHAR" length="10" nullable="true"/>
+			<DBColumn name="PModel" type="VARCHAR" length="10" nullable="true"/>
+			<DBColumn name="ComplementID" type="INTEGER" nullable="true"/>
+			<DBColumn name="PCatID" type="VARCHAR" length="2" nullable="false"/>
+			<DBColumn name="PMfID" type="VARCHAR" length="10" nullable="false"/>
+			<DBIndex name="IDX_ACC1" unique="false" clustered="false">
+				<column>ProdID</column>
+			</DBIndex>
+			<DBForeignKey name="FK_ACC_2_ACU">
+				<on table="cds_AccCompat">
+					<column>ProdID</column>
+				</on>
+				<references table="cds_Acc_Updates">
+					<column>ProdID</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>
+		<DBTable name="cds_AccCompat_Complement_xx" localized="true"
+			fileName="catalog/Acc_Compatibility_Complement_xx.txt" tiedToOption="RelatedProductsRules">
+			<DBColumn name="ComplementID" type="INTEGER" nullable="false"/>
+			<!-- The ApplicableCondition column replaces Condition (MySQL 5 reserved keyword) -->
+			<DBColumn name="ApplicableCondition" type="VARCHAR" length="2000" nullable="true"/>
+			<!-- 
+			     The "Details" column below replaces the "Comment" column as defined in the DataSource documentation,
+			     "Comment" being an Oracle keyword.
+			-->
+			<DBColumn name="Details" type="VARCHAR" length="2000" nullable="true"/>
+			<DBPrimaryKey clustered="true">
+				<column>ComplementID</column>
+			</DBPrimaryKey>
+		</DBTable>
+		<DBTable name="cds_Acc_Links" localized="false" fileName="catalog/Acc_Links.txt"
+			tiedToOption="RelatedProductsLinks">
+			<DBColumn name="ProdID" type="VARCHAR" length="40" nullable="false"/>
+			<DBColumn name="PProdID" type="VARCHAR" length="40" nullable="false"/>
+			<DBPrimaryKey clustered="true">
+				<column>ProdID</column>
+				<column>PProdID</column>
+			</DBPrimaryKey>
+		</DBTable>
+		<DBTable name="cds_Acc_Updates" localized="false" fileName="catalog/Acc_Updates.txt"
+			tiedToOption="RelatedProductsRules RelatedProductsLinks">
+			<DBColumn name="ProdID" type="VARCHAR" length="40" nullable="false"/>
+			<DBPrimaryKey clustered="true">
+				<column>ProdID</column>
+			</DBPrimaryKey>
+		</DBTable>
+		<DBTable name="cds_Metamap" localized="false" fileName="metamap/Metamap.txt"
+			tiedToOption="Metamap">
+			<DBColumn name="ProdID" type="VARCHAR" length="40" nullable="false"/>
+			<DBColumn name="DistiSKU" type="VARCHAR" length="40" nullable="false"/>
+			<DBColumn name="DistiID" type="VARCHAR" length="10" nullable="false"/>
+			<DBPrimaryKey clustered="true">
+				<column>ProdID</column>
+				<column>DistiID</column>
+				<column>DistiSKU</column>
+			</DBPrimaryKey>
+			<DBIndex name="IDX_MM1" unique="false" clustered="false">
+				<column>DistiID</column>
+			</DBIndex>
+			<DBForeignKey name="FK_MM_2_CAT">
+				<on table="cds_Metamap">
+					<column>ProdID</column>
+				</on>
+				<references table="cds_Catalog">
+					<column>ProdID</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_MM_2_DV">
+				<on table="cds_Metamap">
+					<column>DistiID</column>
+				</on>
+				<references table="cds_Distivoc">
+					<column>ID</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>
+		<DBTable name="cds_Mspecxx" localized="true" fileName="components/mspecxx.txt"
+			tiedToOption="MainSpecs">
+			<DBColumn name="ProdID" type="VARCHAR" length="40" nullable="false"/>
+			<DBColumn name="HdrID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="BodyID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="DisplayOrder" type="INTEGER" length="10" nullable="false"/>
+			<DBPrimaryKey clustered="true">
+				<column>ProdID</column>
+				<column>HdrID</column>
+				<column>BodyID</column>
+			</DBPrimaryKey>
+			<DBIndex name="IDX_MSxx1" unique="false" clustered="false">
+				<column>BodyID</column>
+			</DBIndex>
+			<DBIndex name="IDX_MSxx2" unique="false" clustered="false">
+				<column>HdrID</column>
+			</DBIndex>
+			<DBForeignKey name="FK_MS1xx_2_MVxx">
+				<on table="cds_Mspecxx">
+					<column>BodyID</column>
+				</on>
+				<references table="cds_Mvocxx">
+					<column>ID</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_MS2xx_2_MVxx">
+				<on table="cds_Mspecxx">
+					<column>HdrID</column>
+				</on>
+				<references table="cds_Mvocxx">
+					<column>ID</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_MS3xx_2_MVxx">
+				<on table="cds_Mspecxx">
+					<column>ProdID</column>
+				</on>
+				<references table="cds_Prod">
+					<column>ProdID</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>
+		<DBTable name="cds_Mvocxx" localized="true" fileName="components/mvocxx.txt"
+			tiedToOption="MainSpecs">
+			<DBColumn name="ID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="Text" type="VARCHAR" length="2000" nullable="true"/>
+			<DBPrimaryKey clustered="true">
+				<column>ID</column>
+			</DBPrimaryKey>
+		</DBTable>
+		<DBTable name="cds_Prod" localized="false" fileName="catalog/prod.txt" required="true">
+			<DBColumn name="ProdID" type="VARCHAR" length="40" nullable="false"/>
+			<DBColumn name="CatID" type="VARCHAR" length="2" nullable="false"/>
+			<DBColumn name="MktID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="ImgID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="MfID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="MfPN" type="VARCHAR" length="40" nullable="false"/>
+			<DBColumn name="Reserved1" type="VARCHAR" length="1" nullable="true"/>
+			<DBColumn name="Reserved2" type="VARCHAR" length="1" nullable="true"/>
+			<DBColumn name="Reserved3" type="VARCHAR" length="1" nullable="true"/>
+			<DBColumn name="Reserved4" type="VARCHAR" length="1" nullable="true"/>
+			<DBColumn name="Reserved5" type="VARCHAR" length="1" nullable="true"/>
+			<DBColumn name="Reserved6" type="VARCHAR" length="1" nullable="true"/>
+			<DBColumn name="Reserved7" type="VARCHAR" length="1" nullable="true"/>
+			<DBColumn name="Reserved8" type="VARCHAR" length="1" nullable="true"/>
+			<DBColumn name="Reserved9" type="VARCHAR" length="1" nullable="true"/>
+			<DBColumn name="Reserved10" type="VARCHAR" length="1" nullable="true"/>
+			<DBColumn name="Reserved11" type="VARCHAR" length="1" nullable="true"/>
+			<DBColumn name="Reserved12" type="VARCHAR" length="1" nullable="true"/>
+			<DBColumn name="Reserved13" type="VARCHAR" length="1" nullable="true"/>
+			<DBColumn name="Reserved14" type="VARCHAR" length="1" nullable="true"/>
+			<DBPrimaryKey clustered="true">
+				<column>ProdID</column>
+			</DBPrimaryKey>
+			<DBIndex name="IDX_PROD1" unique="false" clustered="false">
+				<column>CatID</column>
+			</DBIndex>
+			<DBIndex name="IDX_PROD2" unique="false" clustered="false">
+				<column>MktID</column>
+			</DBIndex>
+			<DBIndex name="IDX_PROD3" unique="false" clustered="false">
+				<column>MfID</column>
+			</DBIndex>
+			<DBForeignKey name="FK_PROD_2_CAT">
+				<on table="cds_Prod">
+					<column>ProdID</column>
+				</on>
+				<references table="cds_Catalog">
+					<column>ProdID</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_PROD_2_CCTxx">
+				<on table="cds_Prod">
+					<column>CatID</column>
+				</on>
+				<references table="cds_Cctxx">
+					<column>ID</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_PROD_2_MKTxx">
+				<on table="cds_Prod">
+					<column>MktID</column>
+				</on>
+				<references table="cds_Mktxx">
+					<column>MktID</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_PROD_2_VOCxx">
+				<on table="cds_Prod">
+					<column>MfID</column>
+				</on>
+				<references table="cds_Vocxx">
+					<column>ID</column>
+				</references>
+			</DBForeignKey>
+			<UpgradeDBTable>
+				<UpgradeDBColumn name="ImgID" type="VARCHAR" length="10" nullable="true" action="change" replaces="ImgID"/>
+			</UpgradeDBTable>
+			<UpgradeDBTable tiedToOption="MarketingTextDigContent">
+				<UpgradeDBIndex name="IDX_PROD2" action="delete"/>
+				<UpgradeDBColumn name="Reserved15" type="VARCHAR" length="10" nullable="true" action="change" replaces="MktID"/>
+				<UpgradeDBForeignKey name="FK_PROD_2_MKTxx" action="delete"/>
+			</UpgradeDBTable>
+		</DBTable>
+		<DBTable name="cds_SKUStatus" localized="false" fileName="catalog/SkuStatus.txt">
+			<DBColumn name="StatusCode" type="VARCHAR" length="4" nullable="false"/>
+			<DBColumn name="StatusName" type="VARCHAR" length="100" nullable="false"/>
+			<DBPrimaryKey clustered="true">
+				<column>StatusCode</column>
+			</DBPrimaryKey>
+		</DBTable>
+		<DBTable name="cds_Stdnxx" localized="true" fileName="components/stdnxx.txt">
+			<DBColumn name="ProdID" type="VARCHAR" length="40" nullable="false"/>
+			<DBColumn name="Description" type="VARCHAR" length="2000" nullable="false"/>
+			<DBPrimaryKey clustered="true">
+				<column>ProdID</column>
+			</DBPrimaryKey>
+			<DBForeignKey name="FK_STDxx_2_PROD">
+				<on table="cds_Stdnxx">
+					<column>ProdID</column>
+				</on>
+				<references table="cds_Prod">
+					<column>ProdID</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>
+		<DBTable name="cds_UNSPSC" localized="false" fileName="UNSPSC/UNSPSC.txt"
+			tiedToOption="UNSPSC">
+			<DBColumn name="ProdID" type="VARCHAR" length="40" nullable="false"/>
+			<DBColumn name="CommodityCode" type="VARCHAR" length="8" nullable="false"/>
+			<DBPrimaryKey clustered="true">
+				<column>ProdID</column>
+				<column>CommodityCode</column>
+			</DBPrimaryKey>
+			<DBIndex name="IDX_UNSPSC1" unique="false" clustered="false">
+				<column>CommodityCode</column>
+			</DBIndex>
+			<DBForeignKey name="FK_UNSPSC_2_CAT">
+				<on table="cds_UNSPSC">
+					<column>ProdID</column>
+				</on>
+				<references table="cds_Catalog">
+					<column>ProdID</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_UNSPSC_2_UNSPSCC">
+				<on table="cds_UNSPSC">
+					<column>CommodityCode</column>
+				</on>
+				<references table="cds_UNSPSCCommodity">
+					<column>CommodityCode</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>
+		<DBTable name="cds_UNSPSCCommodity" localized="false" fileName="UNSPSC/UNSPSCCommodity.txt"
+			tiedToOption="UNSPSC">
+			<DBColumn name="CommodityCode" type="VARCHAR" length="8" nullable="false"/>
+			<DBColumn name="CommodityName" type="VARCHAR" length="255" nullable="false"/>
+			<DBPrimaryKey clustered="true">
+				<column>CommodityCode</column>
+			</DBPrimaryKey>
+		</DBTable>
+		<DBTable name="cds_UNSPSCVersion" localized="false" fileName="UNSPSC/UNSPSCVersion.txt"
+			tiedToOption="UNSPSC">
+			<DBColumn name="UNSPSCVersion" type="VARCHAR" length="10" nullable="false"/>
+			<DBPrimaryKey clustered="false">
+				<column>UNSPSCVersion</column>
+			</DBPrimaryKey>
+		</DBTable>
+		<DBTable name="cds_Vocxx" localized="true" fileName="catalog/vocxx.txt">
+			<DBColumn name="ID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="Text" type="VARCHAR" length="255" nullable="true"/>
+			<DBPrimaryKey clustered="true">
+				<column>ID</column>
+			</DBPrimaryKey>
+		</DBTable>
+		<DBTable name="cds_Vocxx_full" localized="true" fileName="catalog/vocxx_full.txt"
+			tiedToOption="Atomic">
+			<DBColumn name="ID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="Text" type="VARCHAR" length="255" nullable="true"/>
+			<DBPrimaryKey clustered="true">
+				<column>ID</column>
+			</DBPrimaryKey>
+		</DBTable>
+		<DBTable name="cds_UNSPSC_Versioned_Links" localized="false"
+			fileName="UNSPSC/UNSPSC_Versioned_Links.txt" tiedToOption="NewUNSPSC">
+			<DBColumn name="ProdID" type="VARCHAR" length="40" nullable="false"/>
+			<DBColumn name="CommodityCode" type="VARCHAR" length="8" nullable="false"/>
+			<DBColumn name="UNSPSCVersionID" type="INTEGER" nullable="false"/>
+			<DBColumn name="IsDefault" type="BIT" nullable="false" default="0"/>
+			<DBPrimaryKey clustered="true">
+				<column>UNSPSCVersionID</column>
+				<column>ProdID</column>
+				<column>CommodityCode</column>
+			</DBPrimaryKey>
+			<DBIndex name="IDX_UNSPSC2" unique="false" clustered="false">
+				<column>ProdID</column>
+			</DBIndex>
+			<DBIndex name="IDX_UNSPSC3" unique="false" clustered="false">
+				<column>CommodityCode</column>
+			</DBIndex>
+			<DBForeignKey name="FK_UNSPSC_VL_2_UNSPSC_V">
+				<on table="cds_UNSPSC_Versioned_Links">
+					<column>UNSPSCVersionID</column>
+				</on>
+				<references table="cds_UNSPSC_Versions">
+					<column>UNSPSCVersionID</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_UNSPSC_VL_2_CATALOG">
+				<on table="cds_UNSPSC_Versioned_Links">
+					<column>ProdID</column>
+				</on>
+				<references table="cds_Catalog">
+					<column>ProdID</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_UNSPSC_VL_2_UNSCP_VC">
+				<on table="cds_UNSPSC_Versioned_Links">
+					<column>UNSPSCVersionID</column>
+					<column>CommodityCode</column>
+				</on>
+				<references table="cds_UNSPSC_Versioned_Commodities">
+					<column>UNSPSCVersionID</column>
+					<column>CommodityCode</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>
+		<DBTable name="cds_UNSPSC_Versioned_Commodities" localized="false"
+			fileName="UNSPSC/UNSPSC_Versioned_Commodities.txt" tiedToOption="NewUNSPSC">
+			<DBColumn name="CommodityCode" type="VARCHAR" length="8" nullable="false"/>
+			<DBColumn name="CommodityName" type="VARCHAR" length="255" nullable="false"/>
+			<DBColumn name="UNSPSCVersionID" type="INTEGER" nullable="false"/>
+			<DBPrimaryKey clustered="true">
+				<column>UNSPSCVersionID</column>
+				<column>CommodityCode</column>
+			</DBPrimaryKey>
+			<DBForeignKey name="FK_UNSPSC_VC_2_UNSPSC_V">
+				<on table="cds_UNSPSC_Versioned_Commodities">
+					<column>UNSPSCVersionID</column>
+				</on>
+				<references table="cds_UNSPSC_Versions">
+					<column>UNSPSCVersionID</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>
+		<DBTable name="cds_UNSPSC_Versions" localized="false" fileName="UNSPSC/UNSPSC_Versions.txt" tiedToOption="NewUNSPSC">
+			<DBColumn name="UNSPSCVersionID" type="INTEGER" nullable="false"/>
+			<DBColumn name="UNSPSCVersion" type="VARCHAR" length="80" nullable="false"/>
+			<DBColumn name="IsLatest" type="BIT" nullable="false"/>
+			<DBPrimaryKey clustered="false">
+				<column>UNSPSCVersionID</column>
+			</DBPrimaryKey>
+		</DBTable>
+		<DBTable name="cds_sku_request" localized="false" fileName="" tiedToOption="UploadProducts" outsideSchema="true">
+			<DBColumn name="CustomerPartNumber" type="VARCHAR" length="40" nullable="false"/>
+			<DBColumn name="GTIN" type="VARCHAR" length="128" nullable="true"/>
+			<DBColumn name="ManufacturerCode" type="VARCHAR" length="40" nullable="false"/>
+			<DBColumn name="ManufacturerName" type="VARCHAR" length="255" nullable="false"/>
+			<DBColumn name="ManufacturerPartNumber" type="VARCHAR" length="40" nullable="false"/>
+			<DBColumn name="ProductDescription" type="VARCHAR" length="1000" nullable="false"/>
+			<DBColumn name="IsActive" type="BIT" nullable="false"/>
+			<DBColumn name="RequestStatus" type="INTEGER" nullable="false"/>
+			<DBColumn name="FirstInserted" type="DATETIME" nullable="false"/>
+			<DBColumn name="Checksum" type="VARCHAR" length="32" nullable="true"/>
+			<DBColumn name="FirstRequestDate" type="DATETIME" nullable="true"/>
+			<DBColumn name="LastRequestDate" type="DATETIME" nullable="true"/>
+			<DBPrimaryKey clustered="true">
+				<column>CustomerPartNumber</column>				
+			</DBPrimaryKey>			
+		</DBTable>
+		<DBTable name="cds_Regions" localized="false" fileName="catalog/Regions.txt" tiedToOption="Lifecycle">
+			<DBColumn name="RegionCode" type="VARCHAR" length="20" nullable="false"/>
+			<DBColumn name="RegionName" type="VARCHAR" length="200" nullable="true"/>
+			<DBPrimaryKey clustered="true">
+				<column>RegionCode</column>
+			</DBPrimaryKey>
+		</DBTable>
+		<DBTable name="cds_Lifecycle" localized="false" fileName="catalog/Lifecycle.txt" tiedToOption="Lifecycle">
+			<DBColumn name="ProdID" type="VARCHAR" length="40" nullable="false"/>
+			<DBColumn name="RegionCode" type="VARCHAR" length="20" nullable="false"/>
+			<DBColumn name="isDiscontinued" type="BIT" nullable="true"/>
+			<DBColumn name="DiscontinuedDate" type="DATE" nullable="true"/>
+			<DBColumn name="ReleaseDate" type="DATE" nullable="true"/>
+			<DBColumn name="Reserved1" type="VARCHAR" length="20" nullable="true"/>
+			<DBColumn name="Reserved2" type="VARCHAR" length="20" nullable="true"/>
+			<DBPrimaryKey clustered="true">
+				<column>ProdID</column>
+				<column>RegionCode</column>
+			</DBPrimaryKey>
+			<DBForeignKey name="FK_LIF_2_CAT">
+				<on table="cds_Lifecycle">
+					<column>ProdID</column>
+				</on>
+				<references table="cds_Catalog">
+					<column>ProdID</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_LIF_2_REG">
+				<on table="cds_Lifecycle">
+					<column>RegionCode</column>
+				</on>
+				<references table="cds_Regions">
+					<column>RegionCode</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>
+		<DBTable name="cds_Languages" localized="false" fileName="catalog/Languages.txt" required="true">
+			<DBColumn name="LanguageID" type="VARCHAR" length="20" nullable="false"/>
+			<DBColumn name="Language" type="VARCHAR" length="200" nullable="false"/>
+			<DBPrimaryKey clustered="true">
+				<column>LanguageID</column>
+			</DBPrimaryKey>
+		</DBTable>
+		<DBTable name="cds_Cct_Version" localized="false" fileName="categorization/Cct_Version.txt" tiedToOption="Categorization">
+			<DBColumn name="VersionID" type="INTEGER" nullable="false"/>
+			<DBColumn name="VersionDescription" type="VARCHAR" length="100" nullable="false"/>
+			<DBColumn name="SourceID" type="INTEGER" nullable="false"/>
+			<DBColumn name="SourceDescription" type="VARCHAR" length="100" nullable="false"/>
+			<DBColumn name="ReleaseDate" type="DATE" nullable="true"/>
+			<DBColumn name="isLatest" type="BIT" nullable="true"/>
+			<DBPrimaryKey clustered="true">
+				<column>VersionID</column>
+			</DBPrimaryKey>
+		</DBTable>
+		<DBTable name="cds_Cct_Categories" localized="false" fileName="categorization/Cct_Categories.txt" tiedToOption="Categorization">
+			<DBColumn name="CatID" type="VARCHAR" length="40" nullable="false"/>
+			<DBColumn name="VersionID" type="INTEGER" nullable="false"/>
+			<DBColumn name="CategoryName" type="VARCHAR" length="300" nullable="true"/>
+			<DBColumn name="CatKey" type="VARCHAR" length="40" nullable="true"/>
+			<DBColumn name="ParentCatID" type="VARCHAR" length="40" nullable="true"/>
+			<DBColumn name="CategoryLevel" type="INTEGER" nullable="true"/>
+			<DBColumn name="DisplayOrder" type="INTEGER" nullable="true"/>
+			<DBColumn name="Breadcrumbs" type="VARCHAR" length="2000" nullable="true"/>
+			<DBColumn name="Notes" type="VARCHAR" length="300" nullable="true"/>
+			<DBColumn name="isOptional" type="BIT" nullable="true"/>
+			<DBColumn name="isObsolete" type="BIT" nullable="true"/>
+			<DBPrimaryKey clustered="true">
+				<column>CatID</column>
+				<column>VersionID</column>
+			</DBPrimaryKey>
+			<DBForeignKey name="FK_CCTCAT_2_VER">
+				<on table="cds_Cct_Categories">
+					<column>VersionID</column>
+				</on>
+				<references table="cds_Cct_Version">
+					<column>VersionID</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>
+		<DBTable name="cds_Cct_Products" localized="false" fileName="categorization/Cct_Products.txt" tiedToOption="Categorization">
+			<DBColumn name="ProdID" type="VARCHAR" length="40" nullable="false"/>
+			<DBColumn name="VersionID" type="INTEGER" nullable="false"/>
+			<DBColumn name="CatID" type="VARCHAR" length="40" nullable="false"/>
+			<DBColumn name="isPrimary" type="BIT" nullable="true"/>
+			<DBPrimaryKey clustered="true">
+				<column>ProdID</column>
+				<column>VersionID</column>
+				<column>CatID</column>
+			</DBPrimaryKey>
+			<DBForeignKey name="FK_CCTPROD_2_CAT">
+				<on table="cds_Cct_Products">
+					<column>ProdID</column>
+				</on>
+				<references table="cds_Catalog">
+					<column>ProdID</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_CCTPROD_2_CCTCAT">
+				<on table="cds_Cct_Products">
+					<column>CatID</column>
+					<column>VersionID</column>
+				</on>
+				<references table="cds_Cct_Categories">
+					<column>CatID</column>
+					<column>VersionID</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>
+		<DBTable name="cds_Cct_Vocabulary" localized="false" fileName="categorization/Cct_Vocabulary.txt" tiedToOption="Categorization">
+			<DBColumn name="CatID" type="VARCHAR" length="40" nullable="false"/>
+			<DBColumn name="VersionID" type="INTEGER" nullable="false"/>
+			<DBColumn name="LanguageID" type="VARCHAR" length="20" nullable="false"/>
+			<DBColumn name="CategoryName" type="VARCHAR" length="255" nullable="false"/>
+			<DBPrimaryKey clustered="true">
+				<column>CatID</column>
+				<column>VersionID</column>
+				<column>LanguageID</column>
+			</DBPrimaryKey>
+			<DBForeignKey name="FK_CCTVOC_2_CCTCAT">
+				<on table="cds_Cct_Vocabulary">
+					<column>CatID</column>
+					<column>VersionID</column>
+				</on>
+				<references table="cds_Cct_Categories">
+					<column>CatID</column>
+					<column>VersionID</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_CCTVOC_2_LANG">
+				<on table="cds_Cct_Vocabulary">
+					<column>LanguageID</column>
+				</on>
+				<references table="cds_Languages">
+					<column>LanguageID</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>
+				<!-- ALTERNATIVE SEARCHABLE ATTRIBUTES (EXTERNAL FEED) 
+		 	 See detailed description of tables in this document: http://www.cnetcontentsolutions.com/support/datasource/asa/AlternativeSearchableAttributes_UserManual.pdf
+		-->
+		
+		<DBTable name="cds_Asa_Cat" localized="false" fileName="external/cds_asa/cds_Asa_Cat.txt" tiedToOption="External:AlternativeSearchableAttributes">
+			<!-- The table defines searchable and comparable attributes for each of the legacy DataSource categories delivered in cds_Prod of download.zip. -->
+			<DBColumn name="CatID" type="VARCHAR" length="2" nullable="false"/>
+			<DBColumn name="CategoryName" type="VARCHAR" length="80" nullable="false"/>
+			<DBColumn name="AtrID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="AttributeName" type="VARCHAR" length="255" nullable="false"/>
+			<DBColumn name="IsParametric" type="BIT"  nullable="false"/>
+			<DBColumn name="IsComparable" type="BIT" nullable="false"/>
+			<DBColumn name="DisplayOrder" type="INTEGER" nullable="true"/>
+			<DBColumn name="RangeCode" type="VARCHAR" length="50" nullable="true"/>
+			<DBPrimaryKey clustered="true">
+				<column>CatID</column>
+				<column>AtrID</column>
+			</DBPrimaryKey>
+		</DBTable> 
+		<DBTable name="cds_Asa_Cat_Alt" localized="false" fileName="external/cds_asa/cds_Asa_Cat_Alt.txt" tiedToOption="External:AlternativeSearchableAttributes">
+			<!--  The table defines searchable and comparable attributes for each of the Alternative CNET categories delivered in cds_Cct_Products of download.zip. -->
+			<DBColumn name="CatID" type="VARCHAR" length="40" nullable="false"/>
+			<DBColumn name="VersionID" type="INTEGER" nullable="false"/>
+			<DBColumn name="CategoryName" type="VARCHAR" length="255" nullable="false"/>
+			<DBColumn name="AtrID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="AttributeName" type="VARCHAR" length="255" nullable="false"/>
+			<DBColumn name="IsParametric" type="BIT"  nullable="true"/>
+			<DBColumn name="IsComparable" type="BIT" nullable="true"/>
+			<DBColumn name="DisplayOrder" type="INTEGER" nullable="false"/>
+			<DBColumn name="RangeCode" type="VARCHAR" length="50" nullable="true"/>
+			<DBPrimaryKey clustered="true">
+				<column>CatID</column>
+				<column>VersionID</column>
+				<column>AtrID</column>
+			</DBPrimaryKey>
+		</DBTable>
+		<DBTable name="cds_Asa_Voc" localized="false" fileName="external/cds_asa/cds_Asa_Voc.txt" tiedToOption="External:AlternativeSearchableAttributes">
+			<!--  The table provides translations of attribute names to all of the supported languages. 
+			      Same table is also used for attribute range names and their translations -->
+			<DBColumn name="ID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="LanguageCode" type="VARCHAR" length="20" nullable="false"/>
+			<DBColumn name="Description" type="VARCHAR" length="255" nullable="false"/>
+			<DBPrimaryKey clustered="true">
+				<column>ID</column>
+				<column>LanguageCode</column>
+			</DBPrimaryKey>
+		</DBTable> 
+		<DBTable name="cds_Asa_Ranges_Imperial" localized="false" fileName="external/cds_asa/cds_Asa_Ranges_Imperial.txt" tiedToOption="External:AlternativeSearchableAttributes">
+			<!--  The table provides value ranges for the numeric searchable attributes. This table will contain range values in Imperial system (ft, in, lbs). -->
+			<DBColumn name="RangeCode" type="VARCHAR" length="50" nullable="false"/>
+			<DBColumn name="RangeValueID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="MinNNV" type="FLOAT" length="53" nullable="false"/>
+			<DBColumn name="MaxNNV" type="FLOAT" length="53" nullable="false"/>
+			<DBColumn name="DisplayOrder" type="INTEGER"  nullable="false"/>
+			<DBPrimaryKey clustered="true">
+				<column>RangeCode</column>
+				<column>RangeValueID</column>
+			</DBPrimaryKey>
+		</DBTable>
+		<DBTable name="cds_Asa_Ranges_Metric" localized="false" fileName="external/cds_asa/cds_Asa_Ranges_Metric.txt" tiedToOption="External:AlternativeSearchableAttributes">
+			<!--  The table provides value ranges for the numeric searchable attributes. This table will contain range values in metric system (cm, km, kg). -->
+			<DBColumn name="RangeCode" type="VARCHAR" length="50" nullable="false"/>
+			<DBColumn name="RangeValueID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="MinNNV" type="FLOAT" length="53" nullable="false"/>
+			<DBColumn name="MaxNNV" type="FLOAT" length="53" nullable="false"/>
+			<DBColumn name="DisplayOrder" type="INTEGER"  nullable="false"/>
+			<DBPrimaryKey clustered="true">
+				<column>RangeCode</column>
+				<column>RangeValueID</column>
+			</DBPrimaryKey>
+		</DBTable>
+		<DBTable name="cds_Asa_Cat_Updates" localized="false" fileName="external/cds_asa/cds_Asa_Cat_Updates.txt" tiedToOption="External:AlternativeSearchableAttributes">
+			<!--  The table provides alternative searchable attributes versioning for the legacy DataSource categories. -->
+			<DBColumn name="CatID" type="VARCHAR" length="2" nullable="false"/>
+			<DBColumn name="LastUpdate" type="DATE" nullable="false"/>
+			<DBPrimaryKey clustered="true">
+				<column>CatID</column>
+			</DBPrimaryKey>
+		</DBTable> 
+		<DBTable name="cds_Asa_Cat_Alt_Updates" localized="false" fileName="external/cds_asa/cds_Asa_Cat_Alt_Updates.txt" tiedToOption="External:AlternativeSearchableAttributes">
+			<!--  The table provides alternative searchable attributes versioning for the alternative DataSource categories. -->
+			<DBColumn name="CatID" type="VARCHAR" length="40" nullable="false"/>
+			<DBColumn name="VersionID" type="INTEGER" nullable="false"/>
+			<DBColumn name="LastUpdate" type="DATE" nullable="false"/>
+			<DBPrimaryKey clustered="true">
+				<column>CatID</column>
+				<column>VersionID</column>
+			</DBPrimaryKey>
+		</DBTable>
+		<DBTable name="cds_Asa_Metric" localized="false" fileName="external/cds_asa/cds_Asa_Metric.txt" tiedToOption="External:AlternativeSearchableAttributes">
+			<!--  The table provides attribute cross references between imperial and metric -->
+			<DBColumn name="AtrId_Imperial" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="AtrName_Imperial" type="VARCHAR" length="255" nullable="false"/>
+			<DBColumn name="AtrId_Metric" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="AtrName_Metric" type="VARCHAR" length="255" nullable="false"/>
+			<DBPrimaryKey clustered="true">
+				<column>AtrId_Imperial</column>
+				<column>AtrId_Metric</column>
+			</DBPrimaryKey>
+		</DBTable> 	
+		<DBTable name="cds_Atr_Logical_Order" localized="false" fileName="external/attribute_display_order/attribute_logical_display_order.txt" tiedToOption="External:AttributeDisplayOrder">
+			<!--  The table provides alternative searchable attributes versioning for the legacy DataSource categories. -->
+			<DBColumn name="AtrID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="DisplayOrder" type="INTEGER" nullable="false"/>
+			<DBPrimaryKey clustered="true">
+				<column>AtrID</column>
+			</DBPrimaryKey>
+		</DBTable> 
+		<DBTable name="cds_ISO_Languages" localized="false" fileName="external/lang/cds_iso_languages.txt/" tiedToOption="External:LanguageMapping">
+			<DBColumn name="ISOCode" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="ISOName" type="VARCHAR" length="200" nullable="false"/>
+			<DBColumn name="CNETCode" type="VARCHAR" length="5" nullable="true"/>
+			<DBColumn name="Root" type="VARCHAR" length="10" nullable="true"/>
+			<DBPrimaryKey clustered="true">
+				<column>ISOCode</column>
+			</DBPrimaryKey>
+		</DBTable>
+		
+		<!-- ATOMIC FEED -->		
+		<DBTable name="cds_Pim_Atr" localized="false" fileName="catalog/pim_atr.txt" tiedToOption="PIMFeed">
+			<DBColumn name="ProdID" type="VARCHAR" length="40" nullable="false"/>
+			<DBColumn name="AtrID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="ValID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="UnitID" type="VARCHAR" length="10" nullable="true"/>
+			<DBColumn name="NNV" type="FLOAT" length="53" nullable="true"/>
+			<DBPrimaryKey clustered="true">
+				<column>ProdID</column>
+				<column>AtrID</column>
+				<column>ValID</column>
+			</DBPrimaryKey>
+			<DBIndex name="IDX_PIMATR1" unique="false" clustered="false">
+				<column>ProdID</column>
+			</DBIndex>
+			<DBIndex name="IDX_PIMATR2" unique="false" clustered="false">
+				<column>AtrID</column>
+			</DBIndex>
+			<DBIndex name="IDX_PIMATR3" unique="false" clustered="false">
+				<column>ValID</column>
+			</DBIndex>
+			<DBIndex name="IDX_PIMATR4" unique="false" clustered="false">
+				<column>UnitID</column>
+			</DBIndex>
+			<DBForeignKey name="FK_PIMATR_2_PROD">
+				<on table="cds_Pim_Atr">
+					<column>ProdID</column>
+				</on>
+				<references table="cds_Prod">
+					<column>ProdID</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_PIMATR_2_PIMATRMOD">
+				<on table="cds_Pim_Atr">
+					<column>AtrID</column>
+				</on>
+				<references table="cds_Pim_Atr_Model">
+					<column>AtrID</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>		
+		<DBTable name="cds_Pim_Atr_Composable" localized="false" fileName="catalog/pim_atr_composable.txt" tiedToOption="PIMFeed">
+			<DBColumn name="ProdID" type="VARCHAR" length="40" nullable="false"/>
+			<DBColumn name="AtrID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="ValID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="UnitID" type="VARCHAR" length="10" nullable="true"/>
+			<DBColumn name="NNV" type="FLOAT" length="53" nullable="true"/>
+			<DBColumn name="SetNo" type="INTEGER" nullable="false"/>
+			<DBPrimaryKey clustered="true">
+				<column>ProdID</column>
+				<column>AtrID</column>
+				<column>ValID</column>
+				<column>SetNo</column>
+			</DBPrimaryKey>
+			<DBIndex name="IDX_PIMATRCOM1" unique="false" clustered="false">
+				<column>ProdID</column>
+			</DBIndex>
+			<DBIndex name="IDX_PIMATRCOM2" unique="false" clustered="false">
+				<column>AtrID</column>
+			</DBIndex>
+			<DBIndex name="IDX_PIMATRCOM3" unique="false" clustered="false">
+				<column>ValID</column>
+			</DBIndex>
+			<DBIndex name="IDX_PIMATRCOM4" unique="false" clustered="false">
+				<column>UnitID</column>
+			</DBIndex>
+			<DBIndex name="IDX_PIMATRCOM5" unique="false" clustered="false">
+				<column>SetNo</column>
+			</DBIndex>
+				<DBForeignKey name="FK_PIMATRCOM_2_PROD">
+				<on table="cds_Pim_Atr_Composable">
+					<column>ProdID</column>
+				</on>
+				<references table="cds_Prod">
+					<column>ProdID</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_PIMATRCOM_2_PIMATRMOD">
+				<on table="cds_Pim_Atr_Composable">
+					<column>AtrID</column>
+				</on>
+				<references table="cds_Pim_Atr_Model">
+					<column>AtrID</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>
+		<DBTable name="cds_Pim_Atr_Voc" localized="false" fileName="catalog/pim_atr_voc.txt" tiedToOption="PIMFeed">
+			<DBColumn name="ID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="LanguageCode" type="VARCHAR" length="20" nullable="false"/>
+			<DBColumn name="Text" type="VARCHAR" length="2000" nullable="false"/>
+			<DBColumn name="ShortText" type="VARCHAR" length="255" nullable="true"/>
+			<DBPrimaryKey clustered="false">
+				<column>ID</column>
+				<column>LanguageCode</column>
+			</DBPrimaryKey>
+			<DBIndex name="IDX_PIMATRVOC1" unique="false" clustered="false">
+				<column>LanguageCode</column>
+			</DBIndex>
+			<DBForeignKey name="FK_PIMATRVOC_2_LANG">
+				<on table="cds_Pim_Atr_Voc">
+					<column>LanguageCode</column>
+				</on>
+				<references table="cds_Languages">
+					<column>LanguageID</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>	
+		<DBTable name="cds_Pim_Atr_Standard_Units" localized="false" fileName="catalog/pim_atr_standard_units.txt" tiedToOption="PIMFeed">
+			<DBColumn name="UnitID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="UnitListID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="BaseUnitID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="StandardTitle" type="VARCHAR" length="200" nullable="false"/>
+			<DBColumn name="StandardUnitName" type="VARCHAR" length="100" nullable="true"/>
+			<DBColumn name="StandardUnitCode" type="VARCHAR" length="50" nullable="true"/>
+			<DBColumn name="Description" type="VARCHAR" length="2000" nullable="true"/>
+			<DBColumn name="ConversionMultiplier" type="FLOAT" nullable="false"/>
+			<DBColumn name="ConversionIsDivision" type="BIT" nullable="false"/>
+			<DBColumn name="ConversionAddition" type="FLOAT" nullable="false"/>
+			<DBPrimaryKey clustered="true">
+				<column>UnitID</column>
+				<column>StandardTitle</column>
+			</DBPrimaryKey>
+			<DBIndex name="IDX_PIMATRSTUN1" unique="false" clustered="false">
+				<column>UnitID</column>
+			</DBIndex>
+			<DBIndex name="IDX_PIMATRSTUN2" unique="false" clustered="false">
+				<column>StandardTitle</column>
+			</DBIndex>
+		</DBTable>
+		<DBTable name="cds_Pim_Atr_Order" localized="false" fileName="catalog/pim_atr_order.txt" tiedToOption="PIMFeed">
+			<DBColumn name="CatID" type="VARCHAR" length="2" nullable="false"/>
+			<DBColumn name="AtrID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="GroupID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="GroupOrder" type="INTEGER" nullable="false"/>
+			<DBColumn name="AtrOrder" type="INTEGER" nullable="false"/>
+			<DBColumn name="DisplayInTitle" type="BIT" nullable="false"/>
+			<DBColumn name="DisplayInMainSpecs" type="BIT" nullable="false"/>
+			<DBColumn name="DisplayInExtendedSpecs" type="BIT" nullable="false"/>
+			<DBColumn name="IsManaged" type="BIT" nullable="false"/>
+			<DBColumn name="IsDisabled" type="BIT" nullable="false"/>
+			<DBPrimaryKey clustered="true">
+				<column>CatID</column>
+				<column>AtrID</column>
+			</DBPrimaryKey>
+			<DBIndex name="IDX_PIMATRORDER1" unique="false" clustered="false">
+				<column>CatID</column>
+			</DBIndex>
+			<DBIndex name="IDX_PIMATRORDER2" unique="false" clustered="false">
+				<column>AtrID</column>
+			</DBIndex>
+			<DBForeignKey name="FK_PIMATRORDER_2_CCTxx">
+				<on table="cds_Pim_Atr_Order">
+					<column>CatID</column>
+				</on>
+				<references table="cds_Cctxx">
+					<column>ID</column>
+				</references>
+			</DBForeignKey>
+			<DBForeignKey name="FK_PIMATRORD_2_PIMATRMOD">
+				<on table="cds_Pim_Atr_Order">
+					<column>AtrID</column>
+				</on>
+				<references table="cds_Pim_Atr_Model">
+					<column>AtrID</column>
+				</references>
+			</DBForeignKey>
+		</DBTable>
+		<DBTable name="cds_Pim_Atr_Model" localized="false" fileName="catalog/pim_atr_model.txt" tiedToOption="PIMFeed">
+			<DBColumn name="AtrID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="GroupID" type="VARCHAR" length="10" nullable="false"/>
+			<DBColumn name="AttributeType" type="VARCHAR" length="50" nullable="false"/>
+			<DBColumn name="ValueType" type="VARCHAR" length="50" nullable="false"/>
+			<DBColumn name="IsComposable" type="BIT" nullable="false"/>
+			<DBColumn name="IsComposed" type="BIT" nullable="false"/>
+			<DBColumn name="IsLocalized" type="BIT" nullable="false"/>
+			<DBPrimaryKey clustered="false">
+				<column>AtrID</column>
+			</DBPrimaryKey>
+			<DBIndex name="IDX_PIMATRMODEL1" unique="false" clustered="false">
+				<column>AtrID</column>
+			</DBIndex>
+		</DBTable>
+	</TableSet>
+	<!--  U p d a t e   p o l i c i e s -->
+	<UpdatePolicy name="DataSource" description="Maintenance policy for DataSource (V4.0) data
+		model">
+		<!-- ************************
+	       Process obsolete content
+	       ************************	  
+	     The deleleObsoleteContent method deletes all content from the repository which we know will not be used.
+	     The method has 4 arguments:
+	       1) deleteType: "WhenInBoth" means that records from the repository with an existing key in staging
+	                      are deleted.
+	                      "WhenOnlyInProd" means that only records from the repository which don't exist in the 
+	                      stagin are deleted
+	       2) column: the column from the repository's "tableName" table which will be used as a key
+	       3) stageTable: the table from the staging dataset which. when it doens't contains a record
+	          (keyed by "stageColumn"), lets us know that the content is obsolete
+	       4) stageColumn: the key column for stagetable
+	   -->
+		<UpdatePolicyMethod tableName="cds_Mspecxx" methodName="deleteObsoleteContent"
+			description="Remove main specification records from repository when they are linked to
+			products which have been removed from the catalog">
+			<UpdatePolicyArg name="deleteType" value="WhenOnlyInProd"/>
+			<UpdatePolicyArg name="column" value="ProdID"/>
+			<UpdatePolicyArg name="stageTable" value="cds_Catalog"/>
+			<UpdatePolicyArg name="stageColumn" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Especxx" methodName="deleteObsoleteContent"
+			description="Remove extended specification records from repository when they are linked
+			to products which have been removed from the catalog">
+			<UpdatePolicyArg name="deleteType" value="WhenOnlyInProd"/>
+			<UpdatePolicyArg name="column" value="ProdID"/>
+			<UpdatePolicyArg name="stageTable" value="cds_Catalog"/>
+			<UpdatePolicyArg name="stageColumn" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Stdnxx" methodName="deleteObsoleteContent"
+			description="Remove standardized description records from repository when they are
+			linked to products which have been removed from the catalog">
+			<UpdatePolicyArg name="deleteType" value="WhenOnlyInProd"/>
+			<UpdatePolicyArg name="column" value="ProdID"/>
+			<UpdatePolicyArg name="stageTable" value="cds_Catalog"/>
+			<UpdatePolicyArg name="stageColumn" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Acc_Links" methodName="deleteObsoleteContent"
+			description="Remove parent/accessory links records from repository when their parent
+			product have been removed from the catalog">
+			<UpdatePolicyArg name="deleteType" value="WhenOnlyInProd"/>
+			<UpdatePolicyArg name="column" value="PProdID"/>
+			<UpdatePolicyArg name="stageTable" value="cds_Catalog"/>
+			<UpdatePolicyArg name="stageColumn" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_AccCompat" methodName="deleteObsoleteContent"
+			description="Remove compatibility records from repository for accessory products which
+			have been removed from the catalog">
+			<UpdatePolicyArg name="deleteType" value="WhenOnlyInProd"/>
+			<UpdatePolicyArg name="column" value="ProdID"/>
+			<UpdatePolicyArg name="stageTable" value="cds_Catalog"/>
+			<UpdatePolicyArg name="stageColumn" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Acc_Updates" methodName="deleteObsoleteContent"
+			description="Remove compatibility update records from repository products which have
+			been removed from the catalog ">
+			<UpdatePolicyArg name="deleteType" value="WhenOnlyInProd"/>
+			<UpdatePolicyArg name="column" value="ProdID"/>
+			<UpdatePolicyArg name="stageTable" value="cds_Catalog"/>
+			<UpdatePolicyArg name="stageColumn" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Acc_Links" methodName="deleteObsoleteContent"
+			description="Remove parent/accessory links records from repository when they were
+			flagged as needing an update (delete+insert)">
+			<UpdatePolicyArg name="deleteType" value="WhenInBoth"/>
+			<UpdatePolicyArg name="column" value="ProdID"/>
+			<UpdatePolicyArg name="stageTable" value="cds_Acc_Updates"/>
+			<UpdatePolicyArg name="stageColumn" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_AccCompat" methodName="deleteObsoleteContent"
+			description="Remove compatibility records from repository when they were flagged as
+			needing an update">
+			<UpdatePolicyArg name="deleteType" value="WhenInBoth"/>
+			<UpdatePolicyArg name="column" value="ProdID"/>
+			<UpdatePolicyArg name="stageTable" value="cds_Acc_Updates"/>
+			<UpdatePolicyArg name="stageColumn" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Atr" methodName="deleteObsoleteContent"
+			description="Remove searchable attribute records from repository when they are linked to
+			products which have been removed from the catalog">
+			<UpdatePolicyArg name="deleteType" value="WhenOnlyInProd"/>
+			<UpdatePolicyArg name="column" value="ProdID"/>
+			<UpdatePolicyArg name="stageTable" value="cds_Catalog"/>
+			<UpdatePolicyArg name="stageColumn" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Atr_full" methodName="deleteObsoleteContent"
+			description="Remove atomic searchable attribute records from repository when they are
+			linked to products which have been removed from the catalog">
+			<UpdatePolicyArg name="deleteType" value="WhenOnlyInProd"/>
+			<UpdatePolicyArg name="column" value="ProdID"/>
+			<UpdatePolicyArg name="stageTable" value="cds_Catalog"/>
+			<UpdatePolicyArg name="stageColumn" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Metamap" methodName="deleteObsoleteContent"
+			description="Remove metamapping records from repository when they are linked to products
+			which have been removed from the catalog">
+			<UpdatePolicyArg name="deleteType" value="WhenOnlyInProd"/>
+			<UpdatePolicyArg name="column" value="ProdID"/>
+			<UpdatePolicyArg name="stageTable" value="cds_Catalog"/>
+			<UpdatePolicyArg name="stageColumn" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Pim_Atr" methodName="deleteObsoleteContent"
+			description="Remove searchable attribute records from repository when they are linked to
+			products which have been removed from the catalog">
+			<UpdatePolicyArg name="deleteType" value="WhenOnlyInProd"/>
+			<UpdatePolicyArg name="column" value="ProdID"/>
+			<UpdatePolicyArg name="stageTable" value="cds_Catalog"/>
+			<UpdatePolicyArg name="stageColumn" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Pim_Atr_Composable" methodName="deleteObsoleteContent"
+			description="Remove searchable attribute records from repository when they are linked to
+			products which have been removed from the catalog">
+			<UpdatePolicyArg name="deleteType" value="WhenOnlyInProd"/>
+			<UpdatePolicyArg name="column" value="ProdID"/>
+			<UpdatePolicyArg name="stageTable" value="cds_Catalog"/>
+			<UpdatePolicyArg name="stageColumn" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Prod" methodName="deleteObsoleteContent"
+			description="Remove product records from repository when they are linked to products
+			which have been removed from the catalog">
+			<UpdatePolicyArg name="deleteType" value="WhenOnlyInProd"/>
+			<UpdatePolicyArg name="column" value="ProdID"/>
+			<UpdatePolicyArg name="stageTable" value="cds_Catalog"/>
+			<UpdatePolicyArg name="stageColumn" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_DigContent_Links" methodName="deleteObsoleteContent"
+			description="Remove product->digital content associations when the product is no longer
+			part of the catalog">
+			<UpdatePolicyArg name="deleteType" value="WhenOnlyInProd"/>
+			<UpdatePolicyArg name="column" value="ProdID"/>
+			<UpdatePolicyArg name="stageTable" value="cds_Catalog"/>
+			<UpdatePolicyArg name="stageColumn" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<!-- delete links for SKUs that have been changed, i.e. found in stage(cds_DigContent_Prod) -->
+		<UpdatePolicyMethod tableName="cds_DigContent_Links" methodName="deleteObsoleteContent"
+			description="Remove product->digital content associations when the content has changed
+			(part of the increment's DigitalContent_Prod.txt file)">
+			<UpdatePolicyArg name="deleteType" value="WhenInBoth"/>
+			<UpdatePolicyArg name="column" value="ProdID"/>
+			<UpdatePolicyArg name="stageTable" value="cds_DigContent_Prod"/>
+			<UpdatePolicyArg name="stageColumn" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_DigContent_Prod" methodName="deleteObsoleteContent"
+			description="Clean up the digital content product master when products are removed from
+			the catalog">
+			<UpdatePolicyArg name="deleteType" value="WhenOnlyInProd"/>
+			<UpdatePolicyArg name="column" value="ProdID"/>
+			<UpdatePolicyArg name="stageTable" value="cds_Catalog"/>
+			<UpdatePolicyArg name="stageColumn" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<!-- *****************************
+	       Clean up unreferenced content
+	       *****************************
+	  
+	     The deleteOrphanedContent method deletes all content from the repository which is not being referenced anymore.
+	     Common cases: all records which referenced a vocabulary record have been deleted but the unused vocabulary record 
+	     is still in the DB.
+	     The method has 3 arguments:
+	       1) column: the column from the repository's "tableName" table which will be used as a key
+	       
+	       2) stageTable: the table from the staging dataset which, when it doens't contain a record
+	          keyed by "stageColumn", lets us know that the repository content is obsolete
+	       3) stageColumn: the key column for stagetable
+	       
+	       OR
+	       
+	       2) repositoryTable: the table from the repository dataset which, when it doens't contain a record
+	          keyed by "repositoryColumn", lets us know that the repository content is obsolete
+	       3) repositoryColumn: the key column for repositoryTable
+	  -->
+		<UpdatePolicyMethod tableName="cds_AccCompat_Complement_xx"
+			methodName="deleteOrphanedContent" description="Delete dangling references from
+			AccessoryCompatibility_Complement">
+			<UpdatePolicyArg name="column" value="ComplementID"/>
+			<UpdatePolicyArg name="repositoryTable" value="cds_AccCompat"/>
+			<UpdatePolicyArg name="repositoryColumn" value="ComplementID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_DigContent_Region_Links"
+			methodName="deleteOrphanedContent" description="Delete region links which have seen the
+			content they were related to go away">
+			<UpdatePolicyArg name="column" value="ContentGuid"/>
+			<UpdatePolicyArg name="repositoryTable" value="cds_DigContent"/>
+			<UpdatePolicyArg name="repositoryColumn" value="ContentGuid"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_DigContent_Lang_Links" methodName="deleteOrphanedContent"
+			description="Delete region links which have seen the content they were related to go
+			away">
+			<UpdatePolicyArg name="column" value="ContentGuid"/>
+			<UpdatePolicyArg name="repositoryTable" value="cds_DigContent"/>
+			<UpdatePolicyArg name="repositoryColumn" value="ContentGuid"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_DigContent_Meta" methodName="deleteOrphanedContent"
+			description="Delete meta data which have seen the content they were related to go
+			away">
+			<UpdatePolicyArg name="column" value="ContentGuid"/>
+			<UpdatePolicyArg name="repositoryTable" value="cds_DigContent"/>
+			<UpdatePolicyArg name="repositoryColumn" value="ContentGuid"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_DigContent_Text" methodName="deleteOrphanedContent"
+			description="Delete text records which have seen the content they were related to go
+			away">
+			<UpdatePolicyArg name="column" value="ContentGuid"/>
+			<UpdatePolicyArg name="repositoryTable" value="cds_DigContent"/>
+			<UpdatePolicyArg name="repositoryColumn" value="ContentGuid"/>
+		</UpdatePolicyMethod>
+		<!-- ************************************* 
+	       Update existing or insert new content
+	       *************************************
+	  -->
+		<UpdatePolicyMethod tableName="cds_SKUStatus" methodName="updateExistingAndInsertNew"
+			description="Update existing/changed SKUStatus records and insert new ones">
+			<UpdatePolicyArg name="column" value="StatusCode"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Catalog" methodName="updateExistingAndInsertNew"
+			description="Update existing/changed Catalog records and insert new ones">
+			<UpdatePolicyArg name="column" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_DigContent_Media_Types" methodName="updateExistingAndInsertNew"
+			description="Replace old MediaType definitions with new one">
+			<UpdatePolicyArg name="column" value="MediaTypeID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_DigContent_Regions" methodName="updateExistingAndInsertNew"
+			description="Replace old region definitions with new one">
+			<UpdatePolicyArg name="column" value="RegionCode"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_DigContent_Langs" methodName="updateExistingAndInsertNew"
+			description="Replace old Language definitions with new one">
+			<UpdatePolicyArg name="column" value="LanguageCode"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_DigContent" methodName="updateExistingAndInsertNew"
+			description="Update existing/changed  DigitalContent records and insert new ones">
+			<UpdatePolicyArg name="column" value="ContentGuid"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_DigContent_Lang_Links"
+			methodName="mergeTablesWithSwap" description="Update existing/changed
+			content/language associations records and insert new ones">
+			<UpdatePolicyArg name="column" value="ContentGuid"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_DigContent_Meta"
+			methodName="mergeTablesWithSwap" description="Update existing/changed
+			content/language associations records and insert new ones">
+			<UpdatePolicyArg name="column" value="ContentGuid"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_DigContent_Region_Links"
+			methodName="mergeTablesWithSwap" description="Update existing/changed
+			DigitalContent records and insert new ones">
+			<UpdatePolicyArg name="column" value="ContentGuid"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_DigContent_Prod" methodName="insertNew" description="Add
+			products which have digital content from increment">
+			<UpdatePolicyArg name="column" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_DigContent_Links" methodName="insertNew" description="Add
+			product->digital content links from increment">
+			<UpdatePolicyArg name="column" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_DigContent_Meta_AtrVoc" methodName="deleteExistingAndInsertNew"
+			description="Delete existing extended spec records for products which have been updated.
+			Insert new/updated extended spec records">
+			<UpdatePolicyArg name="column" value="MetaAtrId"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_DigContent_Meta_ValVoc" methodName="deleteExistingAndInsertNew"
+			description="Delete existing extended spec records for products which have been updated.
+			Insert new/updated extended spec records">
+			<UpdatePolicyArg name="column" value="MetaValueId"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_DigContent_Text" methodName="deleteExistingAndInsertNew"
+			description="Update existing/changed DigitalContent text records and insert new ones">
+			<UpdatePolicyArg name="column" value="ContentGuid"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Vocxx" methodName="updateExistingAndInsertNew"
+			description="Update existing/changed vocabulary records and insert new ones">
+			<UpdatePolicyArg name="column" value="ID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Vocxx_full" methodName="updateExistingAndInsertNew"
+			description="Update existing/changed atomic vocabulary records and insert new ones">
+			<UpdatePolicyArg name="column" value="ID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Cctxx" methodName="updateExistingAndInsertNew"
+			description="Update existing/changed category listing and insert newly created
+			categories">
+			<UpdatePolicyArg name="column" value="ID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Cat" methodName="replaceTableWithSwap" description="Entirely
+			replace category->attribute allocations">
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Mktxx" methodName="updateExistingAndInsertNew"
+			description="Update existing/changed marketing information and insert new ones">
+			<UpdatePolicyArg name="column" value="MktID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Prod" methodName="updateExistingAndInsertNew"
+			description="Update existing/changed product information master record and insert new
+			ones">
+			<UpdatePolicyArg name="column" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Stdnxx" methodName="mergeTablesWithSwap"
+			description="Update existing/changed standardized descriptions and insert new ones">
+			<UpdatePolicyArg name="column" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Evocxx" methodName="updateExistingAndInsertNew"
+			description="Update existing/changed extended spec vocabulary records and insert new
+			ones">
+			<UpdatePolicyArg name="column" value="ID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Mvocxx" methodName="updateExistingAndInsertNew"
+			description="Update existing/changed mainspec vocabulary records and insert new ones">
+			<UpdatePolicyArg name="column" value="ID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Especxx" methodName="mergeTablesWithSwap"
+			description="Delete existing extended spec records for products which have been updated.
+			Insert new/updated extended spec records">
+			<UpdatePolicyArg name="column" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Mspecxx" methodName="mergeTablesWithSwap"
+			description="Delete existing main spec records for products which have been updated.
+			Insert new/updated extended spec records">
+			<UpdatePolicyArg name="column" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_AccCompat_Complement_xx"
+			methodName="mergeTablesWithSwap" description="Update existing/changed accessory
+			compatilibility complements and insert new ones">
+			<UpdatePolicyArg name="column" value="ComplementID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Acc_Updates" methodName="insertNew" description="Update
+			existing/changed main spec vocabulary records and insert new ones">
+			<UpdatePolicyArg name="column" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Acc_Links" methodName="mergeTablesWithSwap"
+			description="Delete accessory->parent records when updates are available then add
+			updated/new records">
+			<UpdatePolicyArg name="column" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_AccCompat" methodName="insertNew" description="Insert
+			updated accessory->parent product links records">
+			<UpdatePolicyArg name="column" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Atr" methodName="mergeTablesWithSwap"
+			description="Delete searchable attribute records which may have changed  then add their
+			updates or new records">
+			<UpdatePolicyArg name="column" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Atr_full" methodName="mergeTablesWithSwap"
+			description="Delete atomic searchable attribute records which may have changed  then add
+			their updates or new records">
+			<UpdatePolicyArg name="column" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Distivoc" methodName="updateExistingAndInsertNew"
+			description="Update existing/changed metamap contributors and insert new ones">
+			<UpdatePolicyArg name="column" value="ID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Metamap" methodName="replaceTableWithSwap" description="Full
+			reload of metamapping table ">
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Regions" methodName="truncateThenCopy"
+			description="Full reload of regions table">
+			<UpdatePolicyArg name="DUMMY" value="REMOVE"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Lifecycle" methodName="replaceTableWithSwap"
+			description="Full reload of lifecycle table">
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Languages" methodName="truncateThenCopy"
+			description="Full reload of languages table">
+			<UpdatePolicyArg name="DUMMY" value="REMOVE"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Cct_Version" methodName="truncateThenCopy"
+			description="Full reload of Version table">
+			<UpdatePolicyArg name="DUMMY" value="REMOVE"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Cct_Categories" methodName="truncateThenCopy"
+			description="Full reload of Categories table">
+			<UpdatePolicyArg name="DUMMY" value="REMOVE"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Cct_Products" methodName="replaceTableWithSwap"
+			description="Full reload of Products table">
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Cct_Vocabulary" methodName="replaceTableWithSwap"
+			description="Full reload of Vocabulary tablee">
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_UNSPSCCommodity" methodName="truncateThenCopy"
+			description="Full reload of UNSPSC commodity definition table ">
+			<UpdatePolicyArg name="DUMMY" value="REMOVE"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_UNSPSC" methodName="replaceTableWithSwap" description="Full
+			reload of Product->UNSPSC allocation table ">
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_UNSPSCVersion" methodName="replaceTableWithSwap"
+			description="Refresh UNSPSC version (1 record)">
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_UNSPSC_Versions" methodName="truncateThenCopy"
+			description="Reload UNSPSC versions"> </UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_UNSPSC_Versioned_Commodities"
+			methodName="truncateThenCopy" description="Reload UNSPSC commodity codes/names">
+			<UpdatePolicyArg name="DUMMY" value="REMOVE"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_UNSPSC_Versioned_Links" methodName="replaceTableWithSwap"
+			description="Refresh UNSPSC->CNET associations"> </UpdatePolicyMethod>
+		<!-- Remove records from tables updatable in full which are not part of the stage anymore -->
+		<UpdatePolicyMethod tableName="cds_Distivoc" methodName="deleteObsoleteContent"
+			description="Remove stale metamapping contributor information">
+			<UpdatePolicyArg name="deleteType" value="WhenOnlyInProd"/>
+			<UpdatePolicyArg name="column" value="ID"/>
+			<UpdatePolicyArg name="stageTable" value="cds_Distivoc"/>
+			<UpdatePolicyArg name="stageColumn" value="ID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Cctxx" methodName="deleteObsoleteContent"
+			description="Remove stale category definitions">
+			<UpdatePolicyArg name="deleteType" value="WhenOnlyInProd"/>
+			<UpdatePolicyArg name="column" value="ID"/>
+			<UpdatePolicyArg name="stageTable" value="cds_Cctxx"/>
+			<UpdatePolicyArg name="stageColumn" value="ID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Catalog" methodName="deleteObsoleteContent"
+			description="Remove stale products from catalog (products not found in increment's
+			catalog)">
+			<DisableForeignKeys>true</DisableForeignKeys>
+			<UpdatePolicyArg name="deleteType" value="WhenOnlyInProd"/>
+			<UpdatePolicyArg name="column" value="ProdID"/>
+			<UpdatePolicyArg name="stageTable" value="cds_Catalog"/>
+			<UpdatePolicyArg name="stageColumn" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_SKUStatus" methodName="deleteObsoleteContent"
+			description="Remove SKU statuses which may have been discontinued">
+			<UpdatePolicyArg name="deleteType" value="WhenOnlyInProd"/>
+			<UpdatePolicyArg name="column" value="StatusCode"/>
+			<UpdatePolicyArg name="stageTable" value="cds_SKUStatus"/>
+			<UpdatePolicyArg name="stageColumn" value="StatusCode"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_DigContent_Regions" methodName="deleteOrphanedContent"
+			description="Remove unused regions">
+			<UpdatePolicyArg name="column" value="RegionCode"/>
+			<UpdatePolicyArg name="repositoryTable" value="cds_DigContent_Region_Links"/>
+			<UpdatePolicyArg name="repositoryColumn" value="RegionCode"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_DigContent_Media_Types" methodName="deleteOrphanedContent"
+			description="Remove unused media types">
+			<UpdatePolicyArg name="column" value="MediaTypeID"/>
+			<UpdatePolicyArg name="repositoryTable" value="cds_DigContent"/>
+			<UpdatePolicyArg name="repositoryColumn" value="MediaTypeID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Asa_Cat" methodName="truncateThenCopy" description="Full
+			reload of cds_Asa_Cat table ">
+			<UpdatePolicyArg name="DUMMY" value="REMOVE"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Asa_Cat_Alt" methodName="truncateThenCopy" description="Full
+			reload of cds_Asa_Cat_Alt table ">
+			<UpdatePolicyArg name="DUMMY" value="REMOVE"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Asa_Cat_Updates" methodName="truncateThenCopy" description="Full
+			reload of cds_Asa_Cat_Updates table ">
+			<UpdatePolicyArg name="DUMMY" value="REMOVE"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Asa_Ranges_Imperial" methodName="truncateThenCopy" description="Full
+			reload of cds_Asa_Ranges_Imperial table ">
+			<UpdatePolicyArg name="DUMMY" value="REMOVE"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Asa_Ranges_Metric" methodName="truncateThenCopy" description="Full
+			reload of cds_Asa_Ranges_Metric table ">
+			<UpdatePolicyArg name="DUMMY" value="REMOVE"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Asa_Voc" methodName="truncateThenCopy" description="Full
+			reload of cds_Asa_Voc table ">
+			<UpdatePolicyArg name="DUMMY" value="REMOVE"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Asa_Cat_Alt_Updates" methodName="truncateThenCopy" description="Full
+			reload of cds_Asa_Cat_Alt_Updates table ">
+			<UpdatePolicyArg name="DUMMY" value="REMOVE"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Asa_Metric" methodName="truncateThenCopy" description="Full
+			reload of cds_Asa_Ranges_Imperial table ">
+			<UpdatePolicyArg name="DUMMY" value="REMOVE"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Atr_Logical_Order" methodName="truncateThenCopy" description="Full
+			reload of cds_Atr_Logical_Order table ">
+			<UpdatePolicyArg name="DUMMY" value="REMOVE"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_ISO_Languages" methodName="truncateThenCopy"  description="Full
+			reload of cds_ISO_Languages table ">
+			<UpdatePolicyArg name="DUMMY" value="REMOVE"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Pim_Atr_Voc" methodName="deleteExistingAndInsertNew"
+			description="Delete existing/changed cds_Pim_Atr_Voc records and insert new ones">
+			<UpdatePolicyArg name="column" value="ID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Pim_Atr_Standard_Units" methodName="truncateThenCopy"  description="Full
+			reload of cds_Pim_Atr_Standard_Units table ">
+			<UpdatePolicyArg name="DUMMY" value="REMOVE"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Pim_Atr_Model" methodName="truncateThenCopy"  description="Full
+			reload of cds_Pim_Atr_Model table ">
+			<UpdatePolicyArg name="DUMMY" value="REMOVE"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Pim_Atr_Order" methodName="truncateThenCopy"  description="Full
+			reload of cds_Pim_Atr_Order table ">
+		<UpdatePolicyArg name="DUMMY" value="REMOVE"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Pim_Atr" methodName="deleteExistingAndInsertNew"
+			description="Delete existing/changed cds_Pim_Atr records and insert new ones">
+			<UpdatePolicyArg name="column" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Pim_Atr_Composable" methodName="deleteExistingAndInsertNew"
+			description="Delete existing/changed cds_Pim_Atr_Composable records and insert new ones">
+			<UpdatePolicyArg name="column" value="ProdID"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Prod" methodName="truncateStagingTables" description="***
+			CLEAN UP STAGING ENVIRONMENT">
+			<UpdatePolicyArg name="tableSet" value="DataSource"/>
+		</UpdatePolicyMethod>
+		<UpdatePolicyMethod tableName="cds_Prod" methodName="rebuildIndexes" description="***
+			REBUILD INDEXES">
+			<UpdatePolicyArg name="tableSet" value="DataSource"/>
+		</UpdatePolicyMethod>
+	</UpdatePolicy>
+	<ConnectorStatus>
+		<StatusTable tableName="cds_ConnectorStatus">
+			<StatusCode>StatusCode</StatusCode>
+			<StatusTimestamp>StatusTimestamp</StatusTimestamp>
+			<Mode>StatusMode</Mode>
+		</StatusTable>
+		<StatusCodeTable tableName="cds_ConnectorStatusCode">
+			<StatusCode>StatusCode</StatusCode>
+		</StatusCodeTable>
+	</ConnectorStatus>
+	<Metadata tableName="cds_Metadata">
+		<DbSchemaVersionColumn>SchemaVersion</DbSchemaVersionColumn>
+        <DbConfigurationPreviousColumn>ConfigurationPrevious</DbConfigurationPreviousColumn>
+        <DbDataSourcePreviousColumn>DataSourcePrevious</DbDataSourcePreviousColumn>
+        <DbForceRecreateColumn>ForceRecreate</DbForceRecreateColumn>
+	</Metadata>
+</DBSchema>

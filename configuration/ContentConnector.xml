@@ -1,0 +1,276 @@
+<?xml version="1.0"?>
+<ContentConnector>
+	<DataFeedConfiguration>
+			<!-- All Services -->
+		<KeepArchivedZipsFor days="14"/> <!-- Delete archived files 'download.zip' after they have been kept for the specified amount of time. If the tag is not present (or the value of the attribute 'days' is less than 0) the archived downloads will be kept forever. -->
+		<!--<IndexCompression type="ROW"/>--><!-- Only supported by SQL Sever 2008+ Enterprise Edition or Developer Edition. Sets data compression type ('ROW', 'PAGE', or 'NONE') for all indexes that do not have their own compressionType attribute" -->
+		<!--<TableCompression type="PAGE"/>--><!-- Only supported by SQL Sever 2008+ Enterprise Edition or Developer Edition. Sets data compression type ('ROW', 'PAGE', or 'NONE') for all tables that do not have their own compressionType attribute" -->
+		<!--<Option>UseTruncate</Option>--> <!-- With this option enabled the application will use TRUNCATE instead of DELETE to clear tables. TRUNCATE is faster, takes less transaction log space, but breaks replication. -->
+		<Option>UpdateStatisticsOnBulkInsert</Option>  <!--Update table statistics after a bulk insert. Can cleanup table structures after a bulk insert-->
+		<Option>ConnectorStatus</Option>  <!--This option is used for providing the status of each Connector run-->
+		<!--Option>JVMProps</Option-->  <!--Display JVM properties in the log file. For debugging purposes-->
+		<!--Option>DisplayInsertRecordCount</Option-->  <!--Display the number of records that were bulk inserted in the log file. For debugging purposes. This causes an extra select.-->
+		<!--Option>NoMySQLCharacterSetSupport</Option-->  <!--Do not send character set property to MySQL. Certain older versions of MySQL did not support character sets for bulk inserts for multiple languages-->
+		<!--Option>DisableTabLock</Option-->  <!--Do not use TABLOCK during SQL Server bulk inserts. This can prevent table locking, but also slows down inserts-->
+		<!--Option>OracleUseUnixNewLine</Option-->  <!--Use Unix new lines for Oracle bulk inserts. Can be necessary if bulk inserts fail because of lines-->
+		<!-- DataSource -->
+		<!--Option>KeepACK</Option-->  <!--When disabled triggers the delivery of the new increment download.zip file automatically once the current file is processed successfully by the ContentConnector-->
+		<Option>SearchableAttributes</Option>  <!--Loads ProductLine/Model attributes or the full set of searchable attributes-->
+		<!--Option>NewUNSPSC</Option-->  <!--Loads UNSPSC data-->
+		<!--Option>UNSPSC</Option-->  <!--This is a legacy option for UNSPSC data-->
+		<Option>Metamap</Option>  <!--Keep enabled. Loads Customer SKUs, UPC codes, Distributors' Part Numbers when the account is set up to receive these options-->
+		<!--Option>NVARCHAR</Option--> <!--This option should be set for SQLServer UTF16/UTF8 encoding for double bytes support-->
+		<!--Option>RelatedProductsLinks</Option-->  <!--Loads Related Products Links (Accessory SKU-to-Parent SKU link)-->
+		<!--Option>RelatedProductsRules</Option-->  <!--Loads Related Products Rules (Accessory SKU-to-Parent ProductLine/Model link)-->
+		<Option>DigitalContent</Option>  <!--Loads digital content data-->
+		<Option>DigitalContentMeta</Option>  <!--Loads Meta Attributes (Image Size, Image Type, Image Angle, etc.)-->
+		<Option>DigitalContentText</Option>  <!--Loads digital content text-->
+		<!--Option>DownloadDigitalContent</Option-->  <!--Downloads the digital content - Steven Modified-->
+		<Option>ProcessThumbnails</Option>  <!--Generates thumbnails. Defined in Thumbnails section below-->
+		<Option>MainSpecs</Option>  <!--Loads Main Specifications-->
+		<Option>ExtendedSpecs</Option>  <!-- Loads Extended Specifications-->
+		<!--Option>MarketingText</Option-->  <!--Legacy marketing text option-->
+		<Option>MarketingTextDigContent</Option>  <!--Loads the marketing text which is delivered in digital content-->
+		<!--Option>Atomic</Option-->  <!--Loads Atomic Data-->
+		<Option>CatalogInfo</Option>  <!--Loads the Catalog information (SKU current status, last delivery date, etc.)-->
+		<Option>Lifecycle</Option>  <!--Loads Product Lifecycle data (Mfg Release Date, Mfg Discontinue Date)-->
+		<Option>Categorization</Option>  <!--Loads Alternative Categorization-->
+		<Option>CheckMissedIncrement</Option>  <!--Checks missing data. If any data is missing the ContentConnector exits with "An increment has been missed"-->
+		<!-- Option>SecureFTP</Option-->  <!--Downloads the files via SFTP (FTP over SSH)-->
+		<!-- Option>External:AlternativeSearchableAttributes</Option-->  <!--Loads the external files with Alternative Searchable Attributes-->
+		<!-- Option>External:AttributeDisplayOrder</Option-->  <!--Loads a file that contains the logical ordering of searchable attributes, including those that are not part of the alternative set-->
+		<!-- Option>External:LanguageMapping</Option-->  <!--Loads a file that maps CNET language codes to ISO codes-->
+		<!--Option>UploadProducts</Option-->  <!--Uploads product requests-->
+		<!--Option>StageOnly</Option-->  <!--Only load the staging tables for an increment. Does not apply the update policies. Production tables will be empty-->
+		<!--Option>KeepStage</Option-->  <!--Do not truncate the staging tables at the end of the Connector run. Staging tables will still be truncated at the beginning-->
+		<!--Option>PIMFeed</Option-->  <!-- PIM Feed -->
+
+		<!-- Languages -->
+		<!--Language CNETFileCode="br" ISOCode="" TableCode="br" Create="True" Load="True"/--> <!-- Brazilian Portuguese --> 
+		<!--Language CNETFileCode="cs" ISOCode="" TableCode="cs" Create="True" Load="True"/--> <!-- Chinese Simplified -->
+		<!--Language CNETFileCode="cz" ISOCode="" TableCode="cz" Create="True" Load="True"/--> <!-- Czech -->
+		<!--Language CNETFileCode="da" ISOCode="" TableCode="da" Create="True" Load="True"/--> <!-- Danish -->
+		<!--Language CNETFileCode="de" ISOCode="" TableCode="de" Create="True" Load="True"/--> <!-- German -->
+		<!--Language CNETFileCode="ee" ISOCode="" TableCode="ee" Create="True" Load="True"/--> <!-- British English -->
+		<!--Language CNETFileCode="en" ISOCode="" TableCode="en" Create="True" Load="True"/--> <!-- English -->
+		<!--Language CNETFileCode="es" ISOCode="" TableCode="es" Create="True" Load="True"/--> <!-- Spanish -->
+		<Language CNETFileCode="ez" ISOCode="" TableCode="ez" Create="True" Load="True"/> <!-- English with Imperial Units of Measure -->
+		<!--Language CNETFileCode="fi" ISOCode="" TableCode="fi" Create="True" Load="True"/--> <!-- Finnish -->
+		<!--Language CNETFileCode="fr" ISOCode="" TableCode="fr" Create="True" Load="True"/--> <!-- French -->
+		<!--Language CNETFileCode="fz" ISOCode="" TableCode="fz" Create="True" Load="True"/--> <!-- French with Imperial Units of Measure -->
+		<!--Language CNETFileCode="hk" ISOCode="" TableCode="hk" Create="True" Load="True"/--> <!-- Chinese Traditional, Hong Kong -->
+		<!--Language CNETFileCode="id" ISOCode="" TableCode="id" Create="True" Load="True"/--> <!-- Indonesian -->
+		<!--Language CNETFileCode="it" ISOCode="" TableCode="it" Create="True" Load="True"/--> <!-- Italian -->
+		<!--Language CNETFileCode="ja" ISOCode="" TableCode="ja" Create="True" Load="True"/--> <!-- Japanese -->
+		<!--Language CNETFileCode="ko" ISOCode="" TableCode="ko" Create="True" Load="True"/--> <!-- Korean -->
+		<!--Language CNETFileCode="nl" ISOCode="" TableCode="nl" Create="True" Load="True"/--> <!-- Dutch -->
+		<!--Language CNETFileCode="no" ISOCode="" TableCode="no" Create="True" Load="True"/--> <!-- Norwegian -->
+		<!--Language CNETFileCode="pl" ISOCode="" TableCode="pl" Create="True" Load="True"/--> <!-- Polish -->
+		<!--Language CNETFileCode="pt" ISOCode="" TableCode="pt" Create="True" Load="True"/--> <!-- Portuguese -->
+		<!--Language CNETFileCode="ru" ISOCode="" TableCode="ru" Create="True" Load="True"/--> <!-- Russian -->
+		<!--Language CNETFileCode="sv" ISOCode="" TableCode="sv" Create="True" Load="True"/--> <!-- Swedish -->
+		<!--Language CNETFileCode="sz" ISOCode="" TableCode="sz" Create="True" Load="True"/--> <!-- Spanish with Imperial Units of Measure -->
+		<!--Language CNETFileCode="tr" ISOCode="" TableCode="tr" Create="True" Load="True"/--> <!-- Turkish -->
+		<!--Language CNETFileCode="tw" ISOCode="" TableCode="tw" Create="True" Load="True"/--> <!-- Chinese Traditional, (Taiwan) -->
+		
+		<!--Encoding/Codepage Documentation      /-->
+		<!--                                     /-->
+		<!-- SQLSERVER                           /-->
+		<!-- ja = 932                            /-->
+		<!-- cs = 936                            /-->
+		<!-- ko = 949                            /-->
+		<!-- hk = 950                            /-->
+		<!-- tw = 950                            /-->
+		<!-- cz = 1250                           /-->
+		<!-- pl = 1250                           /-->
+		<!-- ru = 1251                           /-->
+		<!-- tr = 1254                           /-->
+		<!-- br = 1252                           /-->
+		<!-- da = 1252                           /-->
+		<!-- de = 1252                           /-->
+		<!-- ee = 1252                           /-->
+		<!-- en = 1252                           /-->
+		<!-- es = 1252                           /-->
+		<!-- ez = 1252                           /-->
+		<!-- fi = 1252                           /-->
+		<!-- fr = 1252                           /-->
+		<!-- fz = 1252                           /-->
+		<!-- id = 1252                           /-->
+		<!-- it = 1252                           /-->
+		<!-- nl = 1252                           /-->
+		<!-- no = 1252                           /-->
+		<!-- pt = 1252                           /-->
+		<!-- sv = 1252                           /-->
+		<!-- sz = 1252                           /-->
+
+	</DataFeedConfiguration>
+
+	<!-- DataSource -->
+	<DataExchanges ServiceName="DataSource" LocalDownloadPath="data/DataSource/zipped/download.zip"
+		LocalUnzippedPath="data/DataSource/unzipped" ImageRepository="data/DataSource/digitalcontent"
+		LocalUploadPath="data/DataSource/Upload"
+		ThumbnailRepository="data/DataSource/digitalcontent" CNETFTPMinutesBetweenAttempts="5" CNETFTPMaxAttempts="3"> <!-- Not UTF -->
+	<!-- DataExchanges ServiceName="DataSource" LocalDownloadPath="data/DataSource/zipped/download.zip"
+		LocalUnzippedPath="data/DataSource/unzipped" ImageRepository="data/DataSource/digitalcontent"
+		LocalUploadPath="data/DataSource/Upload"
+		ThumbnailRepository="data/DataSource/digitalcontent" CNETFTPMinutesBetweenAttempts="5" CNETFTPMaxAttempts="3" Encoding="UTF8"--> <!-- Oracle and PostGreSQL UTF8 -->
+	<!-- DataExchanges ServiceName="DataSource" LocalDownloadPath="data/DataSource/zipped/download.zip"
+		LocalUnzippedPath="data/DataSource/unzipped" ImageRepository="data/DataSource/digitalcontent"
+		LocalUploadPath="data/DataSource/Upload"
+		ThumbnailRepository="data/DataSource/digitalcontent" CNETFTPMinutesBetweenAttempts="5" CNETFTPMaxAttempts="3" Encoding="utf8"--> <!-- MySQL UTF8 -->
+	<!-- DataExchanges ServiceName="DataSource" LocalDownloadPath="data/DataSource/zipped/download.zip"
+		LocalUnzippedPath="data/DataSource/unzipped" ImageRepository="data/DataSource/digitalcontent"
+		LocalUploadPath="data/DataSource/Upload"
+		ThumbnailRepository="data/DataSource/digitalcontent" CNETFTPMinutesBetweenAttempts="5" CNETFTPMaxAttempts="3" Encoding="1200"--> <!-- SQLServer UTF16 -->
+	<!-- DataExchanges ServiceName="DataSource" LocalDownloadPath="data/DataSource/zipped/download.zip"
+		LocalUnzippedPath="data/DataSource/unzipped" ImageRepository="data/DataSource/digitalcontent"
+		LocalUploadPath="data/DataSource/Upload"
+		ThumbnailRepository="data/DataSource/digitalcontent" CNETFTPMinutesBetweenAttempts="5" CNETFTPMaxAttempts="3" Encoding="65001"--> <!-- SQLServer UTF8. UTF8 encoding is used only for files stored in Download.zip. Database storage encoding will still be UTF16  -->
+		<CNET Login="C17849" Password="O8u7ufY80u2" FTPURL="janus.cnetdata.com"/>
+		<DigitalContent Download="NewOrChangedSinceLastRun" NbThreads="10" ConnectionAttempts="20">
+			<MediaTypeRestriction>
+				<MediaType ID="1" Directory="JPG_200x150" Description="Standard image (200x150)">
+					<Thumbnails>
+						<Thumbnail ID="1"/>
+					</Thumbnails>
+				</MediaType>
+				<MediaType ID="2" Directory="JPG_400x300" Description="Large image (400x300)"/>
+				<MediaType ID="3" Directory="SSA" Description="Multi-angle images"/>
+				<MediaType ID="4" Directory="MARKETING_TEXT" Description="Localized marketing text"/>
+				<MediaType ID="5" Directory="KEY_SELLING_POINTS" Description="Key selling points"/>
+				<MediaType ID="10" Directory="WHATS_IN_THE_BOX" Description="What's in the Box"/>
+				<MediaType ID="11" Directory="PRODUCT_DATA_SHEET" Description="Product data sheet"/>
+				<MediaType ID="12" Directory="USER_MANUAL" Description="User manual"/>
+				<MediaType ID="13" Directory="QUICK_START_GUID" Description="Quick start guide"/>
+				<MediaType ID="14" Directory="PRODUCT_FEATURES" Description="Product features"/>
+				<MediaType ID="15" Directory="CCS" Description="CCS Product Images">
+					<Thumbnails>
+						<Thumbnail ID="1" Width="200" Height="150"/>
+					</Thumbnails>
+				</MediaType>
+				<MediaType ID="16" Directory="MSDS" Description="Material Safety Data Sheet"/>
+				<MediaType ID="17" Directory="MANUFACTURER_LOGOS" Description="Manufacturer Logos"/>
+				<MediaType ID="18" Directory="PRODUCT_DOCUMENTS" Description="Product Documents"/>
+			</MediaTypeRestriction>
+			<MimeTypeRestriction>
+				<MimeType MimeID="image/gif" Extension="gif"/>
+				<MimeType MimeID="image/jpeg" Extension="jpg"/>
+				<MimeType MimeID="image/x-photoshop" Extension="psd"/>
+				<MimeType MimeID="application/x-photoshop" Extension="psd"/>
+				<MimeType MimeID="application/xml" Extension="xml"/>
+				<MimeType MimeID="application/pdf" Extension="pdf"/>
+			</MimeTypeRestriction>
+		</DigitalContent>
+		<Thumbnails>
+			<Thumbnail ID="1" Directory="JPG_75x75" Width="75" Height="75"/>
+		</Thumbnails>		
+	</DataExchanges>
+	
+	<ExternalDataSet>
+		<ExternalDataSetFile description="CNET Alternative attributes" 
+		                     remoteFileName="cds_asa.zip" 
+		                     compressed="true" 
+		                     localFolder="cds_asa" 
+		                     tiedToOption="External:AlternativeSearchableAttributes">
+			<ExternalDataSetFileHTTP HTTPServerURL="http://www.cnetcontentsolutions.com/support/datasource/asa/cds_asa.zip"/>
+			<!-- ExternalDataSetFileHTTP HTTPServerURL="http://www.cnetcontentsolutions.com/support/datasource/asa/utf8/cds_asa.zip"/--> <!-- UTF8 -->
+			<!-- ExternalDataSetFileHTTP HTTPServerURL="http://www.cnetcontentsolutions.com/support/datasource/asa/utf16/cds_asa.zip"/--> <!-- UTF16 -->
+		</ExternalDataSetFile>
+		<ExternalDataSetFile 
+							 description="CNET standard attributes logical ordering" 
+							 remoteFileName="attribute_logical_display_order.txt" 
+							 compressed="false" 
+							 localFolder="attribute_display_order" 
+							 tiedToOption="External:AttributeDisplayOrder">
+			<ExternalDataSetFileHTTP HTTPServerURL="http://www.cnetcontentsolutions.com/support/datasource/exports/attribute_logical_display_order.txt"/>
+			<!-- ExternalDataSetFileHTTP HTTPServerURL="http://www.cnetcontentsolutions.com/support/datasource/exports/utf8/attribute_logical_display_order.txt"/--><!-- UTF8 -->
+			<!-- ExternalDataSetFileHTTP HTTPServerURL="http://www.cnetcontentsolutions.com/support/datasource/exports/utf16/attribute_logical_display_order.txt"/--><!-- UTF16 -->
+		</ExternalDataSetFile>
+		<ExternalDataSetFile
+						 description="CNET to ISO language code mappings"
+						 remoteFileName="cds_iso_languages.txt"
+						 compressed="false"
+						 localFolder="lang"
+						 tiedToOption="External:LanguageMapping">
+			<ExternalDataSetFileHTTP HTTPServerURL="http://www.cnetcontentsolutions.com/support/datasource/lang/cds_iso_languages.txt"/>
+			<!-- ExternalDataSetFileHTTP HTTPServerURL="http://www.cnetcontentsolutions.com/support/datasource/lang/utf8/cds_iso_languages.txt"/--><!-- UTF8 -->
+			<!-- ExternalDataSetFileHTTP HTTPServerURL="http://www.cnetcontentsolutions.com/support/datasource/lang/utf16/cds_iso_languages.txt"/--><!-- UTF16 -->
+		</ExternalDataSetFile>
+	</ExternalDataSet>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+	<!-- D a t a b a s e   d e f i n i t i o n s                                                  -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+	<!-- One of the following database types should be specified                                  -->
+	<!--                                                                                          -->
+	<!--   * SQLServer2000: Will work with SQL Server 2000, SQLServer 2005, SQL Server 2008,      -->
+	<!--     SQL Server 2008 R2, SQL Server 2012, SQL Server 2014, and SQL Server 2016.           -->
+	<!--                                                                                          -->
+	<!--   * MySQL4.0CompatibilityMode: Will work with MySQL 4.1, 5.x.			                  -->
+	<!--     The default table type for MySQL is MyISAM. InnoDB tables are supported but are much -->
+	<!--     slower than MyISAM. The only benefit they bring is foreign key enforcement.          -->
+	<!--     To set InnoDB as the default table type, replace <TableType>MyISAM</TableType> with  -->
+	<!--     <TableType>InnoDB</TableType>.                                                       -->
+	<!--                                                                                          -->
+	<!--   * MySQL4.1: Same as MySQL4.0Compatibility mode, but uses subselects which are not as   -->
+	<!--     fast as joins.                                                                       -->
+	<!--                                                                                          -->
+	<!--   * Oracle9i: Will work with Oracle 9i, 10g, and 11g.                                    -->
+	<!--     Requires Oracle SQL*Loader.                                                          -->
+	<!-- 																						  -->
+	<!--   * PostGreSQL9: Will work with PostGreSQL 8 and 9.									  -->
+	<!--  	 Requires permissions to use COPY command											  -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->	
+
+	<!-- Enable one of the following options -->
+	<Schema definition="configuration/DataSource/DataSource-SQLServer.xml"/>
+	<!--Schema definition="configuration/DataSource/DataSource-MySQL.xml"/-->
+	<!--Schema definition="configuration/DataSource/DataSource-Oracle.xml"/-->
+	<!--Schema definition="configuration/DataSource/DataSource-PostGreSql.xml"/-->
+	
+	<!-- SQL Server -->
+	<!-- <Databases Type="SQLServer2000">
+		<Driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</Driver>
+		<ServerURL>jdbc:sqlserver://localhost;database=DataSource</ServerURL>
+		<ProductDataDatabase name="DataSource" repositoryTablePrefix="" stagingTablePrefix="in_"/>
+		<Login User="cnetds" Password="Cn3td$123"/>
+		<Loader>Native</Loader>
+	</Databases> -->
+	
+	<!-- MySQL -->
+	<!--Databases Type="MySQL4.0CompatibilityMode">
+		<Driver>com.mysql.jdbc.Driver</Driver>
+		<ServerURL>jdbc:mysql://SERVER:3306/DATABASE</ServerURL>
+		<ProductDataDatabase name="DATABASE" repositoryTablePrefix="" stagingTablePrefix="in_"/>
+		<Login User="USERID" Password="PASSWORD"/>
+		<TableType>MyISAM</TableType>
+		<Loader>Local</Loader>
+	</Databases-->
+	
+	<!-- Oracle -->
+	<!--Databases Type="Oracle9i">		
+		<Driver>oracle.jdbc.driver.OracleDriver</Driver>
+		<ServerURL>jdbc:oracle:thin:@SERVER:1521:DATABASE</ServerURL>
+                <ProductDataDatabase name="DATABASE" repositoryTablePrefix="" stagingTablePrefix="in_"/-->
+                <!--ProductDataDatabase name="DATABASE" repositoryTablePrefix="" stagingTablePrefix="in_" schema="SCHEMA"/-->
+		<!---Login User="USERID" Password="PASSWORD"/>		
+		<Loader>Native</Loader>
+		<NoValidate>true</NoValidate>
+	</Databases-->
+
+	<!-- PostGreSQL -->
+	<!--Databases Type="PostGreSQL9">
+		<Driver>org.postgresql.Driver</Driver>
+		<ServerURL>jdbc:postgresql://SERVER:5432/DATABASE?allowEncodingChanges=true</ServerURL>
+		<ProductDataDatabase name="DATABASE" repositoryTablePrefix="" stagingTablePrefix="in_"/>
+		<Login User="USERID" Password="PASSWORD"/>
+	</Databases-->	
+	<Databases Type="PostGreSQL9">
+		<Driver>org.postgresql.Driver</Driver>
+		<ServerURL>jdbc:postgresql://127.0.0.1:5432/DATABASE?allowEncodingChanges=true</ServerURL>
+		<ProductDataDatabase name="testdb" repositoryTablePrefix="" stagingTablePrefix="in_"/>
+		<Login User="omar" Password="very_secure_password"/>
+	</Databases>
+	
+	<Monitoring logFileName="configuration/log4j.xml" statusFileName="logs/status.xml" />
+</ContentConnector>

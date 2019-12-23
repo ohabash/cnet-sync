@@ -1,0 +1,362 @@
+Version 2.2.3.4
+----------------
+* Make sure running the application in the 'create' mode is safe given the current state of the database.
+* Make the commands 'full' and 'increment' aliases command called 'import' that perform both operations depending on the type of the delivery
+* Make the commands 'fullnodownload' and 'incrementnodownload' aliases command called 'importnodownload' that perform both operations depending on the type of the delivery
+* Remove the option 'CheckIsFullDownload'
+* Use variable-length data types on SQLServer instead of fixed-length ones
+* Change the data type of the 'IsObsolete' column to 'bit' on SQLServer
+* Use the 'date' data type for timestamp columns on SQLServer
+* Significantly reduce the number of file system calls during digital content download
+* Optimize performance and space usage on SQLServer
+* Add support for SOCKS5 proxies
+* Make the options 'RelatedProductsLinks' and 'RelatedProductsRules' work even if the option 'RelatedProducts' is disabled
+* Fix the 'NVARCHAR' option on SQLServer
+* Remove the obsolete section 'ProductReviews' from the configuration file
+* Add the SQLServer UTF8 section into the configuration file (DataExchanges)
+* Remove archived downloads after a certain period of time (30 days by default)
+* Allow to specify data compression for tables and indexes on SQL Server (requires SQL Server 2008+, Enterprise or Developer edition)
+* Create a new option 'UseTruncate' that allows to clear tables more efficiently
+* Rename the field 'cds_catalog.Reserved4' to 'cds_catalog.IsObsolete'
+* Update information about supported versions of SQL Server
+* Enable the option 'DigitalContentText' by default
+* cds_sku_request fields were aligned with MFC/PRC files
+* Perform empty database check if NVARCHAR option has changed its value
+
+Version 2.2.3.3
+----------------
+* Fix sku upload for PostGreSQL
+* SQL Server to use single quotes for bulk insert
+* SFTP mode fix for upload files
+
+Version 2.2.3.1
+----------------
+* Lengthen pim_atr_voc Text field
+
+Version 2.2.3.0
+----------------
+* Supports new PIM Feed tables
+
+Version 2.2.2.0
+----------------
+* Supports digitalcontent/Digital_Content_Text.txt
+
+Version 2.2.1.0
+----------------
+* Update connector to handle utf-8 and utf-16 download.zip
+* Move ExternalDataSet configuration to ContentConnector.xml
+* Add ExternalDataSet processing to PostGreSQL
+* Support utf-8 and utf-16 for ExternalDataSets
+* Handle backslashes in table data for PostGreSQL
+* Requires JDK 1.7
+
+Version 2.2.0.11
+----------------
+* Update policy for cds_Cct_Version and cds_Cct_Categories changed to truncateThenCopy
+
+Version 2.2.0.10
+----------------
+* Fix PostgreSQL update statements
+
+Version 2.2.0.9
+---------------
+* Reduce table shortening algorithm by 1 character
+
+Version 2.2.0.8
+---------------
+* Loading data into staging tables were ignoring the codepage
+
+Version 2.2.0.7
+---------------
+* Shorten some table names in Oracle when there are table prefixes
+* Fix text with a '\' in MySQL
+
+Version 2.2.0.6
+---------------
+* FTP is now case-insensitive when looking for dataout.txt
+
+Version 2.2.0.5
+---------------
+* Cleanup logging temp files
+
+Version 2.2.0.4
+---------------
+* Cleanup incremental processing of cds_DigContent_Regions and cds_DigContent_Langs
+
+Version 2.2.0.3
+---------------
+* Include table prefix when creating swap table indexes
+
+Version 2.2.0.2
+---------------
+* Handle updates of null fields in SQL Server
+
+Version 2.2.0.1
+---------------
+* Update cds_Catalog for SQL Server
+
+Version 2.2.0
+--------------
+* Added SFTP support, AlternativeSearchableAttributes & AttributeDisplayOrder
+* Added PostGreSQL support
+* Added multi-column insertNew update functions
+
+Version 2.1.19
+--------------
+* Add DisableParallelForSwap option for Oracle
+
+Version 2.1.18
+--------------
+* Use insertNew for cds_Cct_Categories and cds_Cct_Versions
+
+Version 2.1.17
+--------------
+* Fixed Null pointer exception for null schemas
+
+Version 2.1.16
+--------------
+* Added optional account field to FTP login
+* Added schema option for Oracle
+* Fixed deleting of cds_DigContent_Langs for Oracle and MySQL
+* GTIN field now allows all GTIN HTML codes, not just UPCEAN
+
+Version 2.1.15
+--------------
+* Added fix to actually use CNETFTPMaxAttempts
+
+Version 2.1.14
+--------------
+* Added OracleUseUnixNewLine option
+* Added MarketingTextDigContent option
+
+Version 2.1.13
+--------------
+* Added Alternate Categorization tables
+* Added Product Lifecycle tables
+* Reintroduced .lastDigitalContentTimeStamp file to detect changed files
+* Fixed bug for handling multiple languages
+
+Version 2.1.12
+--------------
+* Added mode to cds_ConnectorStatus.
+* Added StageOnly option.
+
+Version 2.1.11
+--------------
+* Added DisableTabLock option for SQL Server.
+
+Version 2.1.10
+--------------
+* Fixed cascading deletes in MySQL/InnoDB schema.
+* No increment found now produces a warning error instead of a fatal error.
+* jTDS driver is included in the package.
+
+Version 2.1.9
+-------------
+* Added date to log file.
+* Added UPC/EAN column to PRC file.
+* Changed default number of digital content download retries from 5 to 20.
+* Disabling foreign keys will make sure the referenced table exists.
+* Added RelatedProducts option.
+
+Version 2.1.8
+-------------
+* MySQL InnoDB will now enable and disable foreign keys.
+* cds_sku_reuquest.ManufacturerCode and cds_sku_reuquest.ProductDescription are not non-nullable.
+* Now checks for null Thumbnails section under DigitalContent.
+
+Version 2.1.7
+-------------
+Consolidated all the update statements for uploads into a single update.
+
+Version 2.1.6
+-------------
+* Reconfigured Digital Content table updates to handle tables with multiple-column primary keys.
+
+Version 2.1.5
+-------------
+* SKU upload will now send a D record if the IsActive field has been changed to false.
+* MFC file is now distinct.
+* Now checks for null manufacturer part numbers.
+
+Version 2.1.4
+-------------
+* Removed LastModified column from cds_sku_request. Changed RequestStatus from bit to integer.
+
+Version 2.1.3
+-------------
+* Made DataSource and database Connection static.
+
+Version 2.1.2
+-------------
+* Removed swap operation from MySQL.
+* Optimized downloading digital content.
+
+Version 2.1.1
+-------------
+* LastDeliveryDate and LastRequestDate were reversed in cds_Catalog_Info.txt.
+* DigitalContentOnly was skipping files if all the files in the first batch already existed.
+* Log file summaries are now deleted.
+* RebuldThumbnails now works properly.
+
+Version 2.1.0
+-------------
+* Added support for upgrading cds_Catalog.txt to cds_Catalog_Info.txt.
+* Added Digital Content Meta tables.
+* Digital Content downloading now reads from database instead of files.
+* Thumbnail creation will use Meta information for CCS digital content.
+* Moved DownloadDigitalContent option from DataSource-*.xml to ContentConnector.xml.
+* Added the ability to upload log file summaries at beginnng and end of application.
+* Added option to upload PRC and MFC files.
+
+Version 2.0.0
+-------------
+* Refactored to new version of JAXB.
+* Combined all Connectors into a single JAR.
+* Upgraded all JDBC drivers.
+* Removed DB2AS400 support.
+* Added support for ProductReview mode.
+* Reconfigured config files into a single ContentConnector.xml file.
+* Added a service name keyword to point the Content Connector to the correct service (ProductReviews, DataSource, etc.).
+* Renamed DataSource Connector to Content Connector.
+* Reorganized configuration directory.
+* Reorganized data director.
+
+Version 1.6.21
+--------------
+Corrected primary key on cds_atr_full in schema files.
+
+Version 1.6.20
+--------------
+Fix updateExisting so that it no longer updates the primary key.
+
+Version 1.6.19
+--------------
+Fix potential problem on logging out on already closed FTP connection.
+
+Version 1.6.18
+--------------
+Thumbnail Converter will only convert PNG, GIF, or JPG.
+Added NoMySQLCharacterSetSupport option.
+Removed Multi-angle image option from Connector configuration files.
+
+Version 1.6.17
+--------------
+Added new database mode called MySQL4.0CompatibilityMode.
+
+Version 1.6.16
+--------------
+Removed Double.valueOf(double) in favor of Double.valueOf(Double.toString(double)) for Java 1.4.2 compatibility.
+
+Version 1.6.15
+--------------
+* Add border to thumbnails.
+
+Version 1.6.14
+--------------
+* Can now handle MySQL versions like 5.0.44sp1 instead of 5.0.44-sp1.
+
+Version 1.6.13
+--------------
+* Updated the SQL Server JDBC driver to SQL Server 2005 1.2.
+* Added the sqljdbc_auth.dll for integrated security.
+
+Version 1.6.12
+--------------
+* Added detection for multiple copies of the same SQL command during renaming keys in a swap operation.
+
+Version 1.6.11
+--------------
+* MySQL 5.0.26 and below will not use the character set option.
+* A ConnectionAttempts attribute has been added to Download element of the configuration file. By default, it is five.
+
+Version 1.6.10
+--------------
+* Added support for active FTP connections.
+
+Version 1.6.9
+-------------
+* Multiple codepages are now supported in Oracle and MySQL.
+
+Version 1.6.8
+-------------
+* Oracle now handles foreign keys with multiple columns correctly.
+
+Version 1.6.7
+-------------
+* DataSource-Orace.xml has been reconfigured to correctly update digital content.
+* Default character set is now WE8MSWIN1252 for Oracle.
+* newUNSPSC is now enabled by default.
+* UNSPSC (old format) is now diabled by default.
+
+Version 1.6.6
+-------------
+* Mac OS X is now recognized as a Unix operating system.
+
+Version 1.6.5
+-------------
+* checkIsFullDownload and checkMissedIncrement is now proper SQL for Oracle.
+
+Version 1.6.4
+-------------
+* Oracle SQL Loader control file will now always use CRLF as a row terminator, even on Unix systems.
+
+Version 1.6.3
+-------------
+Changed order of FTP commands to attemp to better handle firewalls.
+
+Version 1.6.2
+-------------
+* Added rebuildthumbnails mode to available DataSource Connector options.
+
+Version 1.6.1
+-------------
+* Creation of thumbnail images now uses bilinear interpolation.
+
+Version 1.6
+-----------
+* Digital Content downloader has a connect timeout and read timeout under Java 1.5
+* DB2 for AS400 support has been added
+* PostgreSQL support has been removed
+* DataPaq Connector now uses the same code base and update methods as DataSource Connector (JavaConnector)
+* Added executeSQLDirect update method
+* JavaConnector will now check to make sure that all files in the schema have been downloaded and unzipped
+* DigitalContent is now its own section in DataSourceConfig.xml instead of an update method
+* A CheckMissedIncrement option has been added to check if an increment has been missed
+* A CheckIsFullDownload option has been added to automatically determine if an increment is really a full download
+* JavaConnector will now check the correct location of local digital content to determine whether it needs to be downloaded
+* JavaConnector now used TableCode instead of CNETFileCode for locale-specific table extensions
+* Multiple thumbnails can now be automatically created from existing digital content
+* A ConnectorStatus table has been added to automatically track the run status of the JavaConnector
+* Rebuilding indexes has now been turned off by default for all databases
+* MySQL InnoDB support has been added
+* All databases now use mergeTablesWithSwap and replaceTableWithSwap
+* Added the ability to add helper table to production only
+* Added the ability to automatically populate a table during the creation process
+* Removed unnecessary OpenTransaction and CommitTransaction statements
+* All SQL statements are now wrapped in try..finally blocks to close the statement
+* A third parameter specifying a ZIP file may be used to point JavaConnector to use a specific zipped download
+* An UpdateStatistics update method was added
+* A UpdateStatisticsOnBulkInsert option was added to update statistics after bulk inserts
+* In MySQL and SQL Server, a DisplayInsertRecordCount option was added to display the number of records inserted during a bulk insert
+* Modes are now case-insensitive
+* Added DigitalContentOnly mode
+
+Version 1.5.1
+-------------
+* After connection to the database, JavaConnector will verify that the database connection matches the configuration
+* MySQL JDBC driver has been updated to version 3.1.12
+
+Version 1.5
+-----------
+* Most MetaData searches have been replaced with DBSchemaHelper calls
+* DBSchmeaHelper has been added - Helper class to manage schema directly from XML
+* Finalized support for Oracle
+* Added mergeTablesWithSwap update method
+* Added replaceTableWithSwap update method
+* Added DisableForeignKeys element to the UpdatePolicyMenthod
+* Added NoValidate element to the Databases element
+* Replaced msutil.jar, mssqlserver.jar, and msbase.jar with sqljdbc.jar
+* Added support for SQL Server 2005
+* Changed format of SQL Server JDBC driver
+* Changed format of SQL Server JDBC URL
