@@ -267,8 +267,8 @@
 	</Databases-->	
 	<Databases Type="PostGreSQL9">
 		<Driver>org.postgresql.Driver</Driver>
-		<ServerURL>jdbc:postgresql://127.0.0.1:5432/DATABASE?allowEncodingChanges=true</ServerURL>
-		<ProductDataDatabase name="DATABASE" repositoryTablePrefix="" stagingTablePrefix="in_"/>
+		<ServerURL>jdbc:postgresql://127.0.0.1:5432/database1?allowEncodingChanges=true</ServerURL>
+		<ProductDataDatabase name="database1" repositoryTablePrefix="" stagingTablePrefix="in_"/>
 		<Login User="omar" Password="very_secure_password"/>
 	</Databases>
 	
