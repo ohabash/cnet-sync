@@ -223,10 +223,10 @@
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->	
 
 	<!-- Enable one of the following options -->
-	<Schema definition="configuration/DataSource/DataSource-SQLServer.xml"/>
+	<!-- <Schema definition="configuration/DataSource/DataSource-SQLServer.xml"/> -->
 	<!--Schema definition="configuration/DataSource/DataSource-MySQL.xml"/-->
 	<!--Schema definition="configuration/DataSource/DataSource-Oracle.xml"/-->
-	<!--Schema definition="configuration/DataSource/DataSource-PostGreSql.xml"/-->
+	<Schema definition="configuration/DataSource/DataSource-PostGreSql.xml"/>
 	
 	<!-- SQL Server -->
 	<!-- <Databases Type="SQLServer2000">
