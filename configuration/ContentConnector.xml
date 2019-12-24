@@ -265,12 +265,18 @@
 		<ProductDataDatabase name="DATABASE" repositoryTablePrefix="" stagingTablePrefix="in_"/>
 		<Login User="USERID" Password="PASSWORD"/>
 	</Databases-->	
-	<Databases Type="PostGreSQL9">
+	<!-- <Databases Type="PostGreSQL9">
 		<Driver>org.postgresql.Driver</Driver>
-		<ServerURL>jdbc:postgresql://127.0.0.1:5432/database1?allowEncodingChanges=true</ServerURL>
+		<ServerURL>jdbc:postgresql://localhost:5432/database1?allowEncodingChanges=true</ServerURL>
 		<ProductDataDatabase name="database1" repositoryTablePrefix="" stagingTablePrefix="in_"/>
 		<Login User="omar" Password="very_secure_password"/>
-	</Databases>
+	</Databases> -->
+	<!-- <Databases Type="PostGreSQL9">
+		<Driver>org.postgresql.Driver</Driver>
+		<ServerURL>jdbc:postgresql://ec2-107-22-197-30.compute-1.amazonaws.com:5432/d1i3e9ptho8q14?allowEncodingChanges=true</ServerURL>
+		<ProductDataDatabase name="d1i3e9ptho8q14" repositoryTablePrefix="" stagingTablePrefix="in_"/>
+		<Login User="elurjsawvnqikr" Password="fa43c715c8d9596b510b0ae62074701f093d5ad227690aab7be7760fb33c2f63"/>
+	</Databases> -->
 	
 	<Monitoring logFileName="configuration/log4j.xml" statusFileName="logs/status.xml" />
 </ContentConnector>
