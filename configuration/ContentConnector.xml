@@ -265,12 +265,12 @@
 		<ProductDataDatabase name="DATABASE" repositoryTablePrefix="" stagingTablePrefix="in_"/>
 		<Login User="USERID" Password="PASSWORD"/>
 	</Databases-->	
-	<!-- <Databases Type="PostGreSQL9">
+	<Databases Type="PostGreSQL9">
 		<Driver>org.postgresql.Driver</Driver>
-		<ServerURL>jdbc:postgresql://localhost:5432/database1?allowEncodingChanges=true</ServerURL>
-		<ProductDataDatabase name="database1" repositoryTablePrefix="" stagingTablePrefix="in_"/>
+		<ServerURL>jdbc:postgresql://localhost:5439/cnet?allowEncodingChanges=true</ServerURL>
+		<ProductDataDatabase name="cnet" repositoryTablePrefix="" stagingTablePrefix="in_"/>
 		<Login User="omar" Password="very_secure_password"/>
-	</Databases> -->
+	</Databases>
 	<!-- <Databases Type="PostGreSQL9">
 		<Driver>org.postgresql.Driver</Driver>
 		<ServerURL>jdbc:postgresql://ec2-107-22-197-30.compute-1.amazonaws.com:5432/d1i3e9ptho8q14?allowEncodingChanges=true</ServerURL>

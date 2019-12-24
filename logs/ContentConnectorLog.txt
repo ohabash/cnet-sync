@@ -1,1 +1,2330 @@
-2019-12-24 09:12:45,446 DEBUG  {unknown} config file used : configuration/ContentConnector.xml [Service] (Service.java:49)
+2019-12-24 09:43:58,960 DEBUG  {unknown} config file used : configuration/ContentConnector.xml [Service] (Service.java:49)
+2019-12-24 09:43:59,010 INFO   MLog clients using log4j logging. [MLog] (MLog.java:80)
+2019-12-24 09:43:59,117 INFO   Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10] [C3P0Registry] (C3P0Registry.java:204)
+2019-12-24 09:43:59,130 DEBUG  MBean: com.mchange.v2.c3p0:type=PooledDataSource[1hge13xa7fp5jdy1lm52ay|1593948d] registered. [DynamicPooledDataSourceManagerMBean] (DynamicPooledDataSourceManagerMBean.java:236)
+2019-12-24 09:43:59,156 DEBUG  incremented pending_acquires: 1 [BasicResourcePool] (BasicResourcePool.java:404)
+2019-12-24 09:43:59,156 DEBUG  incremented pending_acquires: 2 [BasicResourcePool] (BasicResourcePool.java:404)
+2019-12-24 09:43:59,157 DEBUG  incremented pending_acquires: 3 [BasicResourcePool] (BasicResourcePool.java:404)
+2019-12-24 09:43:59,157 DEBUG  com.mchange.v2.resourcepool.BasicResourcePool@51cdd8a config: [start -> 3; min -> 3; max -> 15; inc -> 3; num_acq_attempts -> 30; acq_attempt_delay -> 1000; check_idle_resources_delay -> 0; mox_resource_age -> 0; max_idle_time -> 0; excess_max_idle_time -> 0; destroy_unreturned_resc_time -> 0; expiration_enforcement_delay -> 0; break_on_acquisition_failure -> false; debug_store_checkout_exceptions -> false] [BasicResourcePool] (BasicResourcePool.java:289)
+2019-12-24 09:43:59,157 INFO   Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge13xa7fp5jdy1lm52ay|1593948d, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> org.postgresql.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge13xa7fp5jdy1lm52ay|1593948d, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:postgresql://localhost:5439/cnet?allowEncodingChanges=true, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ] [AbstractPoolBackedDataSource] (AbstractPoolBackedDataSource.java:462)
+2019-12-24 09:43:59,158 DEBUG  acquire test -- pool size: 0; target_pool_size: 3; desired target? 1 [BasicResourcePool] (BasicResourcePool.java:538)
+2019-12-24 09:43:59,158 DEBUG  awaitAvailable(): [unknown] [BasicResourcePool] (BasicResourcePool.java:1291)
+2019-12-24 09:43:59,160 DEBUG  trace com.mchange.v2.resourcepool.BasicResourcePool@51cdd8a [managed: 0, unused: 0, excluded: 0] [BasicResourcePool] (BasicResourcePool.java:1644)
+2019-12-24 09:43:59,282 DEBUG  com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@1fcd7677.acquireResource() returning.  [C3P0PooledConnectionPool] (C3P0PooledConnectionPool.java:217)
+2019-12-24 09:43:59,282 DEBUG  com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@1fcd7677.acquireResource() returning.  [C3P0PooledConnectionPool] (C3P0PooledConnectionPool.java:217)
+2019-12-24 09:43:59,282 DEBUG  com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@1fcd7677.acquireResource() returning.  [C3P0PooledConnectionPool] (C3P0PooledConnectionPool.java:217)
+2019-12-24 09:43:59,282 DEBUG  trace com.mchange.v2.resourcepool.BasicResourcePool@51cdd8a [managed: 1, unused: 1, excluded: 0] [BasicResourcePool] (BasicResourcePool.java:1644)
+2019-12-24 09:43:59,283 DEBUG  trace com.mchange.v2.resourcepool.BasicResourcePool@51cdd8a [managed: 2, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@36daa071) [BasicResourcePool] (BasicResourcePool.java:1644)
+2019-12-24 09:43:59,283 DEBUG  trace com.mchange.v2.resourcepool.BasicResourcePool@51cdd8a [managed: 3, unused: 3, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@36daa071) [BasicResourcePool] (BasicResourcePool.java:1644)
+2019-12-24 09:43:59,283 DEBUG  decremented pending_acquires: 2 [BasicResourcePool] (BasicResourcePool.java:422)
+2019-12-24 09:43:59,283 DEBUG  decremented pending_acquires: 1 [BasicResourcePool] (BasicResourcePool.java:422)
+2019-12-24 09:43:59,283 DEBUG  decremented pending_acquires: 0 [BasicResourcePool] (BasicResourcePool.java:422)
+2019-12-24 09:43:59,284 DEBUG  trace com.mchange.v2.resourcepool.BasicResourcePool@51cdd8a [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@36daa071) [BasicResourcePool] (BasicResourcePool.java:1644)
+2019-12-24 09:43:59,291 INFO   {unknown} Operating System: Mac OS X [GenericMaintenance] (GenericMaintenance.java:1701)
+2019-12-24 09:43:59,291 INFO   {unknown} Database Product Name: PostgreSQL [GenericMaintenance] (GenericMaintenance.java:1702)
+2019-12-24 09:43:59,291 INFO   {unknown} Database Product Version: 9.4.25 [GenericMaintenance] (GenericMaintenance.java:1703)
+2019-12-24 09:43:59,291 INFO   {unknown} Driver Name: PostgreSQL Native Driver [GenericMaintenance] (GenericMaintenance.java:1704)
+2019-12-24 09:43:59,291 INFO   {unknown} Driver Version: PostgreSQL 9.2 JDBC4 (build 1002) [GenericMaintenance] (GenericMaintenance.java:1705)
+2019-12-24 09:43:59,291 INFO   {unknown} Catalog: cnet [GenericMaintenance] (GenericMaintenance.java:1706)
+2019-12-24 09:43:59,292 INFO   {unknown} Connected to cnet [GenericMaintenance] (GenericMaintenance.java:669)
+2019-12-24 09:44:00,586 DEBUG  {unknown} Entered FTP passive mode [FileTransfer] (FileTransferFTP.java:124)
+2019-12-24 09:44:00,800 DEBUG  {unknown} Download:login(C06803,X597ca83527) => 230 User logged in, proceed.
+ [FileTransfer] (FileTransferFTP.java:156)
+2019-12-24 09:44:01,131 DEBUG  {unknown} Entered FTP passive mode [FileTransfer] (FileTransferFTP.java:124)
+2019-12-24 09:44:01,306 DEBUG  {unknown} Download:login(C06803,X597ca83527) => 230 User logged in, proceed.
+ [FileTransfer] (FileTransferFTP.java:156)
+2019-12-24 09:44:01,801 DEBUG  {unknown} Disconnected [FileTransfer] (FileTransferFTP.java:166)
+2019-12-24 09:44:01,908 INFO   {C17849} Running Content Connector version '2.2.3.4' for DataSource on 'PostGreSQL9' with <create> option [dataSource] (DataSource.java:117)
+2019-12-24 09:44:01,908 DEBUG  {C17849} SQL: select count(*) from information_schema.tables where table_schema = 'public' [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:2363)
+2019-12-24 09:44:01,937 INFO   {C17849} creating  tables on cnet [GenericMaintenance] (GenericMaintenance.java:694)
+2019-12-24 09:44:01,938 INFO   {C17849} creating table cds_Metadata if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:01,941 DEBUG  {C17849} CREATE TABLE cds_Metadata (
+   id INT NOT NULL,
+   SchemaVersion INT NOT NULL,
+   ConfigurationPrevious TEXT NULL,
+   DataSourcePrevious TEXT NULL,
+   ForceRecreate BIT(1) NULL
+, CONSTRAINT PK_Metadata PRIMARY KEY(id)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:01,941 DEBUG  {C17849} SQL: CREATE TABLE cds_Metadata (
+   id INT NOT NULL,
+   SchemaVersion INT NOT NULL,
+   ConfigurationPrevious TEXT NULL,
+   DataSourcePrevious TEXT NULL,
+   ForceRecreate BIT(1) NULL
+, CONSTRAINT PK_Metadata PRIMARY KEY(id)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:01,942 DEBUG  {C17849} SQL: CREATE TABLE cds_Metadata (
+   id INT NOT NULL,
+   SchemaVersion INT NOT NULL,
+   ConfigurationPrevious TEXT NULL,
+   DataSourcePrevious TEXT NULL,
+   ForceRecreate BIT(1) NULL
+, CONSTRAINT PK_Metadata PRIMARY KEY(id)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:01,946 DEBUG  {C17849} UPDATE cds_Metadata SET SchemaVersion=2 WHERE id=1 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:274)
+2019-12-24 09:44:01,946 DEBUG  {C17849} INSERT INTO cds_Metadata(id,SchemaVersion) SELECT 1,2 WHERE NOT EXISTS (SELECT 1 FROM cds_Metadata WHERE id=1) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:275)
+2019-12-24 09:44:01,946 DEBUG  {C17849} SQL: UPDATE cds_Metadata SET SchemaVersion=2 WHERE id=1 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:280)
+2019-12-24 09:44:01,947 DEBUG  {C17849} SQL: INSERT INTO cds_Metadata(id,SchemaVersion) SELECT 1,2 WHERE NOT EXISTS (SELECT 1 FROM cds_Metadata WHERE id=1) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:294)
+2019-12-24 09:44:01,948 INFO   {C17849} creating table cds_ConnectorStatusCode if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:01,951 DEBUG  {C17849} CREATE TABLE cds_ConnectorStatusCode (
+   StatusCode INT NOT NULL,
+   Description VARCHAR(100)  NOT NULL
+, CONSTRAINT PK_ConnectorStatusCode PRIMARY KEY(StatusCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:01,952 DEBUG  {C17849} SQL: CREATE TABLE cds_ConnectorStatusCode (
+   StatusCode INT NOT NULL,
+   Description VARCHAR(100)  NOT NULL
+, CONSTRAINT PK_ConnectorStatusCode PRIMARY KEY(StatusCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:01,952 DEBUG  {C17849} SQL: CREATE TABLE cds_ConnectorStatusCode (
+   StatusCode INT NOT NULL,
+   Description VARCHAR(100)  NOT NULL
+, CONSTRAINT PK_ConnectorStatusCode PRIMARY KEY(StatusCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:01,953 DEBUG  {C17849} UPDATE cds_ConnectorStatusCode SET Description='RUNNING' WHERE StatusCode=-1 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:274)
+2019-12-24 09:44:01,953 DEBUG  {C17849} INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT -1,'RUNNING' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=-1) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:275)
+2019-12-24 09:44:01,956 DEBUG  {C17849} SQL: UPDATE cds_ConnectorStatusCode SET Description='RUNNING' WHERE StatusCode=-1 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:280)
+2019-12-24 09:44:01,957 DEBUG  {C17849} SQL: INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT -1,'RUNNING' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=-1) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:294)
+2019-12-24 09:44:01,957 DEBUG  {C17849} UPDATE cds_ConnectorStatusCode SET Description='SUCCESS' WHERE StatusCode=0 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:274)
+2019-12-24 09:44:01,958 DEBUG  {C17849} INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 0,'SUCCESS' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=0) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:275)
+2019-12-24 09:44:01,958 DEBUG  {C17849} SQL: UPDATE cds_ConnectorStatusCode SET Description='SUCCESS' WHERE StatusCode=0 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:280)
+2019-12-24 09:44:01,958 DEBUG  {C17849} SQL: INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 0,'SUCCESS' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=0) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:294)
+2019-12-24 09:44:01,959 DEBUG  {C17849} UPDATE cds_ConnectorStatusCode SET Description='REASON UNKNOWN' WHERE StatusCode=1 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:274)
+2019-12-24 09:44:01,959 DEBUG  {C17849} INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 1,'REASON UNKNOWN' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=1) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:275)
+2019-12-24 09:44:01,959 DEBUG  {C17849} SQL: UPDATE cds_ConnectorStatusCode SET Description='REASON UNKNOWN' WHERE StatusCode=1 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:280)
+2019-12-24 09:44:01,959 DEBUG  {C17849} SQL: INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 1,'REASON UNKNOWN' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=1) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:294)
+2019-12-24 09:44:01,960 DEBUG  {C17849} UPDATE cds_ConnectorStatusCode SET Description='CAN''T LOAD INCREMENT FILE' WHERE StatusCode=2 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:274)
+2019-12-24 09:44:01,960 DEBUG  {C17849} INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 2,'CAN''T LOAD INCREMENT FILE' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=2) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:275)
+2019-12-24 09:44:01,960 DEBUG  {C17849} SQL: UPDATE cds_ConnectorStatusCode SET Description='CAN''T LOAD INCREMENT FILE' WHERE StatusCode=2 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:280)
+2019-12-24 09:44:01,961 DEBUG  {C17849} SQL: INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 2,'CAN''T LOAD INCREMENT FILE' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=2) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:294)
+2019-12-24 09:44:01,961 DEBUG  {C17849} UPDATE cds_ConnectorStatusCode SET Description='CAN''T CONNECT TO DB' WHERE StatusCode=3 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:274)
+2019-12-24 09:44:01,961 DEBUG  {C17849} INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 3,'CAN''T CONNECT TO DB' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=3) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:275)
+2019-12-24 09:44:01,962 DEBUG  {C17849} SQL: UPDATE cds_ConnectorStatusCode SET Description='CAN''T CONNECT TO DB' WHERE StatusCode=3 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:280)
+2019-12-24 09:44:01,962 DEBUG  {C17849} SQL: INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 3,'CAN''T CONNECT TO DB' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=3) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:294)
+2019-12-24 09:44:01,963 DEBUG  {C17849} UPDATE cds_ConnectorStatusCode SET Description='UNKNOWN DB IMPLEMENTATION' WHERE StatusCode=4 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:274)
+2019-12-24 09:44:01,963 DEBUG  {C17849} INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 4,'UNKNOWN DB IMPLEMENTATION' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=4) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:275)
+2019-12-24 09:44:01,963 DEBUG  {C17849} SQL: UPDATE cds_ConnectorStatusCode SET Description='UNKNOWN DB IMPLEMENTATION' WHERE StatusCode=4 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:280)
+2019-12-24 09:44:01,963 DEBUG  {C17849} SQL: INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 4,'UNKNOWN DB IMPLEMENTATION' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=4) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:294)
+2019-12-24 09:44:01,964 DEBUG  {C17849} UPDATE cds_ConnectorStatusCode SET Description='UPDATE POLICY DEFINITION ISSUE' WHERE StatusCode=5 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:274)
+2019-12-24 09:44:01,964 DEBUG  {C17849} INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 5,'UPDATE POLICY DEFINITION ISSUE' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=5) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:275)
+2019-12-24 09:44:01,964 DEBUG  {C17849} SQL: UPDATE cds_ConnectorStatusCode SET Description='UPDATE POLICY DEFINITION ISSUE' WHERE StatusCode=5 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:280)
+2019-12-24 09:44:01,965 DEBUG  {C17849} SQL: INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 5,'UPDATE POLICY DEFINITION ISSUE' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=5) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:294)
+2019-12-24 09:44:01,965 DEBUG  {C17849} UPDATE cds_ConnectorStatusCode SET Description='CAN''T CONVERT TO MYSQL FORMAT' WHERE StatusCode=6 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:274)
+2019-12-24 09:44:01,966 DEBUG  {C17849} INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 6,'CAN''T CONVERT TO MYSQL FORMAT' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=6) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:275)
+2019-12-24 09:44:01,966 DEBUG  {C17849} SQL: UPDATE cds_ConnectorStatusCode SET Description='CAN''T CONVERT TO MYSQL FORMAT' WHERE StatusCode=6 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:280)
+2019-12-24 09:44:01,966 DEBUG  {C17849} SQL: INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 6,'CAN''T CONVERT TO MYSQL FORMAT' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=6) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:294)
+2019-12-24 09:44:01,967 DEBUG  {C17849} UPDATE cds_ConnectorStatusCode SET Description='CAN''T GENERATE ORACLE LOADER CONTROL FILE' WHERE StatusCode=7 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:274)
+2019-12-24 09:44:01,967 DEBUG  {C17849} INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 7,'CAN''T GENERATE ORACLE LOADER CONTROL FILE' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=7) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:275)
+2019-12-24 09:44:01,967 DEBUG  {C17849} SQL: UPDATE cds_ConnectorStatusCode SET Description='CAN''T GENERATE ORACLE LOADER CONTROL FILE' WHERE StatusCode=7 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:280)
+2019-12-24 09:44:01,974 DEBUG  {C17849} SQL: INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 7,'CAN''T GENERATE ORACLE LOADER CONTROL FILE' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=7) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:294)
+2019-12-24 09:44:01,975 DEBUG  {C17849} UPDATE cds_ConnectorStatusCode SET Description='CAN''T CREATE ORACLE LOADER CONTROL FILE DIRECTORY' WHERE StatusCode=8 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:274)
+2019-12-24 09:44:01,975 DEBUG  {C17849} INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 8,'CAN''T CREATE ORACLE LOADER CONTROL FILE DIRECTORY' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=8) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:275)
+2019-12-24 09:44:01,976 DEBUG  {C17849} SQL: UPDATE cds_ConnectorStatusCode SET Description='CAN''T CREATE ORACLE LOADER CONTROL FILE DIRECTORY' WHERE StatusCode=8 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:280)
+2019-12-24 09:44:01,976 DEBUG  {C17849} SQL: INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 8,'CAN''T CREATE ORACLE LOADER CONTROL FILE DIRECTORY' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=8) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:294)
+2019-12-24 09:44:01,977 DEBUG  {C17849} UPDATE cds_ConnectorStatusCode SET Description='ORACLE LOADER FAILED' WHERE StatusCode=9 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:274)
+2019-12-24 09:44:01,977 DEBUG  {C17849} INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 9,'ORACLE LOADER FAILED' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=9) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:275)
+2019-12-24 09:44:01,977 DEBUG  {C17849} SQL: UPDATE cds_ConnectorStatusCode SET Description='ORACLE LOADER FAILED' WHERE StatusCode=9 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:280)
+2019-12-24 09:44:01,977 DEBUG  {C17849} SQL: INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 9,'ORACLE LOADER FAILED' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=9) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:294)
+2019-12-24 09:44:01,978 DEBUG  {C17849} UPDATE cds_ConnectorStatusCode SET Description='PRIMITIVE NOT IMPLEMENTED' WHERE StatusCode=10 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:274)
+2019-12-24 09:44:01,978 DEBUG  {C17849} INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 10,'PRIMITIVE NOT IMPLEMENTED' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=10) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:275)
+2019-12-24 09:44:01,978 DEBUG  {C17849} SQL: UPDATE cds_ConnectorStatusCode SET Description='PRIMITIVE NOT IMPLEMENTED' WHERE StatusCode=10 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:280)
+2019-12-24 09:44:01,979 DEBUG  {C17849} SQL: INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 10,'PRIMITIVE NOT IMPLEMENTED' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=10) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:294)
+2019-12-24 09:44:01,979 DEBUG  {C17849} UPDATE cds_ConnectorStatusCode SET Description='UNSPECIFIED SQL ERROR' WHERE StatusCode=11 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:274)
+2019-12-24 09:44:01,980 DEBUG  {C17849} INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 11,'UNSPECIFIED SQL ERROR' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=11) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:275)
+2019-12-24 09:44:01,980 DEBUG  {C17849} SQL: UPDATE cds_ConnectorStatusCode SET Description='UNSPECIFIED SQL ERROR' WHERE StatusCode=11 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:280)
+2019-12-24 09:44:01,980 DEBUG  {C17849} SQL: INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 11,'UNSPECIFIED SQL ERROR' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=11) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:294)
+2019-12-24 09:44:01,981 DEBUG  {C17849} UPDATE cds_ConnectorStatusCode SET Description='INVALID FILE PATH' WHERE StatusCode=12 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:274)
+2019-12-24 09:44:01,981 DEBUG  {C17849} INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 12,'INVALID FILE PATH' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=12) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:275)
+2019-12-24 09:44:01,981 DEBUG  {C17849} SQL: UPDATE cds_ConnectorStatusCode SET Description='INVALID FILE PATH' WHERE StatusCode=12 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:280)
+2019-12-24 09:44:01,982 DEBUG  {C17849} SQL: INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 12,'INVALID FILE PATH' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=12) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:294)
+2019-12-24 09:44:01,982 DEBUG  {C17849} UPDATE cds_ConnectorStatusCode SET Description='CAN''T DELETE LOCAL FILES' WHERE StatusCode=13 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:274)
+2019-12-24 09:44:01,982 DEBUG  {C17849} INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 13,'CAN''T DELETE LOCAL FILES' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=13) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:275)
+2019-12-24 09:44:01,983 DEBUG  {C17849} SQL: UPDATE cds_ConnectorStatusCode SET Description='CAN''T DELETE LOCAL FILES' WHERE StatusCode=13 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:280)
+2019-12-24 09:44:01,983 DEBUG  {C17849} SQL: INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 13,'CAN''T DELETE LOCAL FILES' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=13) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:294)
+2019-12-24 09:44:01,984 DEBUG  {C17849} UPDATE cds_ConnectorStatusCode SET Description='CAN''T CREATE LOCAL FILES' WHERE StatusCode=14 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:274)
+2019-12-24 09:44:01,984 DEBUG  {C17849} INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 14,'CAN''T CREATE LOCAL FILES' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=14) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:275)
+2019-12-24 09:44:01,984 DEBUG  {C17849} SQL: UPDATE cds_ConnectorStatusCode SET Description='CAN''T CREATE LOCAL FILES' WHERE StatusCode=14 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:280)
+2019-12-24 09:44:01,992 DEBUG  {C17849} SQL: INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 14,'CAN''T CREATE LOCAL FILES' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=14) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:294)
+2019-12-24 09:44:01,992 DEBUG  {C17849} UPDATE cds_ConnectorStatusCode SET Description='CAN''T UNCOMPRESS FILE' WHERE StatusCode=15 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:274)
+2019-12-24 09:44:01,993 DEBUG  {C17849} INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 15,'CAN''T UNCOMPRESS FILE' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=15) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:275)
+2019-12-24 09:44:01,993 DEBUG  {C17849} SQL: UPDATE cds_ConnectorStatusCode SET Description='CAN''T UNCOMPRESS FILE' WHERE StatusCode=15 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:280)
+2019-12-24 09:44:01,993 DEBUG  {C17849} SQL: INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 15,'CAN''T UNCOMPRESS FILE' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=15) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:294)
+2019-12-24 09:44:01,994 DEBUG  {C17849} UPDATE cds_ConnectorStatusCode SET Description='FTP ERROR' WHERE StatusCode=16 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:274)
+2019-12-24 09:44:01,994 DEBUG  {C17849} INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 16,'FTP ERROR' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=16) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:275)
+2019-12-24 09:44:01,994 DEBUG  {C17849} SQL: UPDATE cds_ConnectorStatusCode SET Description='FTP ERROR' WHERE StatusCode=16 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:280)
+2019-12-24 09:44:01,994 DEBUG  {C17849} SQL: INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 16,'FTP ERROR' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=16) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:294)
+2019-12-24 09:44:01,995 DEBUG  {C17849} UPDATE cds_ConnectorStatusCode SET Description='CONFIGURATION ISSUE' WHERE StatusCode=17 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:274)
+2019-12-24 09:44:01,995 DEBUG  {C17849} INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 17,'CONFIGURATION ISSUE' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=17) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:275)
+2019-12-24 09:44:01,995 DEBUG  {C17849} SQL: UPDATE cds_ConnectorStatusCode SET Description='CONFIGURATION ISSUE' WHERE StatusCode=17 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:280)
+2019-12-24 09:44:01,996 DEBUG  {C17849} SQL: INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 17,'CONFIGURATION ISSUE' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=17) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:294)
+2019-12-24 09:44:01,996 DEBUG  {C17849} UPDATE cds_ConnectorStatusCode SET Description='USAGE' WHERE StatusCode=18 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:274)
+2019-12-24 09:44:01,996 DEBUG  {C17849} INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 18,'USAGE' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=18) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:275)
+2019-12-24 09:44:01,996 DEBUG  {C17849} SQL: UPDATE cds_ConnectorStatusCode SET Description='USAGE' WHERE StatusCode=18 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:280)
+2019-12-24 09:44:01,997 DEBUG  {C17849} SQL: INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 18,'USAGE' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=18) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:294)
+2019-12-24 09:44:01,997 DEBUG  {C17849} UPDATE cds_ConnectorStatusCode SET Description='CAN''T RESOLVE JDBC DRIVER' WHERE StatusCode=19 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:274)
+2019-12-24 09:44:01,998 DEBUG  {C17849} INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 19,'CAN''T RESOLVE JDBC DRIVER' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=19) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:275)
+2019-12-24 09:44:01,998 DEBUG  {C17849} SQL: UPDATE cds_ConnectorStatusCode SET Description='CAN''T RESOLVE JDBC DRIVER' WHERE StatusCode=19 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:280)
+2019-12-24 09:44:01,998 DEBUG  {C17849} SQL: INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 19,'CAN''T RESOLVE JDBC DRIVER' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=19) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:294)
+2019-12-24 09:44:01,999 DEBUG  {C17849} UPDATE cds_ConnectorStatusCode SET Description='NO DATA TO PICKUP' WHERE StatusCode=20 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:274)
+2019-12-24 09:44:01,999 DEBUG  {C17849} INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 20,'NO DATA TO PICKUP' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=20) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:275)
+2019-12-24 09:44:01,999 DEBUG  {C17849} SQL: UPDATE cds_ConnectorStatusCode SET Description='NO DATA TO PICKUP' WHERE StatusCode=20 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:280)
+2019-12-24 09:44:02,000 DEBUG  {C17849} SQL: INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 20,'NO DATA TO PICKUP' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=20) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:294)
+2019-12-24 09:44:02,000 DEBUG  {C17849} UPDATE cds_ConnectorStatusCode SET Description='CAN''T ARCHIVE FILE' WHERE StatusCode=21 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:274)
+2019-12-24 09:44:02,001 DEBUG  {C17849} INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 21,'CAN''T ARCHIVE FILE' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=21) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:275)
+2019-12-24 09:44:02,001 DEBUG  {C17849} SQL: UPDATE cds_ConnectorStatusCode SET Description='CAN''T ARCHIVE FILE' WHERE StatusCode=21 [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:280)
+2019-12-24 09:44:02,001 DEBUG  {C17849} SQL: INSERT INTO cds_ConnectorStatusCode(StatusCode,Description) SELECT 21,'CAN''T ARCHIVE FILE' WHERE NOT EXISTS (SELECT 1 FROM cds_ConnectorStatusCode WHERE StatusCode=21) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:294)
+2019-12-24 09:44:02,009 INFO   {C17849} creating table cds_ConnectorStatus if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,011 DEBUG  {C17849} CREATE TABLE cds_ConnectorStatus (
+   StatusCode INT NOT NULL,
+   StatusTimestamp TIMESTAMP NOT NULL,
+   StatusMode VARCHAR(50)  NULL
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,011 DEBUG  {C17849} SQL: CREATE TABLE cds_ConnectorStatus (
+   StatusCode INT NOT NULL,
+   StatusTimestamp TIMESTAMP NOT NULL,
+   StatusMode VARCHAR(50)  NULL
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,011 DEBUG  {C17849} SQL: CREATE TABLE cds_ConnectorStatus (
+   StatusCode INT NOT NULL,
+   StatusTimestamp TIMESTAMP NOT NULL,
+   StatusMode VARCHAR(50)  NULL
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,012 INFO   {C17849} creating table cds_DigContent if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,014 DEBUG  {C17849} CREATE TABLE cds_DigContent (
+   ContentGuid CHAR(36)  NOT NULL,
+   MediaTypeID INT NOT NULL,
+   MimeType VARCHAR(50)  NOT NULL,
+   URL VARCHAR(500)  NOT NULL,
+   Timestamp TIMESTAMP NULL
+, CONSTRAINT PK_DigContent PRIMARY KEY(ContentGuid)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,014 DEBUG  {C17849} SQL: CREATE TABLE cds_DigContent (
+   ContentGuid CHAR(36)  NOT NULL,
+   MediaTypeID INT NOT NULL,
+   MimeType VARCHAR(50)  NOT NULL,
+   URL VARCHAR(500)  NOT NULL,
+   Timestamp TIMESTAMP NULL
+, CONSTRAINT PK_DigContent PRIMARY KEY(ContentGuid)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,014 DEBUG  {C17849} SQL: CREATE TABLE cds_DigContent (
+   ContentGuid CHAR(36)  NOT NULL,
+   MediaTypeID INT NOT NULL,
+   MimeType VARCHAR(50)  NOT NULL,
+   URL VARCHAR(500)  NOT NULL,
+   Timestamp TIMESTAMP NULL
+, CONSTRAINT PK_DigContent PRIMARY KEY(ContentGuid)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,017 DEBUG  {C17849} SQL: CREATE INDEX IDX_DC1 ON cds_DigContent (MediaTypeID
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,019 INFO   {C17849} creating table cds_DigContent_Media_Types if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,021 DEBUG  {C17849} CREATE TABLE cds_DigContent_Media_Types (
+   MediaTypeID INT NOT NULL,
+   MediaTypeDescription VARCHAR(1000)  NOT NULL
+, CONSTRAINT PK_DigContentMediaTypes PRIMARY KEY(MediaTypeID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,021 DEBUG  {C17849} SQL: CREATE TABLE cds_DigContent_Media_Types (
+   MediaTypeID INT NOT NULL,
+   MediaTypeDescription VARCHAR(1000)  NOT NULL
+, CONSTRAINT PK_DigContentMediaTypes PRIMARY KEY(MediaTypeID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,021 DEBUG  {C17849} SQL: CREATE TABLE cds_DigContent_Media_Types (
+   MediaTypeID INT NOT NULL,
+   MediaTypeDescription VARCHAR(1000)  NOT NULL
+, CONSTRAINT PK_DigContentMediaTypes PRIMARY KEY(MediaTypeID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,025 INFO   {C17849} creating table cds_DigContent_Prod if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,027 DEBUG  {C17849} CREATE TABLE cds_DigContent_Prod (
+   ProdID VARCHAR(40)  NOT NULL
+, CONSTRAINT PK_DigContentProd PRIMARY KEY(ProdID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,027 DEBUG  {C17849} SQL: CREATE TABLE cds_DigContent_Prod (
+   ProdID VARCHAR(40)  NOT NULL
+, CONSTRAINT PK_DigContentProd PRIMARY KEY(ProdID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,027 DEBUG  {C17849} SQL: CREATE TABLE cds_DigContent_Prod (
+   ProdID VARCHAR(40)  NOT NULL
+, CONSTRAINT PK_DigContentProd PRIMARY KEY(ProdID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,029 INFO   {C17849} creating table cds_DigContent_Links if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,031 DEBUG  {C17849} CREATE TABLE cds_DigContent_Links (
+   ProdID VARCHAR(40)  NOT NULL,
+   ContentGuid CHAR(36)  NOT NULL
+, CONSTRAINT PK_DigContentLinks PRIMARY KEY(ProdID, ContentGuid)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,031 DEBUG  {C17849} SQL: CREATE TABLE cds_DigContent_Links (
+   ProdID VARCHAR(40)  NOT NULL,
+   ContentGuid CHAR(36)  NOT NULL
+, CONSTRAINT PK_DigContentLinks PRIMARY KEY(ProdID, ContentGuid)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,031 DEBUG  {C17849} SQL: CREATE TABLE cds_DigContent_Links (
+   ProdID VARCHAR(40)  NOT NULL,
+   ContentGuid CHAR(36)  NOT NULL
+, CONSTRAINT PK_DigContentLinks PRIMARY KEY(ProdID, ContentGuid)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,033 DEBUG  {C17849} SQL: CREATE INDEX IDX_DCL1 ON cds_DigContent_Links (ContentGuid
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,034 INFO   {C17849} creating table cds_DigContent_Region_Links if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,036 DEBUG  {C17849} CREATE TABLE cds_DigContent_Region_Links (
+   ContentGuid CHAR(36)  NOT NULL,
+   RegionCode VARCHAR(20)  NOT NULL
+, CONSTRAINT PK_DigContentRegionLinks PRIMARY KEY(ContentGuid, RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,037 DEBUG  {C17849} SQL: CREATE TABLE cds_DigContent_Region_Links (
+   ContentGuid CHAR(36)  NOT NULL,
+   RegionCode VARCHAR(20)  NOT NULL
+, CONSTRAINT PK_DigContentRegionLinks PRIMARY KEY(ContentGuid, RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,037 DEBUG  {C17849} SQL: CREATE TABLE cds_DigContent_Region_Links (
+   ContentGuid CHAR(36)  NOT NULL,
+   RegionCode VARCHAR(20)  NOT NULL
+, CONSTRAINT PK_DigContentRegionLinks PRIMARY KEY(ContentGuid, RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,042 DEBUG  {C17849} SQL: CREATE INDEX IDX_DCRL1 ON cds_DigContent_Region_Links (RegionCode
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,043 INFO   {C17849} creating table cds_DigContent_Regions if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,045 DEBUG  {C17849} CREATE TABLE cds_DigContent_Regions (
+   RegionCode VARCHAR(20)  NOT NULL,
+   RegionName VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_DigContentRegions PRIMARY KEY(RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,045 DEBUG  {C17849} SQL: CREATE TABLE cds_DigContent_Regions (
+   RegionCode VARCHAR(20)  NOT NULL,
+   RegionName VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_DigContentRegions PRIMARY KEY(RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,045 DEBUG  {C17849} SQL: CREATE TABLE cds_DigContent_Regions (
+   RegionCode VARCHAR(20)  NOT NULL,
+   RegionName VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_DigContentRegions PRIMARY KEY(RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,047 INFO   {C17849} creating table cds_DigContent_Lang_Links if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,049 DEBUG  {C17849} CREATE TABLE cds_DigContent_Lang_Links (
+   ContentGuid CHAR(36)  NOT NULL,
+   LanguageCode VARCHAR(20)  NOT NULL
+, CONSTRAINT PK_DigContentLangLinks PRIMARY KEY(ContentGuid, LanguageCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,049 DEBUG  {C17849} SQL: CREATE TABLE cds_DigContent_Lang_Links (
+   ContentGuid CHAR(36)  NOT NULL,
+   LanguageCode VARCHAR(20)  NOT NULL
+, CONSTRAINT PK_DigContentLangLinks PRIMARY KEY(ContentGuid, LanguageCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,050 DEBUG  {C17849} SQL: CREATE TABLE cds_DigContent_Lang_Links (
+   ContentGuid CHAR(36)  NOT NULL,
+   LanguageCode VARCHAR(20)  NOT NULL
+, CONSTRAINT PK_DigContentLangLinks PRIMARY KEY(ContentGuid, LanguageCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,052 DEBUG  {C17849} SQL: CREATE INDEX IDX_DCLL1 ON cds_DigContent_Lang_Links (LanguageCode
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,053 INFO   {C17849} creating table cds_DigContent_Langs if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,056 DEBUG  {C17849} CREATE TABLE cds_DigContent_Langs (
+   LanguageCode VARCHAR(20)  NOT NULL,
+   LanguageName VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_DigContentLangs PRIMARY KEY(LanguageCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,056 DEBUG  {C17849} SQL: CREATE TABLE cds_DigContent_Langs (
+   LanguageCode VARCHAR(20)  NOT NULL,
+   LanguageName VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_DigContentLangs PRIMARY KEY(LanguageCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,056 DEBUG  {C17849} SQL: CREATE TABLE cds_DigContent_Langs (
+   LanguageCode VARCHAR(20)  NOT NULL,
+   LanguageName VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_DigContentLangs PRIMARY KEY(LanguageCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,058 INFO   {C17849} creating table cds_DigContent_Meta if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,061 DEBUG  {C17849} CREATE TABLE cds_DigContent_Meta (
+   ContentGuid CHAR(36)  NOT NULL,
+   MetaAtrId INT NOT NULL,
+   MetaValueId INT NOT NULL
+, CONSTRAINT PK_DigContentMeta PRIMARY KEY(ContentGuid, MetaAtrId, MetaValueId)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,062 DEBUG  {C17849} SQL: CREATE TABLE cds_DigContent_Meta (
+   ContentGuid CHAR(36)  NOT NULL,
+   MetaAtrId INT NOT NULL,
+   MetaValueId INT NOT NULL
+, CONSTRAINT PK_DigContentMeta PRIMARY KEY(ContentGuid, MetaAtrId, MetaValueId)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,062 DEBUG  {C17849} SQL: CREATE TABLE cds_DigContent_Meta (
+   ContentGuid CHAR(36)  NOT NULL,
+   MetaAtrId INT NOT NULL,
+   MetaValueId INT NOT NULL
+, CONSTRAINT PK_DigContentMeta PRIMARY KEY(ContentGuid, MetaAtrId, MetaValueId)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,065 DEBUG  {C17849} SQL: CREATE INDEX IDX_DCM1 ON cds_DigContent_Meta (MetaAtrId
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,067 DEBUG  {C17849} SQL: CREATE INDEX IDX_DCM2 ON cds_DigContent_Meta (MetaValueId
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,069 INFO   {C17849} creating table cds_DigContent_Meta_AtrVoc if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,075 DEBUG  {C17849} CREATE TABLE cds_DigContent_Meta_AtrVoc (
+   MetaAtrId INT NOT NULL,
+   LanguageCode VARCHAR(20)  NOT NULL,
+   MetaAtrName VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_DigContentMetaAtrVoc PRIMARY KEY(MetaAtrId, LanguageCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,076 DEBUG  {C17849} SQL: CREATE TABLE cds_DigContent_Meta_AtrVoc (
+   MetaAtrId INT NOT NULL,
+   LanguageCode VARCHAR(20)  NOT NULL,
+   MetaAtrName VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_DigContentMetaAtrVoc PRIMARY KEY(MetaAtrId, LanguageCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,076 DEBUG  {C17849} SQL: CREATE TABLE cds_DigContent_Meta_AtrVoc (
+   MetaAtrId INT NOT NULL,
+   LanguageCode VARCHAR(20)  NOT NULL,
+   MetaAtrName VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_DigContentMetaAtrVoc PRIMARY KEY(MetaAtrId, LanguageCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,080 DEBUG  {C17849} SQL: CREATE INDEX IDX_DCMAV1 ON cds_DigContent_Meta_AtrVoc (LanguageCode
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,085 INFO   {C17849} creating table cds_DigContent_Meta_ValVoc if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,089 DEBUG  {C17849} CREATE TABLE cds_DigContent_Meta_ValVoc (
+   MetaValueId INT NOT NULL,
+   LanguageCode VARCHAR(20)  NOT NULL,
+   MetaValueName VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_DigContentMetaValVoc PRIMARY KEY(MetaValueId, LanguageCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,089 DEBUG  {C17849} SQL: CREATE TABLE cds_DigContent_Meta_ValVoc (
+   MetaValueId INT NOT NULL,
+   LanguageCode VARCHAR(20)  NOT NULL,
+   MetaValueName VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_DigContentMetaValVoc PRIMARY KEY(MetaValueId, LanguageCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,089 DEBUG  {C17849} SQL: CREATE TABLE cds_DigContent_Meta_ValVoc (
+   MetaValueId INT NOT NULL,
+   LanguageCode VARCHAR(20)  NOT NULL,
+   MetaValueName VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_DigContentMetaValVoc PRIMARY KEY(MetaValueId, LanguageCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,092 DEBUG  {C17849} SQL: CREATE INDEX IDX_DCMVV1 ON cds_DigContent_Meta_ValVoc (LanguageCode
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,106 INFO   {C17849} creating table cds_DigContent_Text if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,109 DEBUG  {C17849} CREATE TABLE cds_DigContent_Text (
+   ContentGuid CHAR(36)  NOT NULL,
+   LanguageCode VARCHAR(20)  NOT NULL,
+   RegionCode VARCHAR(20)  NOT NULL,
+   MediaTypeID INT NOT NULL,
+   Text TEXT NOT NULL,
+   Timestamp TIMESTAMP NOT NULL
+, CONSTRAINT PK_DigContentText PRIMARY KEY(ContentGuid, LanguageCode, RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,109 DEBUG  {C17849} SQL: CREATE TABLE cds_DigContent_Text (
+   ContentGuid CHAR(36)  NOT NULL,
+   LanguageCode VARCHAR(20)  NOT NULL,
+   RegionCode VARCHAR(20)  NOT NULL,
+   MediaTypeID INT NOT NULL,
+   Text TEXT NOT NULL,
+   Timestamp TIMESTAMP NOT NULL
+, CONSTRAINT PK_DigContentText PRIMARY KEY(ContentGuid, LanguageCode, RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,109 DEBUG  {C17849} SQL: CREATE TABLE cds_DigContent_Text (
+   ContentGuid CHAR(36)  NOT NULL,
+   LanguageCode VARCHAR(20)  NOT NULL,
+   RegionCode VARCHAR(20)  NOT NULL,
+   MediaTypeID INT NOT NULL,
+   Text TEXT NOT NULL,
+   Timestamp TIMESTAMP NOT NULL
+, CONSTRAINT PK_DigContentText PRIMARY KEY(ContentGuid, LanguageCode, RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,119 DEBUG  {C17849} SQL: CREATE INDEX IDX_DCT1 ON cds_DigContent_Text (ContentGuid
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,120 DEBUG  {C17849} SQL: CREATE INDEX IDX_DCT2 ON cds_DigContent_Text (LanguageCode
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,122 DEBUG  {C17849} SQL: CREATE INDEX IDX_DCT3 ON cds_DigContent_Text (RegionCode
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,123 INFO   {C17849} creating table cds_Atr if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,125 DEBUG  {C17849} CREATE TABLE cds_Atr (
+   ProdID VARCHAR(40)  NOT NULL,
+   CatID CHAR(2)  NOT NULL,
+   AtrID VARCHAR(10)  NOT NULL,
+   ValID VARCHAR(10)  NOT NULL,
+   UnitID VARCHAR(10)  NULL,
+   NNV REAL NULL
+, CONSTRAINT PK_Atr PRIMARY KEY(ProdID, AtrID, ValID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,125 DEBUG  {C17849} SQL: CREATE TABLE cds_Atr (
+   ProdID VARCHAR(40)  NOT NULL,
+   CatID CHAR(2)  NOT NULL,
+   AtrID VARCHAR(10)  NOT NULL,
+   ValID VARCHAR(10)  NOT NULL,
+   UnitID VARCHAR(10)  NULL,
+   NNV REAL NULL
+, CONSTRAINT PK_Atr PRIMARY KEY(ProdID, AtrID, ValID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,125 DEBUG  {C17849} SQL: CREATE TABLE cds_Atr (
+   ProdID VARCHAR(40)  NOT NULL,
+   CatID CHAR(2)  NOT NULL,
+   AtrID VARCHAR(10)  NOT NULL,
+   ValID VARCHAR(10)  NOT NULL,
+   UnitID VARCHAR(10)  NULL,
+   NNV REAL NULL
+, CONSTRAINT PK_Atr PRIMARY KEY(ProdID, AtrID, ValID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,130 DEBUG  {C17849} SQL: CREATE INDEX IDX_ATR1 ON cds_Atr (CatID
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,131 DEBUG  {C17849} SQL: CREATE INDEX IDX_ATR2 ON cds_Atr (AtrID
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,132 DEBUG  {C17849} SQL: CREATE INDEX IDX_ATR3 ON cds_Atr (ValID
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,134 DEBUG  {C17849} SQL: CREATE INDEX IDX_ATR4 ON cds_Atr (UnitID
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,135 INFO   {C17849} creating table cds_Cat if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,137 DEBUG  {C17849} CREATE TABLE cds_Cat (
+   CatID CHAR(2)  NOT NULL,
+   AtrID VARCHAR(10)  NOT NULL
+, CONSTRAINT PK_Cat PRIMARY KEY(AtrID, CatID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,137 DEBUG  {C17849} SQL: CREATE TABLE cds_Cat (
+   CatID CHAR(2)  NOT NULL,
+   AtrID VARCHAR(10)  NOT NULL
+, CONSTRAINT PK_Cat PRIMARY KEY(AtrID, CatID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,137 DEBUG  {C17849} SQL: CREATE TABLE cds_Cat (
+   CatID CHAR(2)  NOT NULL,
+   AtrID VARCHAR(10)  NOT NULL
+, CONSTRAINT PK_Cat PRIMARY KEY(AtrID, CatID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,139 DEBUG  {C17849} SQL: CREATE INDEX IDX_CAT2 ON cds_Cat (CatID
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,141 INFO   {C17849} creating table cds_Catalog if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,143 DEBUG  {C17849} CREATE TABLE cds_Catalog (
+   ProdID VARCHAR(40)  NOT NULL,
+   StatusCode VARCHAR(4)  NOT NULL,
+   LastDeliveryDate CHAR(10)  NULL,
+   CreationDate CHAR(10)  NULL,
+   LastRequestDate CHAR(10)  NULL,
+   IsPartial BIT(1) NOT NULL,
+   Reserved1 VARCHAR(100)  NULL,
+   Reserved2 VARCHAR(100)  NULL,
+   Reserved3 VARCHAR(100)  NULL,
+   IsObsolete VARCHAR(100)  NULL,
+   Reserved5 VARCHAR(100)  NULL
+, CONSTRAINT PK_Catalog PRIMARY KEY(ProdID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,144 DEBUG  {C17849} SQL: CREATE TABLE cds_Catalog (
+   ProdID VARCHAR(40)  NOT NULL,
+   StatusCode VARCHAR(4)  NOT NULL,
+   LastDeliveryDate CHAR(10)  NULL,
+   CreationDate CHAR(10)  NULL,
+   LastRequestDate CHAR(10)  NULL,
+   IsPartial BIT(1) NOT NULL,
+   Reserved1 VARCHAR(100)  NULL,
+   Reserved2 VARCHAR(100)  NULL,
+   Reserved3 VARCHAR(100)  NULL,
+   IsObsolete VARCHAR(100)  NULL,
+   Reserved5 VARCHAR(100)  NULL
+, CONSTRAINT PK_Catalog PRIMARY KEY(ProdID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,144 DEBUG  {C17849} SQL: CREATE TABLE cds_Catalog (
+   ProdID VARCHAR(40)  NOT NULL,
+   StatusCode VARCHAR(4)  NOT NULL,
+   LastDeliveryDate CHAR(10)  NULL,
+   CreationDate CHAR(10)  NULL,
+   LastRequestDate CHAR(10)  NULL,
+   IsPartial BIT(1) NOT NULL,
+   Reserved1 VARCHAR(100)  NULL,
+   Reserved2 VARCHAR(100)  NULL,
+   Reserved3 VARCHAR(100)  NULL,
+   IsObsolete VARCHAR(100)  NULL,
+   Reserved5 VARCHAR(100)  NULL
+, CONSTRAINT PK_Catalog PRIMARY KEY(ProdID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,147 DEBUG  {C17849} SQL: CREATE INDEX IDX_CAT1 ON cds_Catalog (StatusCode
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,148 INFO   {C17849} creating table cds_Cctez if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,150 DEBUG  {C17849} CREATE TABLE cds_Cctez (
+   ID CHAR(2)  NOT NULL,
+   Description VARCHAR(80)  NOT NULL,
+   DefaultImageID VARCHAR(10)  NULL
+, CONSTRAINT PK_Cctez PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,150 DEBUG  {C17849} SQL: CREATE TABLE cds_Cctez (
+   ID CHAR(2)  NOT NULL,
+   Description VARCHAR(80)  NOT NULL,
+   DefaultImageID VARCHAR(10)  NULL
+, CONSTRAINT PK_Cctez PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,150 DEBUG  {C17849} SQL: CREATE TABLE cds_Cctez (
+   ID CHAR(2)  NOT NULL,
+   Description VARCHAR(80)  NOT NULL,
+   DefaultImageID VARCHAR(10)  NULL
+, CONSTRAINT PK_Cctez PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,153 INFO   {C17849} creating table cds_Distivoc if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,155 DEBUG  {C17849} CREATE TABLE cds_Distivoc (
+   ID VARCHAR(10)  NOT NULL,
+   Name VARCHAR(50)  NOT NULL
+, CONSTRAINT PK_Distivoc PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,155 DEBUG  {C17849} SQL: CREATE TABLE cds_Distivoc (
+   ID VARCHAR(10)  NOT NULL,
+   Name VARCHAR(50)  NOT NULL
+, CONSTRAINT PK_Distivoc PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,156 DEBUG  {C17849} SQL: CREATE TABLE cds_Distivoc (
+   ID VARCHAR(10)  NOT NULL,
+   Name VARCHAR(50)  NOT NULL
+, CONSTRAINT PK_Distivoc PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,158 INFO   {C17849} creating table cds_Especez if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,160 DEBUG  {C17849} CREATE TABLE cds_Especez (
+   ProdID VARCHAR(40)  NOT NULL,
+   SectID VARCHAR(10)  NOT NULL,
+   HdrID VARCHAR(10)  NOT NULL,
+   BodyID VARCHAR(10)  NOT NULL,
+   DisplayOrder INT NOT NULL
+, CONSTRAINT PK_Especez PRIMARY KEY(ProdID, SectID, BodyID, HdrID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,160 DEBUG  {C17849} SQL: CREATE TABLE cds_Especez (
+   ProdID VARCHAR(40)  NOT NULL,
+   SectID VARCHAR(10)  NOT NULL,
+   HdrID VARCHAR(10)  NOT NULL,
+   BodyID VARCHAR(10)  NOT NULL,
+   DisplayOrder INT NOT NULL
+, CONSTRAINT PK_Especez PRIMARY KEY(ProdID, SectID, BodyID, HdrID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,161 DEBUG  {C17849} SQL: CREATE TABLE cds_Especez (
+   ProdID VARCHAR(40)  NOT NULL,
+   SectID VARCHAR(10)  NOT NULL,
+   HdrID VARCHAR(10)  NOT NULL,
+   BodyID VARCHAR(10)  NOT NULL,
+   DisplayOrder INT NOT NULL
+, CONSTRAINT PK_Especez PRIMARY KEY(ProdID, SectID, BodyID, HdrID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,163 DEBUG  {C17849} SQL: CREATE INDEX IDX_ESez1 ON cds_Especez (BodyID
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,164 DEBUG  {C17849} SQL: CREATE INDEX IDX_ESez2 ON cds_Especez (HdrID
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,166 DEBUG  {C17849} SQL: CREATE INDEX IDX_ESez3 ON cds_Especez (SectID
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,167 INFO   {C17849} creating table cds_Evocez if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,169 DEBUG  {C17849} CREATE TABLE cds_Evocez (
+   ID VARCHAR(10)  NOT NULL,
+   Text VARCHAR(2000)  NULL
+, CONSTRAINT PK_Evocez PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,169 DEBUG  {C17849} SQL: CREATE TABLE cds_Evocez (
+   ID VARCHAR(10)  NOT NULL,
+   Text VARCHAR(2000)  NULL
+, CONSTRAINT PK_Evocez PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,169 DEBUG  {C17849} SQL: CREATE TABLE cds_Evocez (
+   ID VARCHAR(10)  NOT NULL,
+   Text VARCHAR(2000)  NULL
+, CONSTRAINT PK_Evocez PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,172 INFO   {C17849} creating table cds_Metamap if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,175 DEBUG  {C17849} CREATE TABLE cds_Metamap (
+   ProdID VARCHAR(40)  NOT NULL,
+   DistiSKU VARCHAR(40)  NOT NULL,
+   DistiID VARCHAR(10)  NOT NULL
+, CONSTRAINT PK_Metamap PRIMARY KEY(ProdID, DistiID, DistiSKU)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,175 DEBUG  {C17849} SQL: CREATE TABLE cds_Metamap (
+   ProdID VARCHAR(40)  NOT NULL,
+   DistiSKU VARCHAR(40)  NOT NULL,
+   DistiID VARCHAR(10)  NOT NULL
+, CONSTRAINT PK_Metamap PRIMARY KEY(ProdID, DistiID, DistiSKU)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,175 DEBUG  {C17849} SQL: CREATE TABLE cds_Metamap (
+   ProdID VARCHAR(40)  NOT NULL,
+   DistiSKU VARCHAR(40)  NOT NULL,
+   DistiID VARCHAR(10)  NOT NULL
+, CONSTRAINT PK_Metamap PRIMARY KEY(ProdID, DistiID, DistiSKU)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,178 DEBUG  {C17849} SQL: CREATE INDEX IDX_MM1 ON cds_Metamap (DistiID
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,180 INFO   {C17849} creating table cds_Mspecez if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,182 DEBUG  {C17849} CREATE TABLE cds_Mspecez (
+   ProdID VARCHAR(40)  NOT NULL,
+   HdrID VARCHAR(10)  NOT NULL,
+   BodyID VARCHAR(10)  NOT NULL,
+   DisplayOrder INT NOT NULL
+, CONSTRAINT PK_Mspecez PRIMARY KEY(ProdID, HdrID, BodyID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,182 DEBUG  {C17849} SQL: CREATE TABLE cds_Mspecez (
+   ProdID VARCHAR(40)  NOT NULL,
+   HdrID VARCHAR(10)  NOT NULL,
+   BodyID VARCHAR(10)  NOT NULL,
+   DisplayOrder INT NOT NULL
+, CONSTRAINT PK_Mspecez PRIMARY KEY(ProdID, HdrID, BodyID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,182 DEBUG  {C17849} SQL: CREATE TABLE cds_Mspecez (
+   ProdID VARCHAR(40)  NOT NULL,
+   HdrID VARCHAR(10)  NOT NULL,
+   BodyID VARCHAR(10)  NOT NULL,
+   DisplayOrder INT NOT NULL
+, CONSTRAINT PK_Mspecez PRIMARY KEY(ProdID, HdrID, BodyID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,184 DEBUG  {C17849} SQL: CREATE INDEX IDX_MSez1 ON cds_Mspecez (BodyID
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,185 DEBUG  {C17849} SQL: CREATE INDEX IDX_MSez2 ON cds_Mspecez (HdrID
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,186 INFO   {C17849} creating table cds_Mvocez if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,189 DEBUG  {C17849} CREATE TABLE cds_Mvocez (
+   ID VARCHAR(10)  NOT NULL,
+   Text VARCHAR(2000)  NULL
+, CONSTRAINT PK_Mvocez PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,189 DEBUG  {C17849} SQL: CREATE TABLE cds_Mvocez (
+   ID VARCHAR(10)  NOT NULL,
+   Text VARCHAR(2000)  NULL
+, CONSTRAINT PK_Mvocez PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,189 DEBUG  {C17849} SQL: CREATE TABLE cds_Mvocez (
+   ID VARCHAR(10)  NOT NULL,
+   Text VARCHAR(2000)  NULL
+, CONSTRAINT PK_Mvocez PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,193 INFO   {C17849} creating table cds_Prod if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,195 DEBUG  {C17849} CREATE TABLE cds_Prod (
+   ProdID VARCHAR(40)  NOT NULL,
+   CatID CHAR(2)  NOT NULL,
+   MktID VARCHAR(10)  NULL,
+   ImgID VARCHAR(10)  NULL,
+   MfID VARCHAR(10)  NOT NULL,
+   MfPN VARCHAR(40)  NOT NULL,
+   Reserved1 VARCHAR(1)  NULL,
+   Reserved2 VARCHAR(1)  NULL,
+   Reserved3 VARCHAR(1)  NULL,
+   Reserved4 VARCHAR(1)  NULL,
+   Reserved5 VARCHAR(1)  NULL,
+   Reserved6 VARCHAR(1)  NULL,
+   Reserved7 VARCHAR(1)  NULL,
+   Reserved8 VARCHAR(1)  NULL,
+   Reserved9 VARCHAR(1)  NULL,
+   Reserved10 VARCHAR(1)  NULL,
+   Reserved11 VARCHAR(1)  NULL,
+   Reserved12 VARCHAR(1)  NULL,
+   Reserved13 VARCHAR(1)  NULL,
+   Reserved14 VARCHAR(1)  NULL
+, CONSTRAINT PK_Prod PRIMARY KEY(ProdID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,195 DEBUG  {C17849} SQL: CREATE TABLE cds_Prod (
+   ProdID VARCHAR(40)  NOT NULL,
+   CatID CHAR(2)  NOT NULL,
+   MktID VARCHAR(10)  NULL,
+   ImgID VARCHAR(10)  NULL,
+   MfID VARCHAR(10)  NOT NULL,
+   MfPN VARCHAR(40)  NOT NULL,
+   Reserved1 VARCHAR(1)  NULL,
+   Reserved2 VARCHAR(1)  NULL,
+   Reserved3 VARCHAR(1)  NULL,
+   Reserved4 VARCHAR(1)  NULL,
+   Reserved5 VARCHAR(1)  NULL,
+   Reserved6 VARCHAR(1)  NULL,
+   Reserved7 VARCHAR(1)  NULL,
+   Reserved8 VARCHAR(1)  NULL,
+   Reserved9 VARCHAR(1)  NULL,
+   Reserved10 VARCHAR(1)  NULL,
+   Reserved11 VARCHAR(1)  NULL,
+   Reserved12 VARCHAR(1)  NULL,
+   Reserved13 VARCHAR(1)  NULL,
+   Reserved14 VARCHAR(1)  NULL
+, CONSTRAINT PK_Prod PRIMARY KEY(ProdID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,196 DEBUG  {C17849} SQL: CREATE TABLE cds_Prod (
+   ProdID VARCHAR(40)  NOT NULL,
+   CatID CHAR(2)  NOT NULL,
+   MktID VARCHAR(10)  NULL,
+   ImgID VARCHAR(10)  NULL,
+   MfID VARCHAR(10)  NOT NULL,
+   MfPN VARCHAR(40)  NOT NULL,
+   Reserved1 VARCHAR(1)  NULL,
+   Reserved2 VARCHAR(1)  NULL,
+   Reserved3 VARCHAR(1)  NULL,
+   Reserved4 VARCHAR(1)  NULL,
+   Reserved5 VARCHAR(1)  NULL,
+   Reserved6 VARCHAR(1)  NULL,
+   Reserved7 VARCHAR(1)  NULL,
+   Reserved8 VARCHAR(1)  NULL,
+   Reserved9 VARCHAR(1)  NULL,
+   Reserved10 VARCHAR(1)  NULL,
+   Reserved11 VARCHAR(1)  NULL,
+   Reserved12 VARCHAR(1)  NULL,
+   Reserved13 VARCHAR(1)  NULL,
+   Reserved14 VARCHAR(1)  NULL
+, CONSTRAINT PK_Prod PRIMARY KEY(ProdID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,198 DEBUG  {C17849} SQL: CREATE INDEX IDX_PROD1 ON cds_Prod (CatID
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,199 DEBUG  {C17849} SQL: CREATE INDEX IDX_PROD3 ON cds_Prod (MfID
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,200 INFO   {C17849} creating table cds_SKUStatus if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,202 DEBUG  {C17849} CREATE TABLE cds_SKUStatus (
+   StatusCode VARCHAR(4)  NOT NULL,
+   StatusName VARCHAR(100)  NOT NULL
+, CONSTRAINT PK_SKUStatus PRIMARY KEY(StatusCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,202 DEBUG  {C17849} SQL: CREATE TABLE cds_SKUStatus (
+   StatusCode VARCHAR(4)  NOT NULL,
+   StatusName VARCHAR(100)  NOT NULL
+, CONSTRAINT PK_SKUStatus PRIMARY KEY(StatusCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,202 DEBUG  {C17849} SQL: CREATE TABLE cds_SKUStatus (
+   StatusCode VARCHAR(4)  NOT NULL,
+   StatusName VARCHAR(100)  NOT NULL
+, CONSTRAINT PK_SKUStatus PRIMARY KEY(StatusCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,205 INFO   {C17849} creating table cds_Stdnez if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,208 DEBUG  {C17849} CREATE TABLE cds_Stdnez (
+   ProdID VARCHAR(40)  NOT NULL,
+   Description VARCHAR(2000)  NOT NULL
+, CONSTRAINT PK_Stdnez PRIMARY KEY(ProdID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,208 DEBUG  {C17849} SQL: CREATE TABLE cds_Stdnez (
+   ProdID VARCHAR(40)  NOT NULL,
+   Description VARCHAR(2000)  NOT NULL
+, CONSTRAINT PK_Stdnez PRIMARY KEY(ProdID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,208 DEBUG  {C17849} SQL: CREATE TABLE cds_Stdnez (
+   ProdID VARCHAR(40)  NOT NULL,
+   Description VARCHAR(2000)  NOT NULL
+, CONSTRAINT PK_Stdnez PRIMARY KEY(ProdID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,211 INFO   {C17849} creating table cds_Vocez if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,213 DEBUG  {C17849} CREATE TABLE cds_Vocez (
+   ID VARCHAR(10)  NOT NULL,
+   Text VARCHAR(255)  NULL
+, CONSTRAINT PK_Vocez PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,213 DEBUG  {C17849} SQL: CREATE TABLE cds_Vocez (
+   ID VARCHAR(10)  NOT NULL,
+   Text VARCHAR(255)  NULL
+, CONSTRAINT PK_Vocez PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,213 DEBUG  {C17849} SQL: CREATE TABLE cds_Vocez (
+   ID VARCHAR(10)  NOT NULL,
+   Text VARCHAR(255)  NULL
+, CONSTRAINT PK_Vocez PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,215 INFO   {C17849} creating table cds_Regions if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,217 DEBUG  {C17849} CREATE TABLE cds_Regions (
+   RegionCode VARCHAR(20)  NOT NULL,
+   RegionName VARCHAR(200)  NULL
+, CONSTRAINT PK_Regions PRIMARY KEY(RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,217 DEBUG  {C17849} SQL: CREATE TABLE cds_Regions (
+   RegionCode VARCHAR(20)  NOT NULL,
+   RegionName VARCHAR(200)  NULL
+, CONSTRAINT PK_Regions PRIMARY KEY(RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,218 DEBUG  {C17849} SQL: CREATE TABLE cds_Regions (
+   RegionCode VARCHAR(20)  NOT NULL,
+   RegionName VARCHAR(200)  NULL
+, CONSTRAINT PK_Regions PRIMARY KEY(RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,219 INFO   {C17849} creating table cds_Lifecycle if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,221 DEBUG  {C17849} CREATE TABLE cds_Lifecycle (
+   ProdID VARCHAR(40)  NOT NULL,
+   RegionCode VARCHAR(20)  NOT NULL,
+   isDiscontinued BIT(1) NULL,
+   DiscontinuedDate CHAR(10)  NULL,
+   ReleaseDate CHAR(10)  NULL,
+   Reserved1 VARCHAR(20)  NULL,
+   Reserved2 VARCHAR(20)  NULL
+, CONSTRAINT PK_Lifecycle PRIMARY KEY(ProdID, RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,222 DEBUG  {C17849} SQL: CREATE TABLE cds_Lifecycle (
+   ProdID VARCHAR(40)  NOT NULL,
+   RegionCode VARCHAR(20)  NOT NULL,
+   isDiscontinued BIT(1) NULL,
+   DiscontinuedDate CHAR(10)  NULL,
+   ReleaseDate CHAR(10)  NULL,
+   Reserved1 VARCHAR(20)  NULL,
+   Reserved2 VARCHAR(20)  NULL
+, CONSTRAINT PK_Lifecycle PRIMARY KEY(ProdID, RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,222 DEBUG  {C17849} SQL: CREATE TABLE cds_Lifecycle (
+   ProdID VARCHAR(40)  NOT NULL,
+   RegionCode VARCHAR(20)  NOT NULL,
+   isDiscontinued BIT(1) NULL,
+   DiscontinuedDate CHAR(10)  NULL,
+   ReleaseDate CHAR(10)  NULL,
+   Reserved1 VARCHAR(20)  NULL,
+   Reserved2 VARCHAR(20)  NULL
+, CONSTRAINT PK_Lifecycle PRIMARY KEY(ProdID, RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,224 INFO   {C17849} creating table cds_Languages if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,226 DEBUG  {C17849} CREATE TABLE cds_Languages (
+   LanguageID VARCHAR(20)  NOT NULL,
+   Language VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_Languages PRIMARY KEY(LanguageID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,227 DEBUG  {C17849} SQL: CREATE TABLE cds_Languages (
+   LanguageID VARCHAR(20)  NOT NULL,
+   Language VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_Languages PRIMARY KEY(LanguageID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,227 DEBUG  {C17849} SQL: CREATE TABLE cds_Languages (
+   LanguageID VARCHAR(20)  NOT NULL,
+   Language VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_Languages PRIMARY KEY(LanguageID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,228 INFO   {C17849} creating table cds_Cct_Version if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,230 DEBUG  {C17849} CREATE TABLE cds_Cct_Version (
+   VersionID INT NOT NULL,
+   VersionDescription VARCHAR(100)  NOT NULL,
+   SourceID INT NOT NULL,
+   SourceDescription VARCHAR(100)  NOT NULL,
+   ReleaseDate CHAR(10)  NULL,
+   isLatest BIT(1) NULL
+, CONSTRAINT PK_CctVersion PRIMARY KEY(VersionID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,230 DEBUG  {C17849} SQL: CREATE TABLE cds_Cct_Version (
+   VersionID INT NOT NULL,
+   VersionDescription VARCHAR(100)  NOT NULL,
+   SourceID INT NOT NULL,
+   SourceDescription VARCHAR(100)  NOT NULL,
+   ReleaseDate CHAR(10)  NULL,
+   isLatest BIT(1) NULL
+, CONSTRAINT PK_CctVersion PRIMARY KEY(VersionID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,230 DEBUG  {C17849} SQL: CREATE TABLE cds_Cct_Version (
+   VersionID INT NOT NULL,
+   VersionDescription VARCHAR(100)  NOT NULL,
+   SourceID INT NOT NULL,
+   SourceDescription VARCHAR(100)  NOT NULL,
+   ReleaseDate CHAR(10)  NULL,
+   isLatest BIT(1) NULL
+, CONSTRAINT PK_CctVersion PRIMARY KEY(VersionID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,232 INFO   {C17849} creating table cds_Cct_Categories if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,234 DEBUG  {C17849} CREATE TABLE cds_Cct_Categories (
+   CatID VARCHAR(40)  NOT NULL,
+   VersionID INT NOT NULL,
+   CategoryName VARCHAR(300)  NULL,
+   CatKey VARCHAR(40)  NULL,
+   ParentCatID VARCHAR(40)  NULL,
+   CategoryLevel INT NULL,
+   DisplayOrder INT NULL,
+   Breadcrumbs VARCHAR(2000)  NULL,
+   Notes VARCHAR(300)  NULL,
+   isOptional BIT(1) NULL,
+   isObsolete BIT(1) NULL
+, CONSTRAINT PK_CctCategories PRIMARY KEY(CatID, VersionID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,234 DEBUG  {C17849} SQL: CREATE TABLE cds_Cct_Categories (
+   CatID VARCHAR(40)  NOT NULL,
+   VersionID INT NOT NULL,
+   CategoryName VARCHAR(300)  NULL,
+   CatKey VARCHAR(40)  NULL,
+   ParentCatID VARCHAR(40)  NULL,
+   CategoryLevel INT NULL,
+   DisplayOrder INT NULL,
+   Breadcrumbs VARCHAR(2000)  NULL,
+   Notes VARCHAR(300)  NULL,
+   isOptional BIT(1) NULL,
+   isObsolete BIT(1) NULL
+, CONSTRAINT PK_CctCategories PRIMARY KEY(CatID, VersionID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,239 DEBUG  {C17849} SQL: CREATE TABLE cds_Cct_Categories (
+   CatID VARCHAR(40)  NOT NULL,
+   VersionID INT NOT NULL,
+   CategoryName VARCHAR(300)  NULL,
+   CatKey VARCHAR(40)  NULL,
+   ParentCatID VARCHAR(40)  NULL,
+   CategoryLevel INT NULL,
+   DisplayOrder INT NULL,
+   Breadcrumbs VARCHAR(2000)  NULL,
+   Notes VARCHAR(300)  NULL,
+   isOptional BIT(1) NULL,
+   isObsolete BIT(1) NULL
+, CONSTRAINT PK_CctCategories PRIMARY KEY(CatID, VersionID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,243 INFO   {C17849} creating table cds_Cct_Products if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,245 DEBUG  {C17849} CREATE TABLE cds_Cct_Products (
+   ProdID VARCHAR(40)  NOT NULL,
+   VersionID INT NOT NULL,
+   CatID VARCHAR(40)  NOT NULL,
+   isPrimary BIT(1) NULL
+, CONSTRAINT PK_CctProducts PRIMARY KEY(ProdID, VersionID, CatID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,245 DEBUG  {C17849} SQL: CREATE TABLE cds_Cct_Products (
+   ProdID VARCHAR(40)  NOT NULL,
+   VersionID INT NOT NULL,
+   CatID VARCHAR(40)  NOT NULL,
+   isPrimary BIT(1) NULL
+, CONSTRAINT PK_CctProducts PRIMARY KEY(ProdID, VersionID, CatID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,245 DEBUG  {C17849} SQL: CREATE TABLE cds_Cct_Products (
+   ProdID VARCHAR(40)  NOT NULL,
+   VersionID INT NOT NULL,
+   CatID VARCHAR(40)  NOT NULL,
+   isPrimary BIT(1) NULL
+, CONSTRAINT PK_CctProducts PRIMARY KEY(ProdID, VersionID, CatID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,247 INFO   {C17849} creating table cds_Cct_Vocabulary if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,249 DEBUG  {C17849} CREATE TABLE cds_Cct_Vocabulary (
+   CatID VARCHAR(40)  NOT NULL,
+   VersionID INT NOT NULL,
+   LanguageID VARCHAR(20)  NOT NULL,
+   CategoryName VARCHAR(255)  NOT NULL
+, CONSTRAINT PK_CctVocabulary PRIMARY KEY(CatID, VersionID, LanguageID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,249 DEBUG  {C17849} SQL: CREATE TABLE cds_Cct_Vocabulary (
+   CatID VARCHAR(40)  NOT NULL,
+   VersionID INT NOT NULL,
+   LanguageID VARCHAR(20)  NOT NULL,
+   CategoryName VARCHAR(255)  NOT NULL
+, CONSTRAINT PK_CctVocabulary PRIMARY KEY(CatID, VersionID, LanguageID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,249 DEBUG  {C17849} SQL: CREATE TABLE cds_Cct_Vocabulary (
+   CatID VARCHAR(40)  NOT NULL,
+   VersionID INT NOT NULL,
+   LanguageID VARCHAR(20)  NOT NULL,
+   CategoryName VARCHAR(255)  NOT NULL
+, CONSTRAINT PK_CctVocabulary PRIMARY KEY(CatID, VersionID, LanguageID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,251 INFO   {C17849} creating  foreign keys on cnet [GenericMaintenance] (GenericMaintenance.java:706)
+2019-12-24 09:44:02,251 DEBUG  {C17849} SQL: ALTER TABLE cds_ConnectorStatus
+	 ADD CONSTRAINT FK_CS_2_CSC FOREIGN KEY (StatusCode)
+	REFERENCES cds_ConnectorStatusCode(StatusCode)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,254 DEBUG  {C17849} SQL: ALTER TABLE cds_DigContent
+	 ADD CONSTRAINT FK_DC_2_DCMT FOREIGN KEY (MediaTypeID)
+	REFERENCES cds_DigContent_Media_Types(MediaTypeID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,256 DEBUG  {C17849} SQL: ALTER TABLE cds_DigContent_Prod
+	 ADD CONSTRAINT FK_DCP_2_CAT FOREIGN KEY (ProdID)
+	REFERENCES cds_Catalog(ProdID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,258 DEBUG  {C17849} SQL: ALTER TABLE cds_DigContent_Links
+	 ADD CONSTRAINT FK_DCL_2_DC FOREIGN KEY (ContentGuid)
+	REFERENCES cds_DigContent(ContentGuid)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,260 DEBUG  {C17849} SQL: ALTER TABLE cds_DigContent_Links
+	 ADD CONSTRAINT FK_DCL_2_DCP FOREIGN KEY (ProdID)
+	REFERENCES cds_DigContent_Prod(ProdID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,262 DEBUG  {C17849} SQL: ALTER TABLE cds_DigContent_Region_Links
+	 ADD CONSTRAINT FK_DCRL_2_DC FOREIGN KEY (ContentGuid)
+	REFERENCES cds_DigContent(ContentGuid)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,263 DEBUG  {C17849} SQL: ALTER TABLE cds_DigContent_Region_Links
+	 ADD CONSTRAINT FK_DCRL_2_DCR FOREIGN KEY (RegionCode)
+	REFERENCES cds_DigContent_Regions(RegionCode)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,265 DEBUG  {C17849} SQL: ALTER TABLE cds_DigContent_Lang_Links
+	 ADD CONSTRAINT FK_DCLL_2_DC FOREIGN KEY (ContentGuid)
+	REFERENCES cds_DigContent(ContentGuid)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,266 DEBUG  {C17849} SQL: ALTER TABLE cds_DigContent_Lang_Links
+	 ADD CONSTRAINT FK_DCLL_2_DCL FOREIGN KEY (LanguageCode)
+	REFERENCES cds_DigContent_Langs(LanguageCode)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,268 DEBUG  {C17849} SQL: ALTER TABLE cds_DigContent_Meta
+	 ADD CONSTRAINT FK_DCM_2_DC FOREIGN KEY (ContentGuid)
+	REFERENCES cds_DigContent(ContentGuid)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,269 DEBUG  {C17849} SQL: ALTER TABLE cds_DigContent_Meta_AtrVoc
+	 ADD CONSTRAINT FK_DCMAV_2_DCL FOREIGN KEY (LanguageCode)
+	REFERENCES cds_DigContent_Langs(LanguageCode)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,271 DEBUG  {C17849} SQL: ALTER TABLE cds_DigContent_Meta_ValVoc
+	 ADD CONSTRAINT FK_DCMVV_2_DCL FOREIGN KEY (LanguageCode)
+	REFERENCES cds_DigContent_Langs(LanguageCode)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,272 DEBUG  {C17849} SQL: ALTER TABLE cds_DigContent_Text
+	 ADD CONSTRAINT FK_DCT_2_DCMTT FOREIGN KEY (MediaTypeID)
+	REFERENCES cds_DigContent_Media_Types(MediaTypeID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,280 DEBUG  {C17849} SQL: ALTER TABLE cds_DigContent_Text
+	 ADD CONSTRAINT FK_DCT_2_DC FOREIGN KEY (ContentGuid)
+	REFERENCES cds_DigContent(ContentGuid)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,282 DEBUG  {C17849} SQL: ALTER TABLE cds_DigContent_Text
+	 ADD CONSTRAINT FK_DCT_2_DCL FOREIGN KEY (LanguageCode)
+	REFERENCES cds_DigContent_Langs(LanguageCode)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,284 DEBUG  {C17849} SQL: ALTER TABLE cds_DigContent_Text
+	 ADD CONSTRAINT FK_DCT_2_DCR FOREIGN KEY (RegionCode)
+	REFERENCES cds_DigContent_Regions(RegionCode)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,285 DEBUG  {C17849} SQL: ALTER TABLE cds_Atr
+	 ADD CONSTRAINT FK_ATR_2_CCTez FOREIGN KEY (CatID)
+	REFERENCES cds_Cctez(ID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,287 DEBUG  {C17849} SQL: ALTER TABLE cds_Atr
+	 ADD CONSTRAINT FK_ATR_2_PROD FOREIGN KEY (ProdID)
+	REFERENCES cds_Prod(ProdID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,289 DEBUG  {C17849} SQL: ALTER TABLE cds_Atr
+	 ADD CONSTRAINT FK_ATR1_2_VOCez FOREIGN KEY (AtrID)
+	REFERENCES cds_Vocez(ID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,291 DEBUG  {C17849} SQL: ALTER TABLE cds_Atr
+	 ADD CONSTRAINT FK_ATR2_2_VOCez FOREIGN KEY (ValID)
+	REFERENCES cds_Vocez(ID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,293 DEBUG  {C17849} SQL: ALTER TABLE cds_Atr
+	 ADD CONSTRAINT FK_ATR3_2_VOCez FOREIGN KEY (UnitID)
+	REFERENCES cds_Vocez(ID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,294 DEBUG  {C17849} SQL: ALTER TABLE cds_Cat
+	 ADD CONSTRAINT FK_CAT_2_CCTez FOREIGN KEY (CatID)
+	REFERENCES cds_Cctez(ID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,295 DEBUG  {C17849} SQL: ALTER TABLE cds_Cat
+	 ADD CONSTRAINT FK_CAT_2_VOCez FOREIGN KEY (AtrID)
+	REFERENCES cds_Vocez(ID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,297 DEBUG  {C17849} SQL: ALTER TABLE cds_Catalog
+	 ADD CONSTRAINT FK_CAT_2_SS FOREIGN KEY (StatusCode)
+	REFERENCES cds_SKUStatus(StatusCode)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,298 DEBUG  {C17849} SQL: ALTER TABLE cds_Especez
+	 ADD CONSTRAINT FK_ES1ez_2_EVez FOREIGN KEY (BodyID)
+	REFERENCES cds_Evocez(ID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,300 DEBUG  {C17849} SQL: ALTER TABLE cds_Especez
+	 ADD CONSTRAINT FK_ES2ez_2_EVez FOREIGN KEY (HdrID)
+	REFERENCES cds_Evocez(ID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,301 DEBUG  {C17849} SQL: ALTER TABLE cds_Especez
+	 ADD CONSTRAINT FK_ES3ez_2_EVez FOREIGN KEY (SectID)
+	REFERENCES cds_Evocez(ID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,303 DEBUG  {C17849} SQL: ALTER TABLE cds_Especez
+	 ADD CONSTRAINT FK_ESez_2_PROD FOREIGN KEY (ProdID)
+	REFERENCES cds_Prod(ProdID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,305 DEBUG  {C17849} SQL: ALTER TABLE cds_Metamap
+	 ADD CONSTRAINT FK_MM_2_CAT FOREIGN KEY (ProdID)
+	REFERENCES cds_Catalog(ProdID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,306 DEBUG  {C17849} SQL: ALTER TABLE cds_Metamap
+	 ADD CONSTRAINT FK_MM_2_DV FOREIGN KEY (DistiID)
+	REFERENCES cds_Distivoc(ID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,308 DEBUG  {C17849} SQL: ALTER TABLE cds_Mspecez
+	 ADD CONSTRAINT FK_MS1ez_2_MVez FOREIGN KEY (BodyID)
+	REFERENCES cds_Mvocez(ID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,309 DEBUG  {C17849} SQL: ALTER TABLE cds_Mspecez
+	 ADD CONSTRAINT FK_MS2ez_2_MVez FOREIGN KEY (HdrID)
+	REFERENCES cds_Mvocez(ID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,311 DEBUG  {C17849} SQL: ALTER TABLE cds_Mspecez
+	 ADD CONSTRAINT FK_MS3ez_2_MVez FOREIGN KEY (ProdID)
+	REFERENCES cds_Prod(ProdID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,312 DEBUG  {C17849} SQL: ALTER TABLE cds_Prod
+	 ADD CONSTRAINT FK_PROD_2_CAT FOREIGN KEY (ProdID)
+	REFERENCES cds_Catalog(ProdID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,314 DEBUG  {C17849} SQL: ALTER TABLE cds_Prod
+	 ADD CONSTRAINT FK_PROD_2_CCTez FOREIGN KEY (CatID)
+	REFERENCES cds_Cctez(ID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,315 DEBUG  {C17849} SQL: ALTER TABLE cds_Prod
+	 ADD CONSTRAINT FK_PROD_2_VOCez FOREIGN KEY (MfID)
+	REFERENCES cds_Vocez(ID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,316 DEBUG  {C17849} SQL: ALTER TABLE cds_Stdnez
+	 ADD CONSTRAINT FK_STDez_2_PROD FOREIGN KEY (ProdID)
+	REFERENCES cds_Prod(ProdID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,318 DEBUG  {C17849} SQL: ALTER TABLE cds_Lifecycle
+	 ADD CONSTRAINT FK_LIF_2_CAT FOREIGN KEY (ProdID)
+	REFERENCES cds_Catalog(ProdID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,319 DEBUG  {C17849} SQL: ALTER TABLE cds_Lifecycle
+	 ADD CONSTRAINT FK_LIF_2_REG FOREIGN KEY (RegionCode)
+	REFERENCES cds_Regions(RegionCode)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,321 DEBUG  {C17849} SQL: ALTER TABLE cds_Cct_Categories
+	 ADD CONSTRAINT FK_CCTCAT_2_VER FOREIGN KEY (VersionID)
+	REFERENCES cds_Cct_Version(VersionID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,323 DEBUG  {C17849} SQL: ALTER TABLE cds_Cct_Products
+	 ADD CONSTRAINT FK_CCTPROD_2_CAT FOREIGN KEY (ProdID)
+	REFERENCES cds_Catalog(ProdID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,325 DEBUG  {C17849} SQL: ALTER TABLE cds_Cct_Products
+	 ADD CONSTRAINT FK_CCTPROD_2_CCTCAT FOREIGN KEY (CatID,VersionID)
+	REFERENCES cds_Cct_Categories(CatID,VersionID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,326 DEBUG  {C17849} SQL: ALTER TABLE cds_Cct_Vocabulary
+	 ADD CONSTRAINT FK_CCTVOC_2_CCTCAT FOREIGN KEY (CatID,VersionID)
+	REFERENCES cds_Cct_Categories(CatID,VersionID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,328 DEBUG  {C17849} SQL: ALTER TABLE cds_Cct_Vocabulary
+	 ADD CONSTRAINT FK_CCTVOC_2_LANG FOREIGN KEY (LanguageID)
+	REFERENCES cds_Languages(LanguageID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,334 INFO   {C17849} creating in_ tables on cnet [GenericMaintenance] (GenericMaintenance.java:694)
+2019-12-24 09:44:02,334 INFO   {C17849} creating table in_cds_DigContent if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,336 DEBUG  {C17849} CREATE TABLE in_cds_DigContent (
+   ContentGuid CHAR(36)  NOT NULL,
+   MediaTypeID INT NOT NULL,
+   MimeType VARCHAR(50)  NOT NULL,
+   URL VARCHAR(500)  NOT NULL,
+   Timestamp TIMESTAMP NULL
+, CONSTRAINT PK_inDigContent PRIMARY KEY(ContentGuid)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,336 DEBUG  {C17849} SQL: CREATE TABLE in_cds_DigContent (
+   ContentGuid CHAR(36)  NOT NULL,
+   MediaTypeID INT NOT NULL,
+   MimeType VARCHAR(50)  NOT NULL,
+   URL VARCHAR(500)  NOT NULL,
+   Timestamp TIMESTAMP NULL
+, CONSTRAINT PK_inDigContent PRIMARY KEY(ContentGuid)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,336 DEBUG  {C17849} SQL: CREATE TABLE in_cds_DigContent (
+   ContentGuid CHAR(36)  NOT NULL,
+   MediaTypeID INT NOT NULL,
+   MimeType VARCHAR(50)  NOT NULL,
+   URL VARCHAR(500)  NOT NULL,
+   Timestamp TIMESTAMP NULL
+, CONSTRAINT PK_inDigContent PRIMARY KEY(ContentGuid)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,345 DEBUG  {C17849} SQL: CREATE INDEX in_IDX_DC1 ON in_cds_DigContent (MediaTypeID
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,346 INFO   {C17849} creating table in_cds_DigContent_Media_Types if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,348 DEBUG  {C17849} CREATE TABLE in_cds_DigContent_Media_Types (
+   MediaTypeID INT NOT NULL,
+   MediaTypeDescription VARCHAR(1000)  NOT NULL
+, CONSTRAINT PK_inDigContentMediaTypes PRIMARY KEY(MediaTypeID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,349 DEBUG  {C17849} SQL: CREATE TABLE in_cds_DigContent_Media_Types (
+   MediaTypeID INT NOT NULL,
+   MediaTypeDescription VARCHAR(1000)  NOT NULL
+, CONSTRAINT PK_inDigContentMediaTypes PRIMARY KEY(MediaTypeID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,349 DEBUG  {C17849} SQL: CREATE TABLE in_cds_DigContent_Media_Types (
+   MediaTypeID INT NOT NULL,
+   MediaTypeDescription VARCHAR(1000)  NOT NULL
+, CONSTRAINT PK_inDigContentMediaTypes PRIMARY KEY(MediaTypeID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,352 INFO   {C17849} creating table in_cds_DigContent_Prod if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,355 DEBUG  {C17849} CREATE TABLE in_cds_DigContent_Prod (
+   ProdID VARCHAR(40)  NOT NULL
+, CONSTRAINT PK_inDigContentProd PRIMARY KEY(ProdID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,355 DEBUG  {C17849} SQL: CREATE TABLE in_cds_DigContent_Prod (
+   ProdID VARCHAR(40)  NOT NULL
+, CONSTRAINT PK_inDigContentProd PRIMARY KEY(ProdID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,355 DEBUG  {C17849} SQL: CREATE TABLE in_cds_DigContent_Prod (
+   ProdID VARCHAR(40)  NOT NULL
+, CONSTRAINT PK_inDigContentProd PRIMARY KEY(ProdID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,357 INFO   {C17849} creating table in_cds_DigContent_Links if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,360 DEBUG  {C17849} CREATE TABLE in_cds_DigContent_Links (
+   ProdID VARCHAR(40)  NOT NULL,
+   ContentGuid CHAR(36)  NOT NULL
+, CONSTRAINT PK_inDigContentLinks PRIMARY KEY(ProdID, ContentGuid)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,360 DEBUG  {C17849} SQL: CREATE TABLE in_cds_DigContent_Links (
+   ProdID VARCHAR(40)  NOT NULL,
+   ContentGuid CHAR(36)  NOT NULL
+, CONSTRAINT PK_inDigContentLinks PRIMARY KEY(ProdID, ContentGuid)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,360 DEBUG  {C17849} SQL: CREATE TABLE in_cds_DigContent_Links (
+   ProdID VARCHAR(40)  NOT NULL,
+   ContentGuid CHAR(36)  NOT NULL
+, CONSTRAINT PK_inDigContentLinks PRIMARY KEY(ProdID, ContentGuid)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,363 DEBUG  {C17849} SQL: CREATE INDEX in_IDX_DCL1 ON in_cds_DigContent_Links (ContentGuid
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,364 INFO   {C17849} creating table in_cds_DigContent_Region_Links if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,367 DEBUG  {C17849} CREATE TABLE in_cds_DigContent_Region_Links (
+   ContentGuid CHAR(36)  NOT NULL,
+   RegionCode VARCHAR(20)  NOT NULL
+, CONSTRAINT PK_inDigContentRegionLinks PRIMARY KEY(ContentGuid, RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,367 DEBUG  {C17849} SQL: CREATE TABLE in_cds_DigContent_Region_Links (
+   ContentGuid CHAR(36)  NOT NULL,
+   RegionCode VARCHAR(20)  NOT NULL
+, CONSTRAINT PK_inDigContentRegionLinks PRIMARY KEY(ContentGuid, RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,367 DEBUG  {C17849} SQL: CREATE TABLE in_cds_DigContent_Region_Links (
+   ContentGuid CHAR(36)  NOT NULL,
+   RegionCode VARCHAR(20)  NOT NULL
+, CONSTRAINT PK_inDigContentRegionLinks PRIMARY KEY(ContentGuid, RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,369 DEBUG  {C17849} SQL: CREATE INDEX in_IDX_DCRL1 ON in_cds_DigContent_Region_Links (RegionCode
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,374 INFO   {C17849} creating table in_cds_DigContent_Regions if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,377 DEBUG  {C17849} CREATE TABLE in_cds_DigContent_Regions (
+   RegionCode VARCHAR(20)  NOT NULL,
+   RegionName VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_inDigContentRegions PRIMARY KEY(RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,378 DEBUG  {C17849} SQL: CREATE TABLE in_cds_DigContent_Regions (
+   RegionCode VARCHAR(20)  NOT NULL,
+   RegionName VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_inDigContentRegions PRIMARY KEY(RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,378 DEBUG  {C17849} SQL: CREATE TABLE in_cds_DigContent_Regions (
+   RegionCode VARCHAR(20)  NOT NULL,
+   RegionName VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_inDigContentRegions PRIMARY KEY(RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,380 INFO   {C17849} creating table in_cds_DigContent_Lang_Links if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,383 DEBUG  {C17849} CREATE TABLE in_cds_DigContent_Lang_Links (
+   ContentGuid CHAR(36)  NOT NULL,
+   LanguageCode VARCHAR(20)  NOT NULL
+, CONSTRAINT PK_inDigContentLangLinks PRIMARY KEY(ContentGuid, LanguageCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,383 DEBUG  {C17849} SQL: CREATE TABLE in_cds_DigContent_Lang_Links (
+   ContentGuid CHAR(36)  NOT NULL,
+   LanguageCode VARCHAR(20)  NOT NULL
+, CONSTRAINT PK_inDigContentLangLinks PRIMARY KEY(ContentGuid, LanguageCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,383 DEBUG  {C17849} SQL: CREATE TABLE in_cds_DigContent_Lang_Links (
+   ContentGuid CHAR(36)  NOT NULL,
+   LanguageCode VARCHAR(20)  NOT NULL
+, CONSTRAINT PK_inDigContentLangLinks PRIMARY KEY(ContentGuid, LanguageCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,386 DEBUG  {C17849} SQL: CREATE INDEX in_IDX_DCLL1 ON in_cds_DigContent_Lang_Links (LanguageCode
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,388 INFO   {C17849} creating table in_cds_DigContent_Langs if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,394 DEBUG  {C17849} CREATE TABLE in_cds_DigContent_Langs (
+   LanguageCode VARCHAR(20)  NOT NULL,
+   LanguageName VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_inDigContentLangs PRIMARY KEY(LanguageCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,394 DEBUG  {C17849} SQL: CREATE TABLE in_cds_DigContent_Langs (
+   LanguageCode VARCHAR(20)  NOT NULL,
+   LanguageName VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_inDigContentLangs PRIMARY KEY(LanguageCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,395 DEBUG  {C17849} SQL: CREATE TABLE in_cds_DigContent_Langs (
+   LanguageCode VARCHAR(20)  NOT NULL,
+   LanguageName VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_inDigContentLangs PRIMARY KEY(LanguageCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,397 INFO   {C17849} creating table in_cds_DigContent_Meta if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,399 DEBUG  {C17849} CREATE TABLE in_cds_DigContent_Meta (
+   ContentGuid CHAR(36)  NOT NULL,
+   MetaAtrId INT NOT NULL,
+   MetaValueId INT NOT NULL
+, CONSTRAINT PK_inDigContentMeta PRIMARY KEY(ContentGuid, MetaAtrId, MetaValueId)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,399 DEBUG  {C17849} SQL: CREATE TABLE in_cds_DigContent_Meta (
+   ContentGuid CHAR(36)  NOT NULL,
+   MetaAtrId INT NOT NULL,
+   MetaValueId INT NOT NULL
+, CONSTRAINT PK_inDigContentMeta PRIMARY KEY(ContentGuid, MetaAtrId, MetaValueId)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,399 DEBUG  {C17849} SQL: CREATE TABLE in_cds_DigContent_Meta (
+   ContentGuid CHAR(36)  NOT NULL,
+   MetaAtrId INT NOT NULL,
+   MetaValueId INT NOT NULL
+, CONSTRAINT PK_inDigContentMeta PRIMARY KEY(ContentGuid, MetaAtrId, MetaValueId)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,401 DEBUG  {C17849} SQL: CREATE INDEX in_IDX_DCM1 ON in_cds_DigContent_Meta (MetaAtrId
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,402 DEBUG  {C17849} SQL: CREATE INDEX in_IDX_DCM2 ON in_cds_DigContent_Meta (MetaValueId
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,403 INFO   {C17849} creating table in_cds_DigContent_Meta_AtrVoc if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,406 DEBUG  {C17849} CREATE TABLE in_cds_DigContent_Meta_AtrVoc (
+   MetaAtrId INT NOT NULL,
+   LanguageCode VARCHAR(20)  NOT NULL,
+   MetaAtrName VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_inDigContentMetaAtrVoc PRIMARY KEY(MetaAtrId, LanguageCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,406 DEBUG  {C17849} SQL: CREATE TABLE in_cds_DigContent_Meta_AtrVoc (
+   MetaAtrId INT NOT NULL,
+   LanguageCode VARCHAR(20)  NOT NULL,
+   MetaAtrName VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_inDigContentMetaAtrVoc PRIMARY KEY(MetaAtrId, LanguageCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,406 DEBUG  {C17849} SQL: CREATE TABLE in_cds_DigContent_Meta_AtrVoc (
+   MetaAtrId INT NOT NULL,
+   LanguageCode VARCHAR(20)  NOT NULL,
+   MetaAtrName VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_inDigContentMetaAtrVoc PRIMARY KEY(MetaAtrId, LanguageCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,409 DEBUG  {C17849} SQL: CREATE INDEX in_IDX_DCMAV1 ON in_cds_DigContent_Meta_AtrVoc (LanguageCode
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,411 INFO   {C17849} creating table in_cds_DigContent_Meta_ValVoc if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,412 DEBUG  {C17849} CREATE TABLE in_cds_DigContent_Meta_ValVoc (
+   MetaValueId INT NOT NULL,
+   LanguageCode VARCHAR(20)  NOT NULL,
+   MetaValueName VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_inDigContentMetaValVoc PRIMARY KEY(MetaValueId, LanguageCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,412 DEBUG  {C17849} SQL: CREATE TABLE in_cds_DigContent_Meta_ValVoc (
+   MetaValueId INT NOT NULL,
+   LanguageCode VARCHAR(20)  NOT NULL,
+   MetaValueName VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_inDigContentMetaValVoc PRIMARY KEY(MetaValueId, LanguageCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,412 DEBUG  {C17849} SQL: CREATE TABLE in_cds_DigContent_Meta_ValVoc (
+   MetaValueId INT NOT NULL,
+   LanguageCode VARCHAR(20)  NOT NULL,
+   MetaValueName VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_inDigContentMetaValVoc PRIMARY KEY(MetaValueId, LanguageCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,414 DEBUG  {C17849} SQL: CREATE INDEX in_IDX_DCMVV1 ON in_cds_DigContent_Meta_ValVoc (LanguageCode
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,415 INFO   {C17849} creating table in_cds_DigContent_Text if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,417 DEBUG  {C17849} CREATE TABLE in_cds_DigContent_Text (
+   ContentGuid CHAR(36)  NOT NULL,
+   LanguageCode VARCHAR(20)  NOT NULL,
+   RegionCode VARCHAR(20)  NOT NULL,
+   MediaTypeID INT NOT NULL,
+   Text TEXT NOT NULL,
+   Timestamp TIMESTAMP NOT NULL
+, CONSTRAINT PK_inDigContentText PRIMARY KEY(ContentGuid, LanguageCode, RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,417 DEBUG  {C17849} SQL: CREATE TABLE in_cds_DigContent_Text (
+   ContentGuid CHAR(36)  NOT NULL,
+   LanguageCode VARCHAR(20)  NOT NULL,
+   RegionCode VARCHAR(20)  NOT NULL,
+   MediaTypeID INT NOT NULL,
+   Text TEXT NOT NULL,
+   Timestamp TIMESTAMP NOT NULL
+, CONSTRAINT PK_inDigContentText PRIMARY KEY(ContentGuid, LanguageCode, RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,418 DEBUG  {C17849} SQL: CREATE TABLE in_cds_DigContent_Text (
+   ContentGuid CHAR(36)  NOT NULL,
+   LanguageCode VARCHAR(20)  NOT NULL,
+   RegionCode VARCHAR(20)  NOT NULL,
+   MediaTypeID INT NOT NULL,
+   Text TEXT NOT NULL,
+   Timestamp TIMESTAMP NOT NULL
+, CONSTRAINT PK_inDigContentText PRIMARY KEY(ContentGuid, LanguageCode, RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,425 DEBUG  {C17849} SQL: CREATE INDEX in_IDX_DCT1 ON in_cds_DigContent_Text (ContentGuid
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,426 DEBUG  {C17849} SQL: CREATE INDEX in_IDX_DCT2 ON in_cds_DigContent_Text (LanguageCode
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,427 DEBUG  {C17849} SQL: CREATE INDEX in_IDX_DCT3 ON in_cds_DigContent_Text (RegionCode
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,428 INFO   {C17849} creating table in_cds_Atr if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,430 DEBUG  {C17849} CREATE TABLE in_cds_Atr (
+   ProdID VARCHAR(40)  NOT NULL,
+   CatID CHAR(2)  NOT NULL,
+   AtrID VARCHAR(10)  NOT NULL,
+   ValID VARCHAR(10)  NOT NULL,
+   UnitID VARCHAR(10)  NULL,
+   NNV REAL NULL
+, CONSTRAINT PK_inAtr PRIMARY KEY(ProdID, AtrID, ValID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,430 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Atr (
+   ProdID VARCHAR(40)  NOT NULL,
+   CatID CHAR(2)  NOT NULL,
+   AtrID VARCHAR(10)  NOT NULL,
+   ValID VARCHAR(10)  NOT NULL,
+   UnitID VARCHAR(10)  NULL,
+   NNV REAL NULL
+, CONSTRAINT PK_inAtr PRIMARY KEY(ProdID, AtrID, ValID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,430 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Atr (
+   ProdID VARCHAR(40)  NOT NULL,
+   CatID CHAR(2)  NOT NULL,
+   AtrID VARCHAR(10)  NOT NULL,
+   ValID VARCHAR(10)  NOT NULL,
+   UnitID VARCHAR(10)  NULL,
+   NNV REAL NULL
+, CONSTRAINT PK_inAtr PRIMARY KEY(ProdID, AtrID, ValID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,432 DEBUG  {C17849} SQL: CREATE INDEX in_IDX_ATR1 ON in_cds_Atr (CatID
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,433 DEBUG  {C17849} SQL: CREATE INDEX in_IDX_ATR2 ON in_cds_Atr (AtrID
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,435 DEBUG  {C17849} SQL: CREATE INDEX in_IDX_ATR3 ON in_cds_Atr (ValID
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,436 DEBUG  {C17849} SQL: CREATE INDEX in_IDX_ATR4 ON in_cds_Atr (UnitID
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,437 INFO   {C17849} creating table in_cds_Cat if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,439 DEBUG  {C17849} CREATE TABLE in_cds_Cat (
+   CatID CHAR(2)  NOT NULL,
+   AtrID VARCHAR(10)  NOT NULL
+, CONSTRAINT PK_inCat PRIMARY KEY(AtrID, CatID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,439 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Cat (
+   CatID CHAR(2)  NOT NULL,
+   AtrID VARCHAR(10)  NOT NULL
+, CONSTRAINT PK_inCat PRIMARY KEY(AtrID, CatID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,439 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Cat (
+   CatID CHAR(2)  NOT NULL,
+   AtrID VARCHAR(10)  NOT NULL
+, CONSTRAINT PK_inCat PRIMARY KEY(AtrID, CatID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,441 DEBUG  {C17849} SQL: CREATE INDEX in_IDX_CAT2 ON in_cds_Cat (CatID
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,442 INFO   {C17849} creating table in_cds_Catalog if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,444 DEBUG  {C17849} CREATE TABLE in_cds_Catalog (
+   ProdID VARCHAR(40)  NOT NULL,
+   StatusCode VARCHAR(4)  NOT NULL,
+   LastDeliveryDate CHAR(10)  NULL,
+   CreationDate CHAR(10)  NULL,
+   LastRequestDate CHAR(10)  NULL,
+   IsPartial BIT(1) NOT NULL,
+   Reserved1 VARCHAR(100)  NULL,
+   Reserved2 VARCHAR(100)  NULL,
+   Reserved3 VARCHAR(100)  NULL,
+   IsObsolete VARCHAR(100)  NULL,
+   Reserved5 VARCHAR(100)  NULL
+, CONSTRAINT PK_inCatalog PRIMARY KEY(ProdID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,444 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Catalog (
+   ProdID VARCHAR(40)  NOT NULL,
+   StatusCode VARCHAR(4)  NOT NULL,
+   LastDeliveryDate CHAR(10)  NULL,
+   CreationDate CHAR(10)  NULL,
+   LastRequestDate CHAR(10)  NULL,
+   IsPartial BIT(1) NOT NULL,
+   Reserved1 VARCHAR(100)  NULL,
+   Reserved2 VARCHAR(100)  NULL,
+   Reserved3 VARCHAR(100)  NULL,
+   IsObsolete VARCHAR(100)  NULL,
+   Reserved5 VARCHAR(100)  NULL
+, CONSTRAINT PK_inCatalog PRIMARY KEY(ProdID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,444 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Catalog (
+   ProdID VARCHAR(40)  NOT NULL,
+   StatusCode VARCHAR(4)  NOT NULL,
+   LastDeliveryDate CHAR(10)  NULL,
+   CreationDate CHAR(10)  NULL,
+   LastRequestDate CHAR(10)  NULL,
+   IsPartial BIT(1) NOT NULL,
+   Reserved1 VARCHAR(100)  NULL,
+   Reserved2 VARCHAR(100)  NULL,
+   Reserved3 VARCHAR(100)  NULL,
+   IsObsolete VARCHAR(100)  NULL,
+   Reserved5 VARCHAR(100)  NULL
+, CONSTRAINT PK_inCatalog PRIMARY KEY(ProdID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,448 DEBUG  {C17849} SQL: CREATE INDEX in_IDX_CAT1 ON in_cds_Catalog (StatusCode
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,449 INFO   {C17849} creating table in_cds_Cctez if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,451 DEBUG  {C17849} CREATE TABLE in_cds_Cctez (
+   ID CHAR(2)  NOT NULL,
+   Description VARCHAR(80)  NOT NULL,
+   DefaultImageID VARCHAR(10)  NULL
+, CONSTRAINT PK_inCctez PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,451 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Cctez (
+   ID CHAR(2)  NOT NULL,
+   Description VARCHAR(80)  NOT NULL,
+   DefaultImageID VARCHAR(10)  NULL
+, CONSTRAINT PK_inCctez PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,451 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Cctez (
+   ID CHAR(2)  NOT NULL,
+   Description VARCHAR(80)  NOT NULL,
+   DefaultImageID VARCHAR(10)  NULL
+, CONSTRAINT PK_inCctez PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,453 INFO   {C17849} creating table in_cds_Distivoc if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,455 DEBUG  {C17849} CREATE TABLE in_cds_Distivoc (
+   ID VARCHAR(10)  NOT NULL,
+   Name VARCHAR(50)  NOT NULL
+, CONSTRAINT PK_inDistivoc PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,455 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Distivoc (
+   ID VARCHAR(10)  NOT NULL,
+   Name VARCHAR(50)  NOT NULL
+, CONSTRAINT PK_inDistivoc PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,455 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Distivoc (
+   ID VARCHAR(10)  NOT NULL,
+   Name VARCHAR(50)  NOT NULL
+, CONSTRAINT PK_inDistivoc PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,457 INFO   {C17849} creating table in_cds_Especez if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,459 DEBUG  {C17849} CREATE TABLE in_cds_Especez (
+   ProdID VARCHAR(40)  NOT NULL,
+   SectID VARCHAR(10)  NOT NULL,
+   HdrID VARCHAR(10)  NOT NULL,
+   BodyID VARCHAR(10)  NOT NULL,
+   DisplayOrder INT NOT NULL
+, CONSTRAINT PK_inEspecez PRIMARY KEY(ProdID, SectID, BodyID, HdrID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,460 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Especez (
+   ProdID VARCHAR(40)  NOT NULL,
+   SectID VARCHAR(10)  NOT NULL,
+   HdrID VARCHAR(10)  NOT NULL,
+   BodyID VARCHAR(10)  NOT NULL,
+   DisplayOrder INT NOT NULL
+, CONSTRAINT PK_inEspecez PRIMARY KEY(ProdID, SectID, BodyID, HdrID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,460 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Especez (
+   ProdID VARCHAR(40)  NOT NULL,
+   SectID VARCHAR(10)  NOT NULL,
+   HdrID VARCHAR(10)  NOT NULL,
+   BodyID VARCHAR(10)  NOT NULL,
+   DisplayOrder INT NOT NULL
+, CONSTRAINT PK_inEspecez PRIMARY KEY(ProdID, SectID, BodyID, HdrID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,462 DEBUG  {C17849} SQL: CREATE INDEX in_IDX_ESez1 ON in_cds_Especez (BodyID
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,463 DEBUG  {C17849} SQL: CREATE INDEX in_IDX_ESez2 ON in_cds_Especez (HdrID
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,464 DEBUG  {C17849} SQL: CREATE INDEX in_IDX_ESez3 ON in_cds_Especez (SectID
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,465 INFO   {C17849} creating table in_cds_Evocez if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,467 DEBUG  {C17849} CREATE TABLE in_cds_Evocez (
+   ID VARCHAR(10)  NOT NULL,
+   Text VARCHAR(2000)  NULL
+, CONSTRAINT PK_inEvocez PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,467 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Evocez (
+   ID VARCHAR(10)  NOT NULL,
+   Text VARCHAR(2000)  NULL
+, CONSTRAINT PK_inEvocez PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,467 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Evocez (
+   ID VARCHAR(10)  NOT NULL,
+   Text VARCHAR(2000)  NULL
+, CONSTRAINT PK_inEvocez PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,470 INFO   {C17849} creating table in_cds_Metamap if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,472 DEBUG  {C17849} CREATE TABLE in_cds_Metamap (
+   ProdID VARCHAR(40)  NOT NULL,
+   DistiSKU VARCHAR(40)  NOT NULL,
+   DistiID VARCHAR(10)  NOT NULL
+, CONSTRAINT PK_inMetamap PRIMARY KEY(ProdID, DistiID, DistiSKU)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,472 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Metamap (
+   ProdID VARCHAR(40)  NOT NULL,
+   DistiSKU VARCHAR(40)  NOT NULL,
+   DistiID VARCHAR(10)  NOT NULL
+, CONSTRAINT PK_inMetamap PRIMARY KEY(ProdID, DistiID, DistiSKU)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,472 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Metamap (
+   ProdID VARCHAR(40)  NOT NULL,
+   DistiSKU VARCHAR(40)  NOT NULL,
+   DistiID VARCHAR(10)  NOT NULL
+, CONSTRAINT PK_inMetamap PRIMARY KEY(ProdID, DistiID, DistiSKU)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,475 DEBUG  {C17849} SQL: CREATE INDEX in_IDX_MM1 ON in_cds_Metamap (DistiID
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,476 INFO   {C17849} creating table in_cds_Mspecez if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,478 DEBUG  {C17849} CREATE TABLE in_cds_Mspecez (
+   ProdID VARCHAR(40)  NOT NULL,
+   HdrID VARCHAR(10)  NOT NULL,
+   BodyID VARCHAR(10)  NOT NULL,
+   DisplayOrder INT NOT NULL
+, CONSTRAINT PK_inMspecez PRIMARY KEY(ProdID, HdrID, BodyID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,478 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Mspecez (
+   ProdID VARCHAR(40)  NOT NULL,
+   HdrID VARCHAR(10)  NOT NULL,
+   BodyID VARCHAR(10)  NOT NULL,
+   DisplayOrder INT NOT NULL
+, CONSTRAINT PK_inMspecez PRIMARY KEY(ProdID, HdrID, BodyID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,478 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Mspecez (
+   ProdID VARCHAR(40)  NOT NULL,
+   HdrID VARCHAR(10)  NOT NULL,
+   BodyID VARCHAR(10)  NOT NULL,
+   DisplayOrder INT NOT NULL
+, CONSTRAINT PK_inMspecez PRIMARY KEY(ProdID, HdrID, BodyID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,481 DEBUG  {C17849} SQL: CREATE INDEX in_IDX_MSez1 ON in_cds_Mspecez (BodyID
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,496 DEBUG  {C17849} SQL: CREATE INDEX in_IDX_MSez2 ON in_cds_Mspecez (HdrID
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,497 INFO   {C17849} creating table in_cds_Mvocez if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,499 DEBUG  {C17849} CREATE TABLE in_cds_Mvocez (
+   ID VARCHAR(10)  NOT NULL,
+   Text VARCHAR(2000)  NULL
+, CONSTRAINT PK_inMvocez PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,499 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Mvocez (
+   ID VARCHAR(10)  NOT NULL,
+   Text VARCHAR(2000)  NULL
+, CONSTRAINT PK_inMvocez PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,499 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Mvocez (
+   ID VARCHAR(10)  NOT NULL,
+   Text VARCHAR(2000)  NULL
+, CONSTRAINT PK_inMvocez PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,502 INFO   {C17849} creating table in_cds_Prod if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,504 DEBUG  {C17849} CREATE TABLE in_cds_Prod (
+   ProdID VARCHAR(40)  NOT NULL,
+   CatID CHAR(2)  NOT NULL,
+   MktID VARCHAR(10)  NULL,
+   ImgID VARCHAR(10)  NULL,
+   MfID VARCHAR(10)  NOT NULL,
+   MfPN VARCHAR(40)  NOT NULL,
+   Reserved1 VARCHAR(1)  NULL,
+   Reserved2 VARCHAR(1)  NULL,
+   Reserved3 VARCHAR(1)  NULL,
+   Reserved4 VARCHAR(1)  NULL,
+   Reserved5 VARCHAR(1)  NULL,
+   Reserved6 VARCHAR(1)  NULL,
+   Reserved7 VARCHAR(1)  NULL,
+   Reserved8 VARCHAR(1)  NULL,
+   Reserved9 VARCHAR(1)  NULL,
+   Reserved10 VARCHAR(1)  NULL,
+   Reserved11 VARCHAR(1)  NULL,
+   Reserved12 VARCHAR(1)  NULL,
+   Reserved13 VARCHAR(1)  NULL,
+   Reserved14 VARCHAR(1)  NULL
+, CONSTRAINT PK_inProd PRIMARY KEY(ProdID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,504 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Prod (
+   ProdID VARCHAR(40)  NOT NULL,
+   CatID CHAR(2)  NOT NULL,
+   MktID VARCHAR(10)  NULL,
+   ImgID VARCHAR(10)  NULL,
+   MfID VARCHAR(10)  NOT NULL,
+   MfPN VARCHAR(40)  NOT NULL,
+   Reserved1 VARCHAR(1)  NULL,
+   Reserved2 VARCHAR(1)  NULL,
+   Reserved3 VARCHAR(1)  NULL,
+   Reserved4 VARCHAR(1)  NULL,
+   Reserved5 VARCHAR(1)  NULL,
+   Reserved6 VARCHAR(1)  NULL,
+   Reserved7 VARCHAR(1)  NULL,
+   Reserved8 VARCHAR(1)  NULL,
+   Reserved9 VARCHAR(1)  NULL,
+   Reserved10 VARCHAR(1)  NULL,
+   Reserved11 VARCHAR(1)  NULL,
+   Reserved12 VARCHAR(1)  NULL,
+   Reserved13 VARCHAR(1)  NULL,
+   Reserved14 VARCHAR(1)  NULL
+, CONSTRAINT PK_inProd PRIMARY KEY(ProdID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,505 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Prod (
+   ProdID VARCHAR(40)  NOT NULL,
+   CatID CHAR(2)  NOT NULL,
+   MktID VARCHAR(10)  NULL,
+   ImgID VARCHAR(10)  NULL,
+   MfID VARCHAR(10)  NOT NULL,
+   MfPN VARCHAR(40)  NOT NULL,
+   Reserved1 VARCHAR(1)  NULL,
+   Reserved2 VARCHAR(1)  NULL,
+   Reserved3 VARCHAR(1)  NULL,
+   Reserved4 VARCHAR(1)  NULL,
+   Reserved5 VARCHAR(1)  NULL,
+   Reserved6 VARCHAR(1)  NULL,
+   Reserved7 VARCHAR(1)  NULL,
+   Reserved8 VARCHAR(1)  NULL,
+   Reserved9 VARCHAR(1)  NULL,
+   Reserved10 VARCHAR(1)  NULL,
+   Reserved11 VARCHAR(1)  NULL,
+   Reserved12 VARCHAR(1)  NULL,
+   Reserved13 VARCHAR(1)  NULL,
+   Reserved14 VARCHAR(1)  NULL
+, CONSTRAINT PK_inProd PRIMARY KEY(ProdID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,507 DEBUG  {C17849} SQL: CREATE INDEX in_IDX_PROD1 ON in_cds_Prod (CatID
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,509 DEBUG  {C17849} SQL: CREATE INDEX in_IDX_PROD3 ON in_cds_Prod (MfID
+) [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:422)
+2019-12-24 09:44:02,510 INFO   {C17849} creating table in_cds_SKUStatus if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,512 DEBUG  {C17849} CREATE TABLE in_cds_SKUStatus (
+   StatusCode VARCHAR(4)  NOT NULL,
+   StatusName VARCHAR(100)  NOT NULL
+, CONSTRAINT PK_inSKUStatus PRIMARY KEY(StatusCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,512 DEBUG  {C17849} SQL: CREATE TABLE in_cds_SKUStatus (
+   StatusCode VARCHAR(4)  NOT NULL,
+   StatusName VARCHAR(100)  NOT NULL
+, CONSTRAINT PK_inSKUStatus PRIMARY KEY(StatusCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,512 DEBUG  {C17849} SQL: CREATE TABLE in_cds_SKUStatus (
+   StatusCode VARCHAR(4)  NOT NULL,
+   StatusName VARCHAR(100)  NOT NULL
+, CONSTRAINT PK_inSKUStatus PRIMARY KEY(StatusCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,514 INFO   {C17849} creating table in_cds_Stdnez if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,516 DEBUG  {C17849} CREATE TABLE in_cds_Stdnez (
+   ProdID VARCHAR(40)  NOT NULL,
+   Description VARCHAR(2000)  NOT NULL
+, CONSTRAINT PK_inStdnez PRIMARY KEY(ProdID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,516 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Stdnez (
+   ProdID VARCHAR(40)  NOT NULL,
+   Description VARCHAR(2000)  NOT NULL
+, CONSTRAINT PK_inStdnez PRIMARY KEY(ProdID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,516 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Stdnez (
+   ProdID VARCHAR(40)  NOT NULL,
+   Description VARCHAR(2000)  NOT NULL
+, CONSTRAINT PK_inStdnez PRIMARY KEY(ProdID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,519 INFO   {C17849} creating table in_cds_Vocez if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,520 DEBUG  {C17849} CREATE TABLE in_cds_Vocez (
+   ID VARCHAR(10)  NOT NULL,
+   Text VARCHAR(255)  NULL
+, CONSTRAINT PK_inVocez PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,521 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Vocez (
+   ID VARCHAR(10)  NOT NULL,
+   Text VARCHAR(255)  NULL
+, CONSTRAINT PK_inVocez PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,521 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Vocez (
+   ID VARCHAR(10)  NOT NULL,
+   Text VARCHAR(255)  NULL
+, CONSTRAINT PK_inVocez PRIMARY KEY(ID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,522 INFO   {C17849} creating table in_cds_Regions if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,524 DEBUG  {C17849} CREATE TABLE in_cds_Regions (
+   RegionCode VARCHAR(20)  NOT NULL,
+   RegionName VARCHAR(200)  NULL
+, CONSTRAINT PK_inRegions PRIMARY KEY(RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,524 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Regions (
+   RegionCode VARCHAR(20)  NOT NULL,
+   RegionName VARCHAR(200)  NULL
+, CONSTRAINT PK_inRegions PRIMARY KEY(RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,524 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Regions (
+   RegionCode VARCHAR(20)  NOT NULL,
+   RegionName VARCHAR(200)  NULL
+, CONSTRAINT PK_inRegions PRIMARY KEY(RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,526 INFO   {C17849} creating table in_cds_Lifecycle if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,527 DEBUG  {C17849} CREATE TABLE in_cds_Lifecycle (
+   ProdID VARCHAR(40)  NOT NULL,
+   RegionCode VARCHAR(20)  NOT NULL,
+   isDiscontinued BIT(1) NULL,
+   DiscontinuedDate CHAR(10)  NULL,
+   ReleaseDate CHAR(10)  NULL,
+   Reserved1 VARCHAR(20)  NULL,
+   Reserved2 VARCHAR(20)  NULL
+, CONSTRAINT PK_inLifecycle PRIMARY KEY(ProdID, RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,528 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Lifecycle (
+   ProdID VARCHAR(40)  NOT NULL,
+   RegionCode VARCHAR(20)  NOT NULL,
+   isDiscontinued BIT(1) NULL,
+   DiscontinuedDate CHAR(10)  NULL,
+   ReleaseDate CHAR(10)  NULL,
+   Reserved1 VARCHAR(20)  NULL,
+   Reserved2 VARCHAR(20)  NULL
+, CONSTRAINT PK_inLifecycle PRIMARY KEY(ProdID, RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,528 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Lifecycle (
+   ProdID VARCHAR(40)  NOT NULL,
+   RegionCode VARCHAR(20)  NOT NULL,
+   isDiscontinued BIT(1) NULL,
+   DiscontinuedDate CHAR(10)  NULL,
+   ReleaseDate CHAR(10)  NULL,
+   Reserved1 VARCHAR(20)  NULL,
+   Reserved2 VARCHAR(20)  NULL
+, CONSTRAINT PK_inLifecycle PRIMARY KEY(ProdID, RegionCode)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,530 INFO   {C17849} creating table in_cds_Languages if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,531 DEBUG  {C17849} CREATE TABLE in_cds_Languages (
+   LanguageID VARCHAR(20)  NOT NULL,
+   Language VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_inLanguages PRIMARY KEY(LanguageID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,531 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Languages (
+   LanguageID VARCHAR(20)  NOT NULL,
+   Language VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_inLanguages PRIMARY KEY(LanguageID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,531 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Languages (
+   LanguageID VARCHAR(20)  NOT NULL,
+   Language VARCHAR(200)  NOT NULL
+, CONSTRAINT PK_inLanguages PRIMARY KEY(LanguageID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,533 INFO   {C17849} creating table in_cds_Cct_Version if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,535 DEBUG  {C17849} CREATE TABLE in_cds_Cct_Version (
+   VersionID INT NOT NULL,
+   VersionDescription VARCHAR(100)  NOT NULL,
+   SourceID INT NOT NULL,
+   SourceDescription VARCHAR(100)  NOT NULL,
+   ReleaseDate CHAR(10)  NULL,
+   isLatest BIT(1) NULL
+, CONSTRAINT PK_inCctVersion PRIMARY KEY(VersionID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,535 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Cct_Version (
+   VersionID INT NOT NULL,
+   VersionDescription VARCHAR(100)  NOT NULL,
+   SourceID INT NOT NULL,
+   SourceDescription VARCHAR(100)  NOT NULL,
+   ReleaseDate CHAR(10)  NULL,
+   isLatest BIT(1) NULL
+, CONSTRAINT PK_inCctVersion PRIMARY KEY(VersionID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,535 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Cct_Version (
+   VersionID INT NOT NULL,
+   VersionDescription VARCHAR(100)  NOT NULL,
+   SourceID INT NOT NULL,
+   SourceDescription VARCHAR(100)  NOT NULL,
+   ReleaseDate CHAR(10)  NULL,
+   isLatest BIT(1) NULL
+, CONSTRAINT PK_inCctVersion PRIMARY KEY(VersionID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,540 INFO   {C17849} creating table in_cds_Cct_Categories if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,542 DEBUG  {C17849} CREATE TABLE in_cds_Cct_Categories (
+   CatID VARCHAR(40)  NOT NULL,
+   VersionID INT NOT NULL,
+   CategoryName VARCHAR(300)  NULL,
+   CatKey VARCHAR(40)  NULL,
+   ParentCatID VARCHAR(40)  NULL,
+   CategoryLevel INT NULL,
+   DisplayOrder INT NULL,
+   Breadcrumbs VARCHAR(2000)  NULL,
+   Notes VARCHAR(300)  NULL,
+   isOptional BIT(1) NULL,
+   isObsolete BIT(1) NULL
+, CONSTRAINT PK_inCctCategories PRIMARY KEY(CatID, VersionID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,542 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Cct_Categories (
+   CatID VARCHAR(40)  NOT NULL,
+   VersionID INT NOT NULL,
+   CategoryName VARCHAR(300)  NULL,
+   CatKey VARCHAR(40)  NULL,
+   ParentCatID VARCHAR(40)  NULL,
+   CategoryLevel INT NULL,
+   DisplayOrder INT NULL,
+   Breadcrumbs VARCHAR(2000)  NULL,
+   Notes VARCHAR(300)  NULL,
+   isOptional BIT(1) NULL,
+   isObsolete BIT(1) NULL
+, CONSTRAINT PK_inCctCategories PRIMARY KEY(CatID, VersionID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,542 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Cct_Categories (
+   CatID VARCHAR(40)  NOT NULL,
+   VersionID INT NOT NULL,
+   CategoryName VARCHAR(300)  NULL,
+   CatKey VARCHAR(40)  NULL,
+   ParentCatID VARCHAR(40)  NULL,
+   CategoryLevel INT NULL,
+   DisplayOrder INT NULL,
+   Breadcrumbs VARCHAR(2000)  NULL,
+   Notes VARCHAR(300)  NULL,
+   isOptional BIT(1) NULL,
+   isObsolete BIT(1) NULL
+, CONSTRAINT PK_inCctCategories PRIMARY KEY(CatID, VersionID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,545 INFO   {C17849} creating table in_cds_Cct_Products if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,547 DEBUG  {C17849} CREATE TABLE in_cds_Cct_Products (
+   ProdID VARCHAR(40)  NOT NULL,
+   VersionID INT NOT NULL,
+   CatID VARCHAR(40)  NOT NULL,
+   isPrimary BIT(1) NULL
+, CONSTRAINT PK_inCctProducts PRIMARY KEY(ProdID, VersionID, CatID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,547 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Cct_Products (
+   ProdID VARCHAR(40)  NOT NULL,
+   VersionID INT NOT NULL,
+   CatID VARCHAR(40)  NOT NULL,
+   isPrimary BIT(1) NULL
+, CONSTRAINT PK_inCctProducts PRIMARY KEY(ProdID, VersionID, CatID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,547 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Cct_Products (
+   ProdID VARCHAR(40)  NOT NULL,
+   VersionID INT NOT NULL,
+   CatID VARCHAR(40)  NOT NULL,
+   isPrimary BIT(1) NULL
+, CONSTRAINT PK_inCctProducts PRIMARY KEY(ProdID, VersionID, CatID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,549 INFO   {C17849} creating table in_cds_Cct_Vocabulary if it doesn't yet exist [GenericMaintenance] (GenericMaintenance.java:731)
+2019-12-24 09:44:02,551 DEBUG  {C17849} CREATE TABLE in_cds_Cct_Vocabulary (
+   CatID VARCHAR(40)  NOT NULL,
+   VersionID INT NOT NULL,
+   LanguageID VARCHAR(20)  NOT NULL,
+   CategoryName VARCHAR(255)  NOT NULL
+, CONSTRAINT PK_inCctVocabulary PRIMARY KEY(CatID, VersionID, LanguageID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:178)
+2019-12-24 09:44:02,551 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Cct_Vocabulary (
+   CatID VARCHAR(40)  NOT NULL,
+   VersionID INT NOT NULL,
+   LanguageID VARCHAR(20)  NOT NULL,
+   CategoryName VARCHAR(255)  NOT NULL
+, CONSTRAINT PK_inCctVocabulary PRIMARY KEY(CatID, VersionID, LanguageID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:180)
+2019-12-24 09:44:02,551 DEBUG  {C17849} SQL: CREATE TABLE in_cds_Cct_Vocabulary (
+   CatID VARCHAR(40)  NOT NULL,
+   VersionID INT NOT NULL,
+   LanguageID VARCHAR(20)  NOT NULL,
+   CategoryName VARCHAR(255)  NOT NULL
+, CONSTRAINT PK_inCctVocabulary PRIMARY KEY(CatID, VersionID, LanguageID)
+)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:185)
+2019-12-24 09:44:02,558 INFO   {C17849} creating in_ foreign keys on cnet [GenericMaintenance] (GenericMaintenance.java:706)
+2019-12-24 09:44:02,558 DEBUG  {C17849} SQL: ALTER TABLE in_cds_DigContent
+	 ADD CONSTRAINT in_FK_DC_2_DCMT FOREIGN KEY (MediaTypeID)
+	REFERENCES in_cds_DigContent_Media_Types(MediaTypeID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,559 DEBUG  {C17849} SQL: ALTER TABLE in_cds_DigContent_Prod
+	 ADD CONSTRAINT in_FK_DCP_2_CAT FOREIGN KEY (ProdID)
+	REFERENCES in_cds_Catalog(ProdID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,561 DEBUG  {C17849} SQL: ALTER TABLE in_cds_DigContent_Links
+	 ADD CONSTRAINT in_FK_DCL_2_DC FOREIGN KEY (ContentGuid)
+	REFERENCES in_cds_DigContent(ContentGuid)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,563 DEBUG  {C17849} SQL: ALTER TABLE in_cds_DigContent_Links
+	 ADD CONSTRAINT in_FK_DCL_2_DCP FOREIGN KEY (ProdID)
+	REFERENCES in_cds_DigContent_Prod(ProdID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,564 DEBUG  {C17849} SQL: ALTER TABLE in_cds_DigContent_Region_Links
+	 ADD CONSTRAINT in_FK_DCRL_2_DC FOREIGN KEY (ContentGuid)
+	REFERENCES in_cds_DigContent(ContentGuid)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,566 DEBUG  {C17849} SQL: ALTER TABLE in_cds_DigContent_Region_Links
+	 ADD CONSTRAINT in_FK_DCRL_2_DCR FOREIGN KEY (RegionCode)
+	REFERENCES in_cds_DigContent_Regions(RegionCode)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,567 DEBUG  {C17849} SQL: ALTER TABLE in_cds_DigContent_Lang_Links
+	 ADD CONSTRAINT in_FK_DCLL_2_DC FOREIGN KEY (ContentGuid)
+	REFERENCES in_cds_DigContent(ContentGuid)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,569 DEBUG  {C17849} SQL: ALTER TABLE in_cds_DigContent_Lang_Links
+	 ADD CONSTRAINT in_FK_DCLL_2_DCL FOREIGN KEY (LanguageCode)
+	REFERENCES in_cds_DigContent_Langs(LanguageCode)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,571 DEBUG  {C17849} SQL: ALTER TABLE in_cds_DigContent_Meta
+	 ADD CONSTRAINT in_FK_DCM_2_DC FOREIGN KEY (ContentGuid)
+	REFERENCES in_cds_DigContent(ContentGuid)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,572 DEBUG  {C17849} SQL: ALTER TABLE in_cds_DigContent_Meta_AtrVoc
+	 ADD CONSTRAINT in_FK_DCMAV_2_DCL FOREIGN KEY (LanguageCode)
+	REFERENCES in_cds_DigContent_Langs(LanguageCode)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,574 DEBUG  {C17849} SQL: ALTER TABLE in_cds_DigContent_Meta_ValVoc
+	 ADD CONSTRAINT in_FK_DCMVV_2_DCL FOREIGN KEY (LanguageCode)
+	REFERENCES in_cds_DigContent_Langs(LanguageCode)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,575 DEBUG  {C17849} SQL: ALTER TABLE in_cds_DigContent_Text
+	 ADD CONSTRAINT in_FK_DCT_2_DCMTT FOREIGN KEY (MediaTypeID)
+	REFERENCES in_cds_DigContent_Media_Types(MediaTypeID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,577 DEBUG  {C17849} SQL: ALTER TABLE in_cds_DigContent_Text
+	 ADD CONSTRAINT in_FK_DCT_2_DC FOREIGN KEY (ContentGuid)
+	REFERENCES in_cds_DigContent(ContentGuid)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,578 DEBUG  {C17849} SQL: ALTER TABLE in_cds_DigContent_Text
+	 ADD CONSTRAINT in_FK_DCT_2_DCL FOREIGN KEY (LanguageCode)
+	REFERENCES in_cds_DigContent_Langs(LanguageCode)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,580 DEBUG  {C17849} SQL: ALTER TABLE in_cds_DigContent_Text
+	 ADD CONSTRAINT in_FK_DCT_2_DCR FOREIGN KEY (RegionCode)
+	REFERENCES in_cds_DigContent_Regions(RegionCode)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,581 DEBUG  {C17849} SQL: ALTER TABLE in_cds_Atr
+	 ADD CONSTRAINT in_FK_ATR_2_CCTez FOREIGN KEY (CatID)
+	REFERENCES in_cds_Cctez(ID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,582 DEBUG  {C17849} SQL: ALTER TABLE in_cds_Atr
+	 ADD CONSTRAINT in_FK_ATR_2_PROD FOREIGN KEY (ProdID)
+	REFERENCES in_cds_Prod(ProdID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,584 DEBUG  {C17849} SQL: ALTER TABLE in_cds_Atr
+	 ADD CONSTRAINT in_FK_ATR1_2_VOCez FOREIGN KEY (AtrID)
+	REFERENCES in_cds_Vocez(ID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,586 DEBUG  {C17849} SQL: ALTER TABLE in_cds_Atr
+	 ADD CONSTRAINT in_FK_ATR2_2_VOCez FOREIGN KEY (ValID)
+	REFERENCES in_cds_Vocez(ID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,587 DEBUG  {C17849} SQL: ALTER TABLE in_cds_Atr
+	 ADD CONSTRAINT in_FK_ATR3_2_VOCez FOREIGN KEY (UnitID)
+	REFERENCES in_cds_Vocez(ID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,588 DEBUG  {C17849} SQL: ALTER TABLE in_cds_Cat
+	 ADD CONSTRAINT in_FK_CAT_2_CCTez FOREIGN KEY (CatID)
+	REFERENCES in_cds_Cctez(ID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,589 DEBUG  {C17849} SQL: ALTER TABLE in_cds_Cat
+	 ADD CONSTRAINT in_FK_CAT_2_VOCez FOREIGN KEY (AtrID)
+	REFERENCES in_cds_Vocez(ID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,591 DEBUG  {C17849} SQL: ALTER TABLE in_cds_Catalog
+	 ADD CONSTRAINT in_FK_CAT_2_SS FOREIGN KEY (StatusCode)
+	REFERENCES in_cds_SKUStatus(StatusCode)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,592 DEBUG  {C17849} SQL: ALTER TABLE in_cds_Especez
+	 ADD CONSTRAINT in_FK_ES1ez_2_EVez FOREIGN KEY (BodyID)
+	REFERENCES in_cds_Evocez(ID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,594 DEBUG  {C17849} SQL: ALTER TABLE in_cds_Especez
+	 ADD CONSTRAINT in_FK_ES2ez_2_EVez FOREIGN KEY (HdrID)
+	REFERENCES in_cds_Evocez(ID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,595 DEBUG  {C17849} SQL: ALTER TABLE in_cds_Especez
+	 ADD CONSTRAINT in_FK_ES3ez_2_EVez FOREIGN KEY (SectID)
+	REFERENCES in_cds_Evocez(ID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,596 DEBUG  {C17849} SQL: ALTER TABLE in_cds_Especez
+	 ADD CONSTRAINT in_FK_ESez_2_PROD FOREIGN KEY (ProdID)
+	REFERENCES in_cds_Prod(ProdID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,597 DEBUG  {C17849} SQL: ALTER TABLE in_cds_Metamap
+	 ADD CONSTRAINT in_FK_MM_2_CAT FOREIGN KEY (ProdID)
+	REFERENCES in_cds_Catalog(ProdID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,599 DEBUG  {C17849} SQL: ALTER TABLE in_cds_Metamap
+	 ADD CONSTRAINT in_FK_MM_2_DV FOREIGN KEY (DistiID)
+	REFERENCES in_cds_Distivoc(ID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,600 DEBUG  {C17849} SQL: ALTER TABLE in_cds_Mspecez
+	 ADD CONSTRAINT in_FK_MS1ez_2_MVez FOREIGN KEY (BodyID)
+	REFERENCES in_cds_Mvocez(ID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,601 DEBUG  {C17849} SQL: ALTER TABLE in_cds_Mspecez
+	 ADD CONSTRAINT in_FK_MS2ez_2_MVez FOREIGN KEY (HdrID)
+	REFERENCES in_cds_Mvocez(ID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,603 DEBUG  {C17849} SQL: ALTER TABLE in_cds_Mspecez
+	 ADD CONSTRAINT in_FK_MS3ez_2_MVez FOREIGN KEY (ProdID)
+	REFERENCES in_cds_Prod(ProdID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,604 DEBUG  {C17849} SQL: ALTER TABLE in_cds_Prod
+	 ADD CONSTRAINT in_FK_PROD_2_CAT FOREIGN KEY (ProdID)
+	REFERENCES in_cds_Catalog(ProdID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,606 DEBUG  {C17849} SQL: ALTER TABLE in_cds_Prod
+	 ADD CONSTRAINT in_FK_PROD_2_CCTez FOREIGN KEY (CatID)
+	REFERENCES in_cds_Cctez(ID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,607 DEBUG  {C17849} SQL: ALTER TABLE in_cds_Prod
+	 ADD CONSTRAINT in_FK_PROD_2_VOCez FOREIGN KEY (MfID)
+	REFERENCES in_cds_Vocez(ID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,608 DEBUG  {C17849} SQL: ALTER TABLE in_cds_Stdnez
+	 ADD CONSTRAINT in_FK_STDez_2_PROD FOREIGN KEY (ProdID)
+	REFERENCES in_cds_Prod(ProdID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,610 DEBUG  {C17849} SQL: ALTER TABLE in_cds_Lifecycle
+	 ADD CONSTRAINT in_FK_LIF_2_CAT FOREIGN KEY (ProdID)
+	REFERENCES in_cds_Catalog(ProdID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,611 DEBUG  {C17849} SQL: ALTER TABLE in_cds_Lifecycle
+	 ADD CONSTRAINT in_FK_LIF_2_REG FOREIGN KEY (RegionCode)
+	REFERENCES in_cds_Regions(RegionCode)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,612 DEBUG  {C17849} SQL: ALTER TABLE in_cds_Cct_Categories
+	 ADD CONSTRAINT in_FK_CCTCAT_2_VER FOREIGN KEY (VersionID)
+	REFERENCES in_cds_Cct_Version(VersionID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,613 DEBUG  {C17849} SQL: ALTER TABLE in_cds_Cct_Products
+	 ADD CONSTRAINT in_FK_CCTPROD_2_CAT FOREIGN KEY (ProdID)
+	REFERENCES in_cds_Catalog(ProdID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,615 DEBUG  {C17849} SQL: ALTER TABLE in_cds_Cct_Products
+	 ADD CONSTRAINT in_FK_CCTPROD_2_CCTCAT FOREIGN KEY (CatID,VersionID)
+	REFERENCES in_cds_Cct_Categories(CatID,VersionID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,616 DEBUG  {C17849} SQL: ALTER TABLE in_cds_Cct_Vocabulary
+	 ADD CONSTRAINT in_FK_CCTVOC_2_CCTCAT FOREIGN KEY (CatID,VersionID)
+	REFERENCES in_cds_Cct_Categories(CatID,VersionID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,618 DEBUG  {C17849} SQL: ALTER TABLE in_cds_Cct_Vocabulary
+	 ADD CONSTRAINT in_FK_CCTVOC_2_LANG FOREIGN KEY (LanguageID)
+	REFERENCES in_cds_Languages(LanguageID)
+ [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:352)
+2019-12-24 09:44:02,628 DEBUG  {C17849} SQL: update cds_Metadata set ConfigurationPrevious = ? [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:2314)
+2019-12-24 09:44:02,631 DEBUG  {C17849} SQL: update cds_Metadata set DataSourcePrevious = ? [PostGreSqlPrimitives] (PostGreSqlPrimitives.java:2314)
+2019-12-24 09:44:02,636 INFO   {C17849} Finished [dataSource] (DataSource.java:231)
+2019-12-24 09:44:02,804 DEBUG  {C17849} Entered FTP passive mode [FileTransfer] (FileTransferFTP.java:124)
+2019-12-24 09:44:02,939 DEBUG  {C17849} Download:login(C06803,X597ca83527) => 230 User logged in, proceed.
+ [FileTransfer] (FileTransferFTP.java:156)
+2019-12-24 09:44:03,064 DEBUG  {C17849} Entered FTP passive mode [FileTransfer] (FileTransferFTP.java:124)
+2019-12-24 09:44:03,186 DEBUG  {C17849} Download:login(C06803,X597ca83527) => 230 User logged in, proceed.
+ [FileTransfer] (FileTransferFTP.java:156)
+2019-12-24 09:44:03,603 DEBUG  {C17849} Disconnected [FileTransfer] (FileTransferFTP.java:166)
